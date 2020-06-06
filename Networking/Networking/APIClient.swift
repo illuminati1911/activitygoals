@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+public class APIClient {
+
+    public init() {}
+
+    public func test() {
+        print("Hello from networking")
+    }
+}

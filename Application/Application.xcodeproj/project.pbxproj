@@ -15,6 +15,7 @@
 		2AA5B9DA248B2D9800D8EBE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AA5B9D8248B2D9800D8EBE1 /* LaunchScreen.storyboard */; };
 		2AA5B9E5248B2D9800D8EBE1 /* ApplicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5B9E4248B2D9800D8EBE1 /* ApplicationTests.swift */; };
 		2AA5B9F0248B2D9800D8EBE1 /* ApplicationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5B9EF248B2D9800D8EBE1 /* ApplicationUITests.swift */; };
+		2AA5BA39248B4F5900D8EBE1 /* Networking.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA5BA35248B4F0B00D8EBE1 /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C243A70E2352237C998EE7F7 /* Pods_Application_ApplicationUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9305C1BF9FE78393B1D992C1 /* Pods_Application_ApplicationUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,7 +34,35 @@
 			remoteGlobalIDString = 2AA5B9C9248B2D9500D8EBE1;
 			remoteInfo = Application;
 		};
+		2AA5BA34248B4F0B00D8EBE1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2AA5BA2F248B4F0B00D8EBE1 /* Networking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2AA5BA08248B4D3100D8EBE1;
+			remoteInfo = Networking;
+		};
+		2AA5BA36248B4F0B00D8EBE1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2AA5BA2F248B4F0B00D8EBE1 /* Networking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2AA5BA11248B4D3100D8EBE1;
+			remoteInfo = NetworkingTests;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2AA5BA38248B4F2100D8EBE1 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2AA5BA39248B4F5900D8EBE1 /* Networking.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		02234C994F9DC64D03BB73D8 /* Pods-ApplicationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApplicationTests.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-ApplicationTests/Pods-ApplicationTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -51,6 +80,7 @@
 		2AA5B9EB248B2D9800D8EBE1 /* ApplicationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApplicationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AA5B9EF248B2D9800D8EBE1 /* ApplicationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationUITests.swift; sourceTree = "<group>"; };
 		2AA5B9F1248B2D9800D8EBE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2AA5BA2F248B4F0B00D8EBE1 /* Networking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Networking.xcodeproj; path = ../Networking/Networking.xcodeproj; sourceTree = "<group>"; };
 		4573685538EB83F633BD098A /* Pods-ApplicationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApplicationTests.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-ApplicationTests/Pods-ApplicationTests.release.xcconfig"; sourceTree = "<group>"; };
 		5581F8FDDC06BE4C10A6E865 /* Pods-Application-ApplicationUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Application-ApplicationUITests.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-Application-ApplicationUITests/Pods-Application-ApplicationUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		72A46EFAEA6B83024D58EDC7 /* Pods-Application.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Application.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-Application/Pods-Application.debug.xcconfig"; sourceTree = "<group>"; };
@@ -90,6 +120,7 @@
 		2AA5B9C1248B2D9500D8EBE1 = {
 			isa = PBXGroup;
 			children = (
+				2AA5BA25248B4E9800D8EBE1 /* Dependencies */,
 				2AA5B9CC248B2D9500D8EBE1 /* Application */,
 				2AA5B9E3248B2D9800D8EBE1 /* ApplicationTests */,
 				2AA5B9EE248B2D9800D8EBE1 /* ApplicationUITests */,
@@ -139,6 +170,23 @@
 			path = ApplicationUITests;
 			sourceTree = "<group>";
 		};
+		2AA5BA25248B4E9800D8EBE1 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				2AA5BA2F248B4F0B00D8EBE1 /* Networking.xcodeproj */,
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
+		2AA5BA30248B4F0B00D8EBE1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2AA5BA35248B4F0B00D8EBE1 /* Networking.framework */,
+				2AA5BA37248B4F0B00D8EBE1 /* NetworkingTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		2B5771C09C418FADB7920226 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +223,7 @@
 				2AA5B9C8248B2D9500D8EBE1 /* Resources */,
 				0A44F38649AE50810F9F214E /* [CP] Embed Pods Frameworks */,
 				2AA5B9FD248B369E00D8EBE1 /* SwiftLint */,
+				2AA5BA38248B4F2100D8EBE1 /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -258,6 +307,12 @@
 			mainGroup = 2AA5B9C1248B2D9500D8EBE1;
 			productRefGroup = 2AA5B9CB248B2D9500D8EBE1 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 2AA5BA30248B4F0B00D8EBE1 /* Products */;
+					ProjectRef = 2AA5BA2F248B4F0B00D8EBE1 /* Networking.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				2AA5B9C9248B2D9500D8EBE1 /* Application */,
@@ -266,6 +321,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		2AA5BA35248B4F0B00D8EBE1 /* Networking.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Networking.framework;
+			remoteRef = 2AA5BA34248B4F0B00D8EBE1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2AA5BA37248B4F0B00D8EBE1 /* NetworkingTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = NetworkingTests.xctest;
+			remoteRef = 2AA5BA36248B4F0B00D8EBE1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		2AA5B9C8248B2D9500D8EBE1 /* Resources */ = {

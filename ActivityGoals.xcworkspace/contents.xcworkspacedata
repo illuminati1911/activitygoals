@@ -2,7 +2,14 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Podfile"
+      assignedFileDataType = "public.ruby-script">
+   </FileRef>
+   <FileRef
       location = "group:Application/Application.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Networking/Networking.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
