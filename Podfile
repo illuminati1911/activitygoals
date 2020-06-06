@@ -7,6 +7,7 @@ workspace 'ActivityGoals'
 def application_pods
     pod 'RxSwift', '5.1.1'
     pod 'SnapKit', '5.0.1'
+    pod 'SwiftLint', '0.39.2'
 end
 
 target 'Application' do
@@ -20,7 +21,6 @@ target 'Application' do
   
     target 'ApplicationUITests' do
       # Pods for testing
-    end
-  
-  end
+    end  
+end
   
