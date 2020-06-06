@@ -20,9 +20,6 @@ class NetworkingTests: XCTestCase {
     }
 
     func testExample() throws {
-        print("LOL")
-        let client = APIClient()
-        client.getData()
     }
 
     func testPerformanceExample() throws {

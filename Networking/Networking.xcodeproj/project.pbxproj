@@ -10,8 +10,6 @@
 		2AA5BA12248B4D3100D8EBE1 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA5BA08248B4D3100D8EBE1 /* Networking.framework */; };
 		2AA5BA17248B4D3100D8EBE1 /* NetworkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5BA16248B4D3100D8EBE1 /* NetworkingTests.swift */; };
 		2AA5BA19248B4D3100D8EBE1 /* Networking.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AA5BA0B248B4D3100D8EBE1 /* Networking.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2AA5BA23248B4E4B00D8EBE1 /* TestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5BA22248B4E4B00D8EBE1 /* TestClient.swift */; };
-		2AA5BA24248B4E4B00D8EBE1 /* TestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5BA22248B4E4B00D8EBE1 /* TestClient.swift */; };
 		2AA5BA40248B58F100D8EBE1 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5BA3F248B58F100D8EBE1 /* EndPoint.swift */; };
 		2AA5BA41248B58F100D8EBE1 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5BA3F248B58F100D8EBE1 /* EndPoint.swift */; };
 		2AA5BA44248B590D00D8EBE1 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5BA43248B590D00D8EBE1 /* APIClient.swift */; };
@@ -37,7 +35,6 @@
 		2AA5BA11248B4D3100D8EBE1 /* NetworkingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AA5BA16248B4D3100D8EBE1 /* NetworkingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingTests.swift; sourceTree = "<group>"; };
 		2AA5BA18248B4D3100D8EBE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2AA5BA22248B4E4B00D8EBE1 /* TestClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestClient.swift; sourceTree = "<group>"; };
 		2AA5BA3F248B58F100D8EBE1 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		2AA5BA43248B590D00D8EBE1 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		73BB7D2934BF52F48CE7D8C5 /* Pods-NetworkingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkingTests.debug.xcconfig"; path = "Target Support Files/Pods-NetworkingTests/Pods-NetworkingTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -94,7 +91,6 @@
 			children = (
 				2AA5BA0B248B4D3100D8EBE1 /* Networking.h */,
 				2AA5BA0C248B4D3100D8EBE1 /* Info.plist */,
-				2AA5BA22248B4E4B00D8EBE1 /* TestClient.swift */,
 				2AA5BA42248B58F500D8EBE1 /* Protocols */,
 			);
 			path = Networking;
@@ -317,7 +313,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AA5BA40248B58F100D8EBE1 /* EndPoint.swift in Sources */,
-				2AA5BA23248B4E4B00D8EBE1 /* TestClient.swift in Sources */,
 				2AA5BA44248B590D00D8EBE1 /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -328,7 +323,6 @@
 			files = (
 				2AA5BA41248B58F100D8EBE1 /* EndPoint.swift in Sources */,
 				2AA5BA17248B4D3100D8EBE1 /* NetworkingTests.swift in Sources */,
-				2AA5BA24248B4E4B00D8EBE1 /* TestClient.swift in Sources */,
 				2AA5BA45248B590D00D8EBE1 /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
