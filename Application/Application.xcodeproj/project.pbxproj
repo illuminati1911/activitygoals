@@ -21,6 +21,7 @@
 		2AA5BA4E248B901500D8EBE1 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5BA4D248B901500D8EBE1 /* Goal.swift */; };
 		2AA5BA4F248B901500D8EBE1 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5BA4D248B901500D8EBE1 /* Goal.swift */; };
 		2AA5BA50248B901500D8EBE1 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5BA4D248B901500D8EBE1 /* Goal.swift */; };
+		2AA5BA82248B96B500D8EBE1 /* LocalStorage.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA5BA7D248B968C00D8EBE1 /* LocalStorage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C243A70E2352237C998EE7F7 /* Pods_Application_ApplicationUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9305C1BF9FE78393B1D992C1 /* Pods_Application_ApplicationUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,20 @@
 			remoteGlobalIDString = 2AA5BA11248B4D3100D8EBE1;
 			remoteInfo = NetworkingTests;
 		};
+		2AA5BA7C248B968C00D8EBE1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2AA5BA77248B968C00D8EBE1 /* LocalStorage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2AA5BA5C248B95DE00D8EBE1;
+			remoteInfo = LocalStorage;
+		};
+		2AA5BA7E248B968C00D8EBE1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2AA5BA77248B968C00D8EBE1 /* LocalStorage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2AA5BA65248B95DE00D8EBE1;
+			remoteInfo = LocalStorageTests;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -63,6 +78,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				2AA5BA39248B4F5900D8EBE1 /* Networking.framework in Copy Frameworks */,
+				2AA5BA82248B96B500D8EBE1 /* LocalStorage.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -89,6 +105,7 @@
 		2AA5BA46248B79D900D8EBE1 /* GoalsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsEndpoint.swift; sourceTree = "<group>"; };
 		2AA5BA4A248B7B5000D8EBE1 /* AGClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGClient.swift; sourceTree = "<group>"; };
 		2AA5BA4D248B901500D8EBE1 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
+		2AA5BA77248B968C00D8EBE1 /* LocalStorage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LocalStorage.xcodeproj; path = ../LocalStorage/LocalStorage.xcodeproj; sourceTree = "<group>"; };
 		4573685538EB83F633BD098A /* Pods-ApplicationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApplicationTests.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-ApplicationTests/Pods-ApplicationTests.release.xcconfig"; sourceTree = "<group>"; };
 		5581F8FDDC06BE4C10A6E865 /* Pods-Application-ApplicationUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Application-ApplicationUITests.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-Application-ApplicationUITests/Pods-Application-ApplicationUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		72A46EFAEA6B83024D58EDC7 /* Pods-Application.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Application.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-Application/Pods-Application.debug.xcconfig"; sourceTree = "<group>"; };
@@ -183,6 +200,7 @@
 		2AA5BA25248B4E9800D8EBE1 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				2AA5BA77248B968C00D8EBE1 /* LocalStorage.xcodeproj */,
 				2AA5BA2F248B4F0B00D8EBE1 /* Networking.xcodeproj */,
 			);
 			name = Dependencies;
@@ -212,6 +230,15 @@
 				2AA5BA4D248B901500D8EBE1 /* Goal.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		2AA5BA78248B968C00D8EBE1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2AA5BA7D248B968C00D8EBE1 /* LocalStorage.framework */,
+				2AA5BA7F248B968C00D8EBE1 /* LocalStorageTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		2B5771C09C418FADB7920226 /* Frameworks */ = {
@@ -336,6 +363,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 2AA5BA78248B968C00D8EBE1 /* Products */;
+					ProjectRef = 2AA5BA77248B968C00D8EBE1 /* LocalStorage.xcodeproj */;
+				},
+				{
 					ProductGroup = 2AA5BA30248B4F0B00D8EBE1 /* Products */;
 					ProjectRef = 2AA5BA2F248B4F0B00D8EBE1 /* Networking.xcodeproj */;
 				},
@@ -362,6 +393,20 @@
 			fileType = wrapper.cfbundle;
 			path = NetworkingTests.xctest;
 			remoteRef = 2AA5BA36248B4F0B00D8EBE1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2AA5BA7D248B968C00D8EBE1 /* LocalStorage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = LocalStorage.framework;
+			remoteRef = 2AA5BA7C248B968C00D8EBE1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2AA5BA7F248B968C00D8EBE1 /* LocalStorageTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = LocalStorageTests.xctest;
+			remoteRef = 2AA5BA7E248B968C00D8EBE1 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */

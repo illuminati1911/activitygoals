@@ -9,6 +9,9 @@
       location = "group:Application/Application.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:LocalStorage/LocalStorage.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Networking/Networking.xcodeproj">
    </FileRef>
    <FileRef

@@ -39,3 +39,13 @@ target 'Networking' do
       networking_pods
     end
 end
+
+target 'LocalStorage' do
+    project 'LocalStorage/LocalStorage.project'
+    global_pods
+
+    target 'LocalStorageTests' do
+      inherit! :search_paths
+      global_pods
+    end
+end
