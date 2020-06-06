@@ -36,5 +36,6 @@ target 'Networking' do
 
     target 'NetworkingTests' do
       inherit! :search_paths
+      networking_pods
     end
 end

@@ -8,11 +8,23 @@
 
 import UIKit
 import Networking
+import RxSwift
 
 class ViewController: UIViewController {
 
+    let client = AGAPIClient()
+    let disposeBag = DisposeBag()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        APIClient().test()
+        self.client
+            .getDailyGoals()
+            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { goals in
+                print(goals)
+        }, onError: { error in
+            print(error)
+        }).disposed(by: disposeBag)
     }
 }

@@ -16,6 +16,11 @@
 		2AA5B9E5248B2D9800D8EBE1 /* ApplicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5B9E4248B2D9800D8EBE1 /* ApplicationTests.swift */; };
 		2AA5B9F0248B2D9800D8EBE1 /* ApplicationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5B9EF248B2D9800D8EBE1 /* ApplicationUITests.swift */; };
 		2AA5BA39248B4F5900D8EBE1 /* Networking.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA5BA35248B4F0B00D8EBE1 /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2AA5BA47248B79D900D8EBE1 /* GoalsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5BA46248B79D900D8EBE1 /* GoalsEndpoint.swift */; };
+		2AA5BA4B248B7B5000D8EBE1 /* AGClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5BA4A248B7B5000D8EBE1 /* AGClient.swift */; };
+		2AA5BA4E248B901500D8EBE1 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5BA4D248B901500D8EBE1 /* Goal.swift */; };
+		2AA5BA4F248B901500D8EBE1 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5BA4D248B901500D8EBE1 /* Goal.swift */; };
+		2AA5BA50248B901500D8EBE1 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5BA4D248B901500D8EBE1 /* Goal.swift */; };
 		C243A70E2352237C998EE7F7 /* Pods_Application_ApplicationUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9305C1BF9FE78393B1D992C1 /* Pods_Application_ApplicationUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +86,9 @@
 		2AA5B9EF248B2D9800D8EBE1 /* ApplicationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationUITests.swift; sourceTree = "<group>"; };
 		2AA5B9F1248B2D9800D8EBE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AA5BA2F248B4F0B00D8EBE1 /* Networking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Networking.xcodeproj; path = ../Networking/Networking.xcodeproj; sourceTree = "<group>"; };
+		2AA5BA46248B79D900D8EBE1 /* GoalsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsEndpoint.swift; sourceTree = "<group>"; };
+		2AA5BA4A248B7B5000D8EBE1 /* AGClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGClient.swift; sourceTree = "<group>"; };
+		2AA5BA4D248B901500D8EBE1 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		4573685538EB83F633BD098A /* Pods-ApplicationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApplicationTests.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-ApplicationTests/Pods-ApplicationTests.release.xcconfig"; sourceTree = "<group>"; };
 		5581F8FDDC06BE4C10A6E865 /* Pods-Application-ApplicationUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Application-ApplicationUITests.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-Application-ApplicationUITests/Pods-Application-ApplicationUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		72A46EFAEA6B83024D58EDC7 /* Pods-Application.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Application.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-Application/Pods-Application.debug.xcconfig"; sourceTree = "<group>"; };
@@ -145,9 +153,11 @@
 			children = (
 				2AA5B9CD248B2D9500D8EBE1 /* AppDelegate.swift */,
 				2AA5B9D1248B2D9500D8EBE1 /* ViewController.swift */,
+				2AA5BA4C248B8FF900D8EBE1 /* API */,
 				2AA5B9D6248B2D9800D8EBE1 /* Assets.xcassets */,
 				2AA5B9D8248B2D9800D8EBE1 /* LaunchScreen.storyboard */,
 				2AA5B9DB248B2D9800D8EBE1 /* Info.plist */,
+				2AA5BA51248B928F00D8EBE1 /* Models */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -185,6 +195,23 @@
 				2AA5BA37248B4F0B00D8EBE1 /* NetworkingTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		2AA5BA4C248B8FF900D8EBE1 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				2AA5BA4A248B7B5000D8EBE1 /* AGClient.swift */,
+				2AA5BA46248B79D900D8EBE1 /* GoalsEndpoint.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		2AA5BA51248B928F00D8EBE1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2AA5BA4D248B901500D8EBE1 /* Goal.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		2B5771C09C418FADB7920226 /* Frameworks */ = {
@@ -491,7 +518,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AA5BA4B248B7B5000D8EBE1 /* AGClient.swift in Sources */,
 				2AA5B9D2248B2D9500D8EBE1 /* ViewController.swift in Sources */,
+				2AA5BA47248B79D900D8EBE1 /* GoalsEndpoint.swift in Sources */,
+				2AA5BA4E248B901500D8EBE1 /* Goal.swift in Sources */,
 				2AA5B9CE248B2D9500D8EBE1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -500,6 +530,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AA5BA4F248B901500D8EBE1 /* Goal.swift in Sources */,
 				2AA5B9E5248B2D9800D8EBE1 /* ApplicationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -508,6 +539,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AA5BA50248B901500D8EBE1 /* Goal.swift in Sources */,
 				2AA5B9F0248B2D9800D8EBE1 /* ApplicationUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -589,7 +621,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -643,7 +675,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
