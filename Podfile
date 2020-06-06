@@ -6,6 +6,7 @@ workspace 'ActivityGoals'
 
 def application_pods
     pod 'RxSwift', '5.1.1'
+    pod 'SnapKit', '5.0.1'
 end
 
 target 'Application' do
