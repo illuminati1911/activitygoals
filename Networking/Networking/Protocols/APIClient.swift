@@ -11,11 +11,11 @@ import Foundation
 /// APIMethod: Valid HTTP types for APIClient
 ///
 public enum APIMethod: String {
-    case GET = "GET"
-    case PATCH = "PATCH"
-    case POST = "POST"
-    case PUT = "PUT"
-    case DELETE = "DELETE"
+    case GET
+    case PATCH
+    case POST
+    case PUT
+    case DELETE
 }
 
 /// APIError: Error type for APIClient
@@ -57,7 +57,7 @@ public protocol APIClient: class {
 /// and match that with any Decodable conforming type.
 ///
 extension APIClient {
-    public func fetch<T: EndPoint, U: Decodable>(method: APIMethod, endPoint: T, decodingType: U.Type, _ completion: @escaping (Result<U, APIError>) -> () ) {
+    public func fetch<T: EndPoint, U: Decodable>(method: APIMethod, endPoint: T, decodingType: U.Type, _ completion: @escaping (Result<U, APIError>) -> Void) {
         var request = URLRequest(url: endPoint.url)
         request.httpMethod = method.rawValue
 

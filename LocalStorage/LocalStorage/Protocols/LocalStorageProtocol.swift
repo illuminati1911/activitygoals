@@ -10,7 +10,7 @@ import Foundation
 import Core
 
 public protocol LocalStorageProtocol {
-    func createGoal(goalable: Goalable, _ completion: ((Result<Goalable, Error>) -> ())?)
-    func createGoals(goalables: [Goalable], _ completion: ((Result<[Goalable], Error>) -> ())?)
-    func fetchGoals(_ completion: @escaping (Result<[Goalable], Error>) -> ())
+    func createGoal(goalable: Goalable, _ completion: ((Result<Goalable, Error>) -> Void)?)
+    func createGoals(goalables: [Goalable], _ completion: ((Result<[Goalable], Error>) -> Void)?)
+    func fetchGoals(_ completion: @escaping (Result<[Goalable], Error>) -> Void)
 }

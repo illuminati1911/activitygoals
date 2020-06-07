@@ -10,5 +10,5 @@ import Foundation
 import Core
 
 public protocol ActivityProvider {
-    func getActivity(_ completion: @escaping (Result<Activity, Error>) -> ())
+    func getActivity(_ completion: @escaping (Result<Activity, Error>) -> Void)
 }

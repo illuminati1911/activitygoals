@@ -28,7 +28,7 @@ public class RemoteWithLocalDataProvider: DataProvider {
         }
     }
 
-    public func getGoals(_ completion: @escaping (Result<[Goalable], Error>) -> ()) {
+    public func getGoals(_ completion: @escaping (Result<[Goalable], Error>) -> Void) {
         self.remote.getGoals { [weak self] result in
             switch result {
             case .success(let goalables):

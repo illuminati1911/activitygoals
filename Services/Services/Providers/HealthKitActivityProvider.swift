@@ -14,7 +14,7 @@ public class HealthKitActivityProvider: ActivityProvider {
     private lazy var healthStore = HKHealthStore()
     public init() {}
 
-    public func getActivity(_ completion: @escaping (Result<Activity, Error>) -> ()) {
+    public func getActivity(_ completion: @escaping (Result<Activity, Error>) -> Void) {
         guard
             let distance = HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning),
             let steps = HKQuantityType.quantityType(forIdentifier: .stepCount) else {

@@ -12,7 +12,7 @@ public protocol EndPoint {
     var base: String { get }
     var path: String { get }
     var query: String { get }
-    var parameters: [String : Any]? { get }
+    var parameters: [String: Any]? { get }
 }
 
 extension EndPoint {

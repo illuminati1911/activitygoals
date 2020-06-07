@@ -14,15 +14,15 @@ public class APIService: APIClient, APIServiceProtocol {
 
     public init() {}
 
-    public func getGoals(_ completion: @escaping (Result<[Goalable], Error>) -> ()) {
+    public func getGoals(_ completion: @escaping (Result<[Goalable], Error>) -> Void) {
         fetch(method: .GET, endPoint: GoalsEndpoint(), decodingType: Goals.self) {
             switch $0 {
-                case .success(let goals):
-                    // Pull goals out of the items container
-                    //
-                    completion(.success(goals.items))
-                case .failure(let error):
-                    completion(.failure(error))
+            case .success(let goals):
+                // Pull goals out of the items container
+                //
+                completion(.success(goals.items))
+            case .failure(let error):
+                completion(.failure(error))
             }
         }
     }

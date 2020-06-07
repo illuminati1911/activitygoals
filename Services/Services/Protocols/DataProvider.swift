@@ -10,5 +10,5 @@ import Foundation
 import Core
 
 public protocol DataProvider {
-    func getGoals(_ completion: @escaping (Result<[Goalable], Error>) -> ())
+    func getGoals(_ completion: @escaping (Result<[Goalable], Error>) -> Void)
 }

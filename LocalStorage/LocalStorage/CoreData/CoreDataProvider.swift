@@ -42,16 +42,16 @@ public class CoreDataProvider: LocalStorageProtocol {
         let managedObjectModel =  NSManagedObjectModel(contentsOf: modelURL)
 
         let container = NSPersistentContainer(name: self.model, managedObjectModel: managedObjectModel!)
-        container.loadPersistentStores { (storeDescription, error) in
-            if let err = error{
-                fatalError("Loading of store failed: \(err)")
+        container.loadPersistentStores { _, error in
+            if let error = error {
+                fatalError("Loading of store failed: \(error)")
             }
         }
         container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         return container
     }()
 
-    public func createGoals(goalables: [Goalable], _ completion: ((Result<[Goalable], Error>) -> ())?) {
+    public func createGoals(goalables: [Goalable], _ completion: ((Result<[Goalable], Error>) -> Void)?) {
         rCreateGoal(goalables) { error in
             if let error = error {
                 completion?(.failure(error))
@@ -64,10 +64,10 @@ public class CoreDataProvider: LocalStorageProtocol {
     // Recursive approach.
     // Ideally replace with PromiseKit, RxSwift or self-build Promise library.
     //
-    func rCreateGoal(_ goalables: [Goalable], _ completion: @escaping (Error?) -> ()) {
+    func rCreateGoal(_ goalables: [Goalable], _ completion: @escaping (Error?) -> Void) {
         createGoal(goalable: goalables.last!) { [weak self] res in
             switch res {
-            case .success(let goal):
+            case .success:
                 if goalables.count > 1 {
                     self?.rCreateGoal(goalables.dropLast(), completion)
                 } else {
@@ -79,7 +79,7 @@ public class CoreDataProvider: LocalStorageProtocol {
         }
     }
 
-    public func createGoal(goalable: Goalable, _ completion: ((Result<Goalable, Error>) -> ())?) {
+    public func createGoal(goalable: Goalable, _ completion: ((Result<Goalable, Error>) -> Void)?) {
         let context = self.persistentContainer.viewContext
 
         guard let goal = NSEntityDescription.insertNewObject(forEntityName: self.goalEntityName, into: context) as? CDGoal else {
@@ -104,7 +104,7 @@ public class CoreDataProvider: LocalStorageProtocol {
         completion?(.success(goal))
     }
 
-    public func fetchGoals(_ completion: (Result<[Goalable], Error>) -> ()) {
+    public func fetchGoals(_ completion: (Result<[Goalable], Error>) -> Void) {
         let context = self.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<CDGoal>(entityName: self.goalEntityName)
 
