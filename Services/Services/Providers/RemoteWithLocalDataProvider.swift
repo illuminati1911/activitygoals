@@ -10,33 +10,64 @@ import Foundation
 import Networking
 import LocalStorage
 import Core
+import RxSwift
+
+/// RemoteWithLocalDataProviderError: Error type for Data Provider errors
+///
+public enum RemoteWithLocalDataProviderError: Error {
+    case unknown
+
+    var localizedDescription: String {
+        switch self {
+        case .unknown:
+            return "Unknown error"
+        }
+    }
+}
 
 public class RemoteWithLocalDataProvider: DataProvider {
     private let remote: APIServiceProtocol
     private let local: LocalStorageProtocol
+    private let disposeBag = DisposeBag()
 
     public init(remote: APIServiceProtocol, local: LocalStorageProtocol) {
         self.remote = remote
         self.local = local
     }
 
+    // syncToLocalStorage: Sync goals to local storage
+    // Core Data on main thread for safety
+    //
     private func syncToLocalStorage(_ goalables: [Goalable]) {
-        // Core Data on main thread for safety
-        //
         DispatchQueue.main.async {
-            self.local.createGoals(goalables: goalables)
+            _ = self.local.createGoals(goalables: goalables).subscribe()
         }
     }
 
-    public func getGoals(_ completion: @escaping (Result<[Goalable], Error>) -> Void) {
-        self.remote.getGoals() /*{ [weak self] result in
-            switch result {
-            case .success(let goalables):
-                self?.syncToLocalStorage(goalables)
-                completion(.success(goalables))
-            case .failure:
-                self?.local.fetchGoals(completion)
+    // getGoals: Fetch goals from remote network and sync to local storage
+    // if fetching fails, look for the goals from local storage
+    //
+    public func getGoals() -> Observable<[Goalable]> {
+        return Observable.create { [weak self] observer in
+            guard let self = self else {
+                observer.onError(RemoteWithLocalDataProviderError.unknown)
+                return Disposables.create()
             }
-        }*/
+
+            self.remote.getGoals()
+                .subscribe(onNext: { goalables in
+                    self.syncToLocalStorage(goalables)
+                    observer.onNext(goalables)
+                }, onError: { error in
+                    self.local.fetchGoals()
+                        .subscribe(onNext: { goalables in
+                            observer.onNext(goalables)
+                        }, onError: { error in
+                            observer.onError(error)
+                        }).disposed(by: self.disposeBag)
+                }).disposed(by: self.disposeBag)
+
+            return Disposables.create()
+        }
     }
 }

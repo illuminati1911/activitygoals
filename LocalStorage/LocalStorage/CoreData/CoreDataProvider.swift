@@ -52,10 +52,12 @@ public class CoreDataProvider: LocalStorageProtocol {
         return container
     }()
 
+    @discardableResult
     public func createGoals(goalables: [Goalable]) -> Observable<[Goalable]> {
         return Observable.combineLatest(goalables.map { createGoal(goalable: $0) })
     }
 
+    @discardableResult
     public func createGoal(goalable: Goalable) -> Observable<Goalable> {
         return Observable.create { observer in
             let context = self.persistentContainer.viewContext

@@ -73,7 +73,7 @@ public extension HKHealthStore {
         self.execute(query)
     }
 
-    // TODO: Change to PromiseKit
+    // TODO: Change to RxSwift
     // getStepsAndDistance: Get daily steps and running/walking distance
     //
     func getStepsAndDistance(_ completion: @escaping (Result<Activity, Error>) -> Void) {

@@ -8,7 +8,8 @@
 
 import Foundation
 import Core
+import RxSwift
 
 public protocol DataProvider {
-    func getGoals(_ completion: @escaping (Result<[Goalable], Error>) -> Void)
+    func getGoals() -> Observable<[Goalable]>
 }

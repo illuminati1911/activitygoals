@@ -22,6 +22,15 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+//        provider = RemoteWithLocalDataProvider(remote: networkProvider, local: localProvider)
+//        provider?.getGoals()
+//            .subscribe(onNext: { goalables in
+//                print("KYLLÄ")
+//                print(goalables)
+//            }, onError: { error in
+//                print("ERRORI")
+//                print(error)
+//            }).disposed(by: disposeBag)
 //        let goal1 = Goal(id: "101", title: "Testi", description: "dfssdf", type: "dfsd", goal: 44, trophy: "dfsd", points: 567)
 //        let goal2 = Goal(id: "102", title: "Testi", description: "dfssdf", type: "dfsd", goal: 44, trophy: "dfsd", points: 567)
 //        let goal3 = Goal(id: "103", title: "Testi", description: "dfssdf", type: "dfsd", goal: 44, trophy: "dfsd", points: 567)
