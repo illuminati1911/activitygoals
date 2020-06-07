@@ -10,6 +10,7 @@ end
 
 def global_pods
     linter
+    pod 'RxSwift', '5.1.1'
 end
 
 def application_pods

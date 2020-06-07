@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RxSwift
 import Core
 
 public class APIService: APIClient, APIServiceProtocol {
@@ -14,16 +15,9 @@ public class APIService: APIClient, APIServiceProtocol {
 
     public init() {}
 
-    public func getGoals(_ completion: @escaping (Result<[Goalable], Error>) -> Void) {
-        fetch(method: .GET, endPoint: GoalsEndpoint(), decodingType: Goals.self) {
-            switch $0 {
-            case .success(let goals):
-                // Pull goals out of the items container
-                //
-                completion(.success(goals.items))
-            case .failure(let error):
-                completion(.failure(error))
-            }
+    public func getGoals() -> Observable<[Goalable]> {
+        return fetch(method: .GET, endPoint: GoalsEndpoint(), decodingType: Goals.self).map {
+            $0.items
         }
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RxSwift
 
 /// APIMethod: Valid HTTP types for APIClient
 ///
@@ -57,46 +58,50 @@ public protocol APIClient: class {
 /// and match that with any Decodable conforming type.
 ///
 extension APIClient {
-    public func fetch<T: EndPoint, U: Decodable>(method: APIMethod, endPoint: T, decodingType: U.Type, _ completion: @escaping (Result<U, APIError>) -> Void) {
-        var request = URLRequest(url: endPoint.url)
-        request.httpMethod = method.rawValue
+    public func fetch<T: EndPoint, U: Decodable>(method: APIMethod, endPoint: T, decodingType: U.Type) -> Observable<U> {
+        return Observable.create { observer in
+            var request = URLRequest(url: endPoint.url)
+            request.httpMethod = method.rawValue
 
-        // Manage JSON payload
-        //
-        if let params = endPoint.parameters, [APIMethod.POST, APIMethod.PATCH, APIMethod.PUT].contains(method) {
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.addValue("application/json", forHTTPHeaderField: "Accept")
-            do {
-                request.httpBody = try JSONSerialization.data(withJSONObject: params as Any, options: .prettyPrinted)
-            } catch {
-                completion(.failure(APIError.invalidPayload))
+            // Manage JSON payload
+            //
+            if let params = endPoint.parameters, [APIMethod.POST, APIMethod.PATCH, APIMethod.PUT].contains(method) {
+                request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                request.addValue("application/json", forHTTPHeaderField: "Accept")
+                do {
+                    request.httpBody = try JSONSerialization.data(withJSONObject: params as Any, options: .prettyPrinted)
+                } catch {
+                    observer.onError(APIError.invalidPayload)
+                    return Disposables.create()
+                }
             }
+
+            // API task
+            //
+            let task = self.session.dataTask(with: request) { data, response, error in
+                guard let response = response as? HTTPURLResponse else {
+                    observer.onError(APIError.requestFailure)
+                    return
+                }
+                guard let data = data else {
+                    observer.onError(APIError.invalidData(response.statusCode))
+                    return
+                }
+                guard (200 ... 299) ~= response.statusCode, error == nil else {
+                    observer.onError(APIError.responseFailure(response.statusCode))
+                    return
+                }
+
+                do {
+                    let jsonData = try JSONDecoder().decode(decodingType, from: data)
+                    observer.onNext(jsonData)
+                } catch {
+                    observer.onError(APIError.decodingFailure(response.statusCode))
+                    return
+                }
+            }
+            task.resume()
+            return Disposables.create()
         }
-
-        // API task
-        //
-        let task = self.session.dataTask(with: request) { data, response, error in
-            guard let response = response as? HTTPURLResponse else {
-                completion(.failure(APIError.requestFailure))
-                return
-            }
-            guard let data = data else {
-                completion(.failure(APIError.invalidData(response.statusCode)))
-                return
-            }
-            guard (200 ... 299) ~= response.statusCode, error == nil else {
-                completion(.failure(APIError.responseFailure(response.statusCode)))
-                return
-            }
-
-            do {
-                let jsonData = try JSONDecoder().decode(decodingType, from: data)
-                completion(.success(jsonData))
-            } catch {
-                completion(.failure(APIError.decodingFailure(response.statusCode)))
-                return
-            }
-        }
-        task.resume()
     }
 }

@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import RxSwift
 import Core
 
 public protocol APIServiceProtocol {
-    func getGoals(_ completion: @escaping (Result<[Goalable], Error>) -> Void)
+    func getGoals() -> Observable<[Goalable]>
 }
