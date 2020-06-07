@@ -13,11 +13,10 @@ import LocalStorage
 import Networking
 
 class ViewController: UIViewController {
-
-    //let disposeBag = DisposeBag()
     let localProvider = CoreDataProvider()
     let networkProvider = APIService()
     var provider: DataProvider?
+    var activity: ActivityProvider?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,5 +29,15 @@ class ViewController: UIViewController {
                 print(error)
             }
         }
+        activity = HealthKitActivityProvider()
+        activity?.getActivity({ result in
+            switch result {
+            case .success(let activity):
+                print(activity)
+            case .failure(let error):
+                print(error)
+            }
+        })
+
     }
 }

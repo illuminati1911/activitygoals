@@ -32,6 +32,8 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSHealthShareUsageDescription</key>
+	<string>The application needs to access HealthKit in order to get your daily activity (steps and running/walking distance).</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
