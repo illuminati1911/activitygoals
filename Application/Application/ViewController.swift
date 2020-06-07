@@ -22,14 +22,29 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        networkProvider.getGoals()
+//        let goal1 = Goal(id: "101", title: "Testi", description: "dfssdf", type: "dfsd", goal: 44, trophy: "dfsd", points: 567)
+//        let goal2 = Goal(id: "102", title: "Testi", description: "dfssdf", type: "dfsd", goal: 44, trophy: "dfsd", points: 567)
+//        let goal3 = Goal(id: "103", title: "Testi", description: "dfssdf", type: "dfsd", goal: 44, trophy: "dfsd", points: 567)
+//        let goal4 = Goal(id: "104", title: "Testi", description: "dfssdf", type: "dfsd", goal: 44, trophy: "dfsd", points: 567)
+        localProvider
+            //.createGoals(goalables: [goal1, goal2, goal3, goal4])
+            .fetchGoals()
+            .subscribeOn(MainScheduler.instance)
             .subscribe(onNext: { goals in
-                print("Hello")
-                print(goals)
-            }, onError: { _ in
-                print("Error")
-            })
-        .disposed(by: disposeBag)
+                print("YEAH")
+                let lol = goals.map { $0.asGoal() }
+                print(lol)
+            }, onError: { error in
+                print(error)
+            }).disposed(by: disposeBag)
+//        networkProvider.getGoals()
+//            .subscribe(onNext: { goals in
+//                print("Hello")
+//                print(goals)
+//            }, onError: { _ in
+//                print("Error")
+//            })
+//        .disposed(by: disposeBag)
 //        provider = RemoteWithLocalDataProvider(remote: networkProvider, local: localProvider)
 //        self.provider?.getGoals { result in
 //            switch result {

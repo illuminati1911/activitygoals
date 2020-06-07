@@ -8,9 +8,10 @@
 
 import Foundation
 import Core
+import RxSwift
 
 public protocol LocalStorageProtocol {
-    func createGoal(goalable: Goalable, _ completion: ((Result<Goalable, Error>) -> Void)?)
-    func createGoals(goalables: [Goalable], _ completion: ((Result<[Goalable], Error>) -> Void)?)
-    func fetchGoals(_ completion: @escaping (Result<[Goalable], Error>) -> Void)
+    func createGoal(goalable: Goalable) -> Observable<Goalable>
+    func createGoals(goalables: [Goalable]) -> Observable<[Goalable]>
+    func fetchGoals() -> Observable<[Goalable]>
 }

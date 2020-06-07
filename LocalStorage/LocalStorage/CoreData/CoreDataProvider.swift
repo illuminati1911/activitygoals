@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 import Core
+import RxSwift
 
 /// CoreDataProviderError: Error type for CoreDataProvider
 ///
@@ -51,68 +52,49 @@ public class CoreDataProvider: LocalStorageProtocol {
         return container
     }()
 
-    public func createGoals(goalables: [Goalable], _ completion: ((Result<[Goalable], Error>) -> Void)?) {
-        rCreateGoal(goalables) { error in
-            if let error = error {
-                completion?(.failure(error))
-            } else {
-                completion?(.success(goalables))
+    public func createGoals(goalables: [Goalable]) -> Observable<[Goalable]> {
+        return Observable.combineLatest(goalables.map { createGoal(goalable: $0) })
+    }
+
+    public func createGoal(goalable: Goalable) -> Observable<Goalable> {
+        return Observable.create { observer in
+            let context = self.persistentContainer.viewContext
+            guard let goal = NSEntityDescription.insertNewObject(forEntityName: self.goalEntityName, into: context) as? CDGoal else {
+                observer.onError(CoreDataProviderError.createFailure)
+                return Disposables.create()
             }
-        }
-    }
 
-    // Recursive approach.
-    // Ideally replace with PromiseKit, RxSwift or self-build Promise library.
-    //
-    func rCreateGoal(_ goalables: [Goalable], _ completion: @escaping (Error?) -> Void) {
-        createGoal(goalable: goalables.last!) { [weak self] res in
-            switch res {
-            case .success:
-                if goalables.count > 1 {
-                    self?.rCreateGoal(goalables.dropLast(), completion)
-                } else {
-                    completion(nil)
-                }
-            case .failure(let error):
-                completion(error)
+            goal.id = goalable.asGoal().id
+            goal.title = goalable.asGoal().title
+            goal.desc = goalable.asGoal().description
+            goal.type = goalable.asGoal().type
+            goal.goal = Int64(goalable.asGoal().goal)
+            goal.trophy = goalable.asGoal().reward.trophy
+            goal.points = Int64(goalable.asGoal().reward.points)
+
+            do {
+                try context.save()
+            } catch {
+                observer.onError(CoreDataProviderError.createFailure)
+                return Disposables.create()
             }
+            observer.onNext(goal)
+            return Disposables.create()
         }
     }
 
-    public func createGoal(goalable: Goalable, _ completion: ((Result<Goalable, Error>) -> Void)?) {
-        let context = self.persistentContainer.viewContext
+    public func fetchGoals() -> Observable<[Goalable]> {
+        return Observable.create { observer in
+            let context = self.persistentContainer.viewContext
+            let fetchRequest = NSFetchRequest<CDGoal>(entityName: self.goalEntityName)
 
-        guard let goal = NSEntityDescription.insertNewObject(forEntityName: self.goalEntityName, into: context) as? CDGoal else {
-            completion?(.failure(CoreDataProviderError.createFailure))
-            return
-        }
-
-        goal.id = goalable.asGoal().id
-        goal.title = goalable.asGoal().title
-        goal.desc = goalable.asGoal().description
-        goal.type = goalable.asGoal().type
-        goal.goal = Int64(goalable.asGoal().goal)
-        goal.trophy = goalable.asGoal().reward.trophy
-        goal.points = Int64(goalable.asGoal().reward.points)
-
-        do {
-            try context.save()
-        } catch {
-            completion?(.failure(CoreDataProviderError.createFailure))
-            return
-        }
-        completion?(.success(goal))
-    }
-
-    public func fetchGoals(_ completion: (Result<[Goalable], Error>) -> Void) {
-        let context = self.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<CDGoal>(entityName: self.goalEntityName)
-
-        do {
-            let goals = try context.fetch(fetchRequest)
-            completion(.success(goals))
-        } catch {
-            completion(.failure(CoreDataProviderError.fetchFailure))
+            do {
+                let goals = try context.fetch(fetchRequest)
+                observer.onNext(goals)
+            } catch {
+                observer.onError(CoreDataProviderError.fetchFailure)
+            }
+            return Disposables.create()
         }
     }
 }

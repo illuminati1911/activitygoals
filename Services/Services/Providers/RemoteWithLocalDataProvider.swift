@@ -24,7 +24,7 @@ public class RemoteWithLocalDataProvider: DataProvider {
         // Core Data on main thread for safety
         //
         DispatchQueue.main.async {
-            self.local.createGoals(goalables: goalables, nil)
+            self.local.createGoals(goalables: goalables)
         }
     }
 
