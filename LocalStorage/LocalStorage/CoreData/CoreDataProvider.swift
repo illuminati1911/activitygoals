@@ -8,7 +8,7 @@
 
 import Foundation
 import CoreData
-import RxSwift
+import Core
 
 /// CoreDataProviderError: Error type for CoreDataProvider
 ///
@@ -29,7 +29,7 @@ public enum CoreDataProviderError: Error {
     }
 }
 
-public class CoreDataProvider: CoreDataProviderProtocol {
+public class CoreDataProvider: LocalStorageProtocol {
     private let identifier: String = "com.illuminati1911.activitygoals.LocalStorage"
     private let model: String = "CoreDataModel"
     private let goalEntityName = "CDGoal"
@@ -51,53 +51,68 @@ public class CoreDataProvider: CoreDataProviderProtocol {
         return container
     }()
 
-    public func createGoal(id: String, title: String, desc: String, type: String, gl: Int64, trophy: String, points: Int64) -> Observable<Void> {
-        return Observable.create { [weak self] observer -> Disposable in
-            guard let self = self else {
-                observer.onError(CoreDataProviderError.unknown)
-                return Disposables.create()
+    public func createGoals(goalables: [Goalable], _ completion: ((Result<[Goalable], Error>) -> ())?) {
+        rCreateGoal(goalables) { error in
+            if let error = error {
+                completion?(.failure(error))
+            } else {
+                completion?(.success(goalables))
             }
-            let context = self.persistentContainer.viewContext
-
-            guard let goal = NSEntityDescription.insertNewObject(forEntityName: self.goalEntityName, into: context) as? CDGoal else {
-                observer.onError(CoreDataProviderError.createFailure)
-                return Disposables.create()
-            }
-            goal.id = id
-            goal.title = title
-            goal.desc = desc
-            goal.type = type
-            goal.goal = gl
-            goal.trophy = trophy
-            goal.points = points
-
-            do {
-                try context.save()
-            } catch {
-                observer.onError(CoreDataProviderError.createFailure)
-                return Disposables.create()
-            }
-            observer.onNext(())
-            return Disposables.create()
         }
     }
 
-    public func fetchGoals() -> Observable<[CDGoal]> {
-        return Observable.create { [weak self] observer -> Disposable in
-            guard let self = self else {
-                observer.onError(CoreDataProviderError.unknown)
-                return Disposables.create()
+    // Recursive approach.
+    // Ideally replace with PromiseKit, RxSwift or self-build Promise library.
+    //
+    func rCreateGoal(_ goalables: [Goalable], _ completion: @escaping (Error?) -> ()) {
+        createGoal(goalable: goalables.last!) { [weak self] res in
+            switch res {
+            case .success(let goal):
+                if goalables.count > 1 {
+                    self?.rCreateGoal(goalables.dropLast(), completion)
+                } else {
+                    completion(nil)
+                }
+            case .failure(let error):
+                completion(error)
             }
-            let context = self.persistentContainer.viewContext
-            let fetchRequest = NSFetchRequest<CDGoal>(entityName: self.goalEntityName)
+        }
+    }
 
-            do {
-                let goals = try context.fetch(fetchRequest)
-                observer.onNext(goals)
-            } catch {
-                observer.onError(CoreDataProviderError.fetchFailure)
-            }
-            return Disposables.create()
+    public func createGoal(goalable: Goalable, _ completion: ((Result<Goalable, Error>) -> ())?) {
+        let context = self.persistentContainer.viewContext
+
+        guard let goal = NSEntityDescription.insertNewObject(forEntityName: self.goalEntityName, into: context) as? CDGoal else {
+            completion?(.failure(CoreDataProviderError.createFailure))
+            return
+        }
+
+        goal.id = goalable.asGoal().id
+        goal.title = goalable.asGoal().title
+        goal.desc = goalable.asGoal().description
+        goal.type = goalable.asGoal().type
+        goal.goal = Int64(goalable.asGoal().goal)
+        goal.trophy = goalable.asGoal().reward.trophy
+        goal.points = Int64(goalable.asGoal().reward.points)
+
+        do {
+            try context.save()
+        } catch {
+            completion?(.failure(CoreDataProviderError.createFailure))
+            return
+        }
+        completion?(.success(goal))
+    }
+
+    public func fetchGoals(_ completion: (Result<[Goalable], Error>) -> ()) {
+        let context = self.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<CDGoal>(entityName: self.goalEntityName)
+
+        do {
+            let goals = try context.fetch(fetchRequest)
+            completion(.success(goals))
+        } catch {
+            completion(.failure(CoreDataProviderError.fetchFailure))
         }
     }
 }

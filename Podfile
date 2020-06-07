@@ -4,9 +4,12 @@ use_frameworks!
 
 workspace 'ActivityGoals'
 
+def linter
+    pod 'SwiftLint', '0.39.2'
+end
+
 def global_pods
-  pod 'RxSwift', '5.1.1'
-  pod 'SwiftLint', '0.39.2'
+    linter
 end
 
 def application_pods
@@ -15,7 +18,19 @@ def application_pods
 end
 
 def networking_pods
+    global_pods
+end
+
+def localstorage_pods
   global_pods
+end
+
+def services_pods
+    global_pods
+end
+
+def core_pods
+    linter
 end
 
 target 'Application' do
@@ -42,10 +57,30 @@ end
 
 target 'LocalStorage' do
     project 'LocalStorage/LocalStorage.project'
-    global_pods
+    localstorage_pods
 
     target 'LocalStorageTests' do
       inherit! :search_paths
+      localstorage_pods
+    end
+end
+
+target 'Services' do
+    project 'Services/Services.project'
+    global_pods
+
+    target 'ServicesTests' do
+      inherit! :search_paths
       global_pods
+    end
+end
+
+target 'Core' do
+    project 'Core/Core.project'
+    core_pods
+
+    target 'CoreTests' do
+      inherit! :search_paths
+      core_pods
     end
 end

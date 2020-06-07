@@ -7,41 +7,28 @@
 //
 
 import UIKit
-import Networking
-import RxSwift
+import Core
+import Services
 import LocalStorage
+import Networking
 
 class ViewController: UIViewController {
 
-    let client = AGAPIClient()
-    let disposeBag = DisposeBag()
-    let localProvider: CoreDataProviderProtocol = CoreDataProvider()
+    //let disposeBag = DisposeBag()
+    let localProvider = CoreDataProvider()
+    let networkProvider = APIService()
+    var provider: DataProvider?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        /*self.client
-            .getDailyGoals()
-            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
-            .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { goals in
-                print(goals)
-        }, onError: { error in
-            print(error)
-        }).disposed(by: disposeBag)*/
-        //manager.createGoal(id: "1", title: "Paska", desc: "Kakka ahisee", type: "joku", gl: 300, trophy: "Nalle", points: 64)
-
-        // Core Data
-        /*let create = localProvider.createGoal(id: "2", title: "Paska", desc: "Kakka ahisee", type: "joku", gl: 300, trophy: "Nalle", points: 64)
-        let fetch = localProvider.fetchGoals()
-        create
-            .flatMap { fetch }
-            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
-            .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { goals in
-                print(goals[0].title)
-                print(goals.count)
-            }, onError: { error in
+        provider = RemoteWithLocalDataProvider(remote: networkProvider, local: localProvider)
+        self.provider?.getGoals { result in
+            switch result {
+            case .success(let goalables):
+                print(goalables)
+            case .failure(let error):
                 print(error)
-            }).disposed(by: disposeBag)*/
+            }
+        }
     }
 }

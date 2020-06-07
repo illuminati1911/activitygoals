@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A412ADE248BFDA300B3FE59 /* APIServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412ADD248BFDA300B3FE59 /* APIServiceProtocol.swift */; };
+		2A412ADF248BFDA300B3FE59 /* APIServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412ADD248BFDA300B3FE59 /* APIServiceProtocol.swift */; };
+		2A412AE0248C0A9C00B3FE59 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412AD9248BFD6E00B3FE59 /* APIService.swift */; };
+		2A412AE1248C0A9E00B3FE59 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412AD9248BFD6E00B3FE59 /* APIService.swift */; };
+		2A412AE2248C0AAA00B3FE59 /* GoalsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412ADA248BFD6E00B3FE59 /* GoalsEndpoint.swift */; };
+		2A412AE3248C0AAA00B3FE59 /* GoalsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412ADA248BFD6E00B3FE59 /* GoalsEndpoint.swift */; };
+		2A412AE5248C0C7E00B3FE59 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A412AE4248C0C7E00B3FE59 /* Core.framework */; };
+		2A412AE6248C0C7E00B3FE59 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A412AE4248C0C7E00B3FE59 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2AA5BA12248B4D3100D8EBE1 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA5BA08248B4D3100D8EBE1 /* Networking.framework */; };
 		2AA5BA17248B4D3100D8EBE1 /* NetworkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5BA16248B4D3100D8EBE1 /* NetworkingTests.swift */; };
 		2AA5BA19248B4D3100D8EBE1 /* Networking.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AA5BA0B248B4D3100D8EBE1 /* Networking.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -28,7 +36,25 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		2A412AE7248C0C7E00B3FE59 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2A412AE6248C0C7E00B3FE59 /* Core.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		2A412AD9248BFD6E00B3FE59 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		2A412ADA248BFD6E00B3FE59 /* GoalsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsEndpoint.swift; sourceTree = "<group>"; };
+		2A412ADD248BFDA300B3FE59 /* APIServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceProtocol.swift; sourceTree = "<group>"; };
+		2A412AE4248C0C7E00B3FE59 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AA5BA08248B4D3100D8EBE1 /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AA5BA0B248B4D3100D8EBE1 /* Networking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Networking.h; sourceTree = "<group>"; };
 		2AA5BA0C248B4D3100D8EBE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -51,6 +77,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D7515FDF771DC301405E1AE /* Pods_Networking.framework in Frameworks */,
+				2A412AE5248C0C7E00B3FE59 /* Core.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +93,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A412ADB248BFD6E00B3FE59 /* EndPoints */ = {
+			isa = PBXGroup;
+			children = (
+				2A412ADA248BFD6E00B3FE59 /* GoalsEndpoint.swift */,
+			);
+			path = EndPoints;
+			sourceTree = "<group>";
+		};
+		2A412ADC248BFD6E00B3FE59 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				2A412AD9248BFD6E00B3FE59 /* APIService.swift */,
+				2A412ADB248BFD6E00B3FE59 /* EndPoints */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		2AA5B9FE248B4D3100D8EBE1 = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +135,7 @@
 			children = (
 				2AA5BA0B248B4D3100D8EBE1 /* Networking.h */,
 				2AA5BA0C248B4D3100D8EBE1 /* Info.plist */,
+				2A412ADC248BFD6E00B3FE59 /* API */,
 				2AA5BA42248B58F500D8EBE1 /* Protocols */,
 			);
 			path = Networking;
@@ -110,6 +155,7 @@
 			children = (
 				2AA5BA3F248B58F100D8EBE1 /* EndPoint.swift */,
 				2AA5BA43248B590D00D8EBE1 /* APIClient.swift */,
+				2A412ADD248BFDA300B3FE59 /* APIServiceProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -130,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				9D62E291BA99A32AD3CA0146 /* Pods_Networking.framework */,
+				2A412AE4248C0C7E00B3FE59 /* Core.framework */,
 				FC7CFE9F197D0D38757E9B79 /* Pods_NetworkingTests.framework */,
 			);
 			name = Frameworks;
@@ -158,6 +205,7 @@
 				2AA5BA04248B4D3100D8EBE1 /* Sources */,
 				2AA5BA05248B4D3100D8EBE1 /* Frameworks */,
 				2AA5BA06248B4D3100D8EBE1 /* Resources */,
+				2A412AE7248C0C7E00B3FE59 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -176,7 +224,6 @@
 				2AA5BA0D248B4D3100D8EBE1 /* Sources */,
 				2AA5BA0E248B4D3100D8EBE1 /* Frameworks */,
 				2AA5BA0F248B4D3100D8EBE1 /* Resources */,
-				E8F123BF49B40DFC8941ECFF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -288,23 +335,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E8F123BF49B40DFC8941ECFF /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-NetworkingTests/Pods-NetworkingTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-NetworkingTests/Pods-NetworkingTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NetworkingTests/Pods-NetworkingTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -312,7 +342,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A412ADE248BFDA300B3FE59 /* APIServiceProtocol.swift in Sources */,
 				2AA5BA40248B58F100D8EBE1 /* EndPoint.swift in Sources */,
+				2A412AE2248C0AAA00B3FE59 /* GoalsEndpoint.swift in Sources */,
+				2A412AE0248C0A9C00B3FE59 /* APIService.swift in Sources */,
 				2AA5BA44248B590D00D8EBE1 /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -321,6 +354,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A412ADF248BFDA300B3FE59 /* APIServiceProtocol.swift in Sources */,
+				2A412AE3248C0AAA00B3FE59 /* GoalsEndpoint.swift in Sources */,
+				2A412AE1248C0A9E00B3FE59 /* APIService.swift in Sources */,
 				2AA5BA41248B58F100D8EBE1 /* EndPoint.swift in Sources */,
 				2AA5BA17248B4D3100D8EBE1 /* NetworkingTests.swift in Sources */,
 				2AA5BA45248B590D00D8EBE1 /* APIClient.swift in Sources */,

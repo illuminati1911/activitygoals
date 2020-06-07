@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A412AB4248BEF5600B3FE59 /* CDGoal+Goalable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412AB3248BEF5600B3FE59 /* CDGoal+Goalable.swift */; };
+		2A412AB5248BEF5600B3FE59 /* CDGoal+Goalable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412AB3248BEF5600B3FE59 /* CDGoal+Goalable.swift */; };
+		2A412AB8248BEF9700B3FE59 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A412AB7248BEF9700B3FE59 /* Core.framework */; };
+		2A412AB9248BEF9700B3FE59 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A412AB7248BEF9700B3FE59 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2AA5BA66248B95DE00D8EBE1 /* LocalStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA5BA5C248B95DE00D8EBE1 /* LocalStorage.framework */; };
 		2AA5BA6B248B95DE00D8EBE1 /* LocalStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5BA6A248B95DE00D8EBE1 /* LocalStorageTests.swift */; };
 		2AA5BA6D248B95DE00D8EBE1 /* LocalStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AA5BA5F248B95DE00D8EBE1 /* LocalStorage.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -14,8 +18,8 @@
 		2AA5BA86248B99DB00D8EBE1 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5BA83248B99DB00D8EBE1 /* CoreDataModel.xcdatamodeld */; };
 		2AA5BA88248B9AF700D8EBE1 /* CoreDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5BA87248B9AF700D8EBE1 /* CoreDataProvider.swift */; };
 		2AA5BA89248B9AF700D8EBE1 /* CoreDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5BA87248B9AF700D8EBE1 /* CoreDataProvider.swift */; };
-		2AA5BA8B248BAE7E00D8EBE1 /* CoreDataProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5BA8A248BAE7E00D8EBE1 /* CoreDataProviderProtocol.swift */; };
-		2AA5BA8C248BAE7E00D8EBE1 /* CoreDataProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5BA8A248BAE7E00D8EBE1 /* CoreDataProviderProtocol.swift */; };
+		2AA5BA8B248BAE7E00D8EBE1 /* LocalStorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5BA8A248BAE7E00D8EBE1 /* LocalStorageProtocol.swift */; };
+		2AA5BA8C248BAE7E00D8EBE1 /* LocalStorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5BA8A248BAE7E00D8EBE1 /* LocalStorageProtocol.swift */; };
 		53656C4139848D896C5FE636 /* Pods_LocalStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F321479BF4F17C7F364D49B /* Pods_LocalStorage.framework */; };
 		F784B3DF48C9F086F665C58E /* Pods_LocalStorageTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5859CBB93AAFB10514ABAF1A /* Pods_LocalStorageTests.framework */; };
 /* End PBXBuildFile section */
@@ -30,8 +34,24 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		2A412ABA248BEF9700B3FE59 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2A412AB9248BEF9700B3FE59 /* Core.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1F321479BF4F17C7F364D49B /* Pods_LocalStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocalStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A412AB3248BEF5600B3FE59 /* CDGoal+Goalable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDGoal+Goalable.swift"; sourceTree = "<group>"; };
+		2A412AB7248BEF9700B3FE59 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AA5BA5C248B95DE00D8EBE1 /* LocalStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LocalStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AA5BA5F248B95DE00D8EBE1 /* LocalStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalStorage.h; sourceTree = "<group>"; };
 		2AA5BA60248B95DE00D8EBE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -40,7 +60,7 @@
 		2AA5BA6C248B95DE00D8EBE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AA5BA84248B99DB00D8EBE1 /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		2AA5BA87248B9AF700D8EBE1 /* CoreDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataProvider.swift; sourceTree = "<group>"; };
-		2AA5BA8A248BAE7E00D8EBE1 /* CoreDataProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataProviderProtocol.swift; sourceTree = "<group>"; };
+		2AA5BA8A248BAE7E00D8EBE1 /* LocalStorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageProtocol.swift; sourceTree = "<group>"; };
 		5859CBB93AAFB10514ABAF1A /* Pods_LocalStorageTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocalStorageTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88487EAC85D9EECF583286CC /* Pods-LocalStorage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocalStorage.debug.xcconfig"; path = "Target Support Files/Pods-LocalStorage/Pods-LocalStorage.debug.xcconfig"; sourceTree = "<group>"; };
 		C530178D474601C3E8BB60C3 /* Pods-LocalStorageTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocalStorageTests.release.xcconfig"; path = "Target Support Files/Pods-LocalStorageTests/Pods-LocalStorageTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -54,6 +74,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				53656C4139848D896C5FE636 /* Pods_LocalStorage.framework in Frameworks */,
+				2A412AB8248BEF9700B3FE59 /* Core.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,9 +94,18 @@
 			isa = PBXGroup;
 			children = (
 				1F321479BF4F17C7F364D49B /* Pods_LocalStorage.framework */,
+				2A412AB7248BEF9700B3FE59 /* Core.framework */,
 				5859CBB93AAFB10514ABAF1A /* Pods_LocalStorageTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2A412AB6248BEF5B00B3FE59 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2A412AB3248BEF5600B3FE59 /* CDGoal+Goalable.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		2AA5BA52248B95DE00D8EBE1 = {
@@ -105,6 +135,7 @@
 				2AA5BA60248B95DE00D8EBE1 /* Info.plist */,
 				2AA5BA90248BB59C00D8EBE1 /* CoreData */,
 				2AA5BA8D248BAE8200D8EBE1 /* Protocols */,
+				2A412AB6248BEF5B00B3FE59 /* Extensions */,
 			);
 			path = LocalStorage;
 			sourceTree = "<group>";
@@ -121,7 +152,7 @@
 		2AA5BA8D248BAE8200D8EBE1 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				2AA5BA8A248BAE7E00D8EBE1 /* CoreDataProviderProtocol.swift */,
+				2AA5BA8A248BAE7E00D8EBE1 /* LocalStorageProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -170,6 +201,7 @@
 				2AA5BA58248B95DE00D8EBE1 /* Sources */,
 				2AA5BA59248B95DE00D8EBE1 /* Frameworks */,
 				2AA5BA5A248B95DE00D8EBE1 /* Resources */,
+				2A412ABA248BEF9700B3FE59 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -188,7 +220,6 @@
 				2AA5BA61248B95DE00D8EBE1 /* Sources */,
 				2AA5BA62248B95DE00D8EBE1 /* Frameworks */,
 				2AA5BA63248B95DE00D8EBE1 /* Resources */,
-				4B418097939D9A7A0CE1201E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -256,23 +287,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4B418097939D9A7A0CE1201E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LocalStorageTests/Pods-LocalStorageTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LocalStorageTests/Pods-LocalStorageTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LocalStorageTests/Pods-LocalStorageTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		56BF3E32DE077140B4B6BACC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -324,8 +338,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A412AB4248BEF5600B3FE59 /* CDGoal+Goalable.swift in Sources */,
 				2AA5BA88248B9AF700D8EBE1 /* CoreDataProvider.swift in Sources */,
-				2AA5BA8B248BAE7E00D8EBE1 /* CoreDataProviderProtocol.swift in Sources */,
+				2AA5BA8B248BAE7E00D8EBE1 /* LocalStorageProtocol.swift in Sources */,
 				2AA5BA85248B99DB00D8EBE1 /* CoreDataModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,8 +350,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AA5BA89248B9AF700D8EBE1 /* CoreDataProvider.swift in Sources */,
+				2A412AB5248BEF5600B3FE59 /* CDGoal+Goalable.swift in Sources */,
 				2AA5BA86248B99DB00D8EBE1 /* CoreDataModel.xcdatamodeld in Sources */,
-				2AA5BA8C248BAE7E00D8EBE1 /* CoreDataProviderProtocol.swift in Sources */,
+				2AA5BA8C248BAE7E00D8EBE1 /* LocalStorageProtocol.swift in Sources */,
 				2AA5BA6B248B95DE00D8EBE1 /* LocalStorageTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
