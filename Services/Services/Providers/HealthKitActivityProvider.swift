@@ -11,6 +11,7 @@ import Core
 import HealthKit
 
 public class HealthKitActivityProvider: ActivityProvider {
+    // Mock this to follow our own protocol
     private lazy var healthStore = HKHealthStore()
     public init() {}
 

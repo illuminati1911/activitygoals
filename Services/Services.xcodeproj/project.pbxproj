@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,8 @@
 		2A412B06248CEEED00B3FE59 /* HealthKitActivityProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B04248CEEED00B3FE59 /* HealthKitActivityProvider.swift */; };
 		2A412B13248D07F200B3FE59 /* HealthKit+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B12248D07F200B3FE59 /* HealthKit+Extensions.swift */; };
 		2A412B14248D07F200B3FE59 /* HealthKit+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B12248D07F200B3FE59 /* HealthKit+Extensions.swift */; };
+		2A412B38248D52EB00B3FE59 /* RemoteLocalProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B37248D52EB00B3FE59 /* RemoteLocalProviderTests.swift */; };
+		2A412B3E248D531F00B3FE59 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B3D248D531F00B3FE59 /* Mocks.swift */; };
 		2AA5BAA7248BDA7E00D8EBE1 /* Services.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA5BA9D248BDA7E00D8EBE1 /* Services.framework */; };
 		2AA5BAAC248BDA7E00D8EBE1 /* ServicesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5BAAB248BDA7E00D8EBE1 /* ServicesTests.swift */; };
 		2AA5BAAE248BDA7E00D8EBE1 /* Services.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AA5BAA0248BDA7E00D8EBE1 /* Services.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -91,6 +93,8 @@
 		2A412AFD248CEEB800B3FE59 /* ActivityProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityProvider.swift; sourceTree = "<group>"; };
 		2A412B04248CEEED00B3FE59 /* HealthKitActivityProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitActivityProvider.swift; sourceTree = "<group>"; };
 		2A412B12248D07F200B3FE59 /* HealthKit+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HealthKit+Extensions.swift"; sourceTree = "<group>"; };
+		2A412B37248D52EB00B3FE59 /* RemoteLocalProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteLocalProviderTests.swift; sourceTree = "<group>"; };
+		2A412B3D248D531F00B3FE59 /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
 		2AA5BA9D248BDA7E00D8EBE1 /* Services.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Services.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AA5BAA0248BDA7E00D8EBE1 /* Services.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Services.h; sourceTree = "<group>"; };
 		2AA5BAA1248BDA7E00D8EBE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -148,6 +152,22 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		2A412B3F248D546300B3FE59 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				2A412B3D248D531F00B3FE59 /* Mocks.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		2A412B40248DBB8600B3FE59 /* ProviderTests */ = {
+			isa = PBXGroup;
+			children = (
+				2A412B37248D52EB00B3FE59 /* RemoteLocalProviderTests.swift */,
+			);
+			path = ProviderTests;
+			sourceTree = "<group>";
+		};
 		2AA5BA93248BDA7E00D8EBE1 = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +206,8 @@
 			children = (
 				2AA5BAAB248BDA7E00D8EBE1 /* ServicesTests.swift */,
 				2AA5BAAD248BDA7E00D8EBE1 /* Info.plist */,
+				2A412B40248DBB8600B3FE59 /* ProviderTests */,
+				2A412B3F248D546300B3FE59 /* Mocks */,
 			);
 			path = ServicesTests;
 			sourceTree = "<group>";
@@ -501,7 +523,9 @@
 				2A412B14248D07F200B3FE59 /* HealthKit+Extensions.swift in Sources */,
 				2AA5BACB248BDB8F00D8EBE1 /* DataProvider.swift in Sources */,
 				2A412B06248CEEED00B3FE59 /* HealthKitActivityProvider.swift in Sources */,
+				2A412B3E248D531F00B3FE59 /* Mocks.swift in Sources */,
 				2A412AFF248CEEB800B3FE59 /* ActivityProvider.swift in Sources */,
+				2A412B38248D52EB00B3FE59 /* RemoteLocalProviderTests.swift in Sources */,
 				2AA5BAAC248BDA7E00D8EBE1 /* ServicesTests.swift in Sources */,
 				2A412AA7248BEB2E00B3FE59 /* RemoteWithLocalDataProvider.swift in Sources */,
 			);
@@ -694,6 +718,7 @@
 			baseConfigurationReference = 67883D338F32741836C5CE9F /* Pods-ServicesTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ServicesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -713,6 +738,7 @@
 			baseConfigurationReference = EC2E441FD46A3406F0B083EA /* Pods-ServicesTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ServicesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
