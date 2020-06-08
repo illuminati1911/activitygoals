@@ -13,18 +13,22 @@ import RxSwift
 
 final class DetailGoalViewModel {
     private let disposeBag = DisposeBag()
-    private let activityProvider: ActivityProvider
+    private let mainProvider: MainProvider
     private let goalable: Goalable
 
-    init(activityProvider: ActivityProvider, goalable: Goalable) {
-        self.activityProvider = activityProvider
+    var title: String { return goalable.asGoal().title }
+    
+    init(mainProvider: MainProvider, goalable: Goalable) {
+        self.mainProvider = mainProvider
         self.goalable = goalable
     }
 
     func fetchActivityGoalViewModels() -> Observable<ActivityGoalViewModel> {
-        return Observable.zip(activityProvider.getActivity(), Observable.from(optional: goalable))
-            .map {
-                ActivityGoalViewModel(goalable: $1, activity: $0)
-            }
+        return Observable.zip(
+            mainProvider.activityProvider.getActivity(),
+            Observable.from(optional: goalable)
+        ).map {
+            ActivityGoalViewModel(goalable: $1, activity: $0)
+        }
     }
 }

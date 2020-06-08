@@ -11,7 +11,7 @@
 		1AAEE07EAB51DDDF3BACF4E0 /* Pods_ApplicationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBD62D54679453E240687C5 /* Pods_ApplicationTests.framework */; };
 		2A412A90248BE8DD00B3FE59 /* Core.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 2A412A87248BE8CF00B3FE59 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2A412B09248CF23200B3FE59 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A412B08248CF23200B3FE59 /* HealthKit.framework */; };
-		2A412B57248E04E500B3FE59 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B56248E04E500B3FE59 /* MainViewController.swift */; };
+		2A412B57248E04E500B3FE59 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B56248E04E500B3FE59 /* BaseViewController.swift */; };
 		2A412B61248E051700B3FE59 /* GoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B60248E051700B3FE59 /* GoalsViewController.swift */; };
 		2A412B63248E0C8100B3FE59 /* GoalsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B62248E0C8100B3FE59 /* GoalsListViewModel.swift */; };
 		2A412B64248E0C8100B3FE59 /* GoalsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B62248E0C8100B3FE59 /* GoalsListViewModel.swift */; };
@@ -23,8 +23,15 @@
 		2A412B83248E281800B3FE59 /* DetailGoalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B81248E281800B3FE59 /* DetailGoalViewModel.swift */; };
 		2A412B85248E29B900B3FE59 /* ActivityGoalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B84248E29B900B3FE59 /* ActivityGoalViewModel.swift */; };
 		2A412B86248E29B900B3FE59 /* ActivityGoalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B84248E29B900B3FE59 /* ActivityGoalViewModel.swift */; };
+		2A412B8B248E4B7F00B3FE59 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B8A248E4B7F00B3FE59 /* AppCoordinator.swift */; };
+		2A412B8C248E4B7F00B3FE59 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B8A248E4B7F00B3FE59 /* AppCoordinator.swift */; };
+		2A412B97248E76D600B3FE59 /* GoalsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B96248E76D600B3FE59 /* GoalsCoordinator.swift */; };
+		2A412B98248E76D600B3FE59 /* GoalsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B96248E76D600B3FE59 /* GoalsCoordinator.swift */; };
+		2A412B9A248E76E500B3FE59 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B99248E76E500B3FE59 /* Coordinator.swift */; };
+		2A412B9B248E76E500B3FE59 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B99248E76E500B3FE59 /* Coordinator.swift */; };
+		2A412B9D248E7E4F00B3FE59 /* DetailGoalCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B9C248E7E4F00B3FE59 /* DetailGoalCoordinator.swift */; };
+		2A412B9E248E7E4F00B3FE59 /* DetailGoalCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B9C248E7E4F00B3FE59 /* DetailGoalCoordinator.swift */; };
 		2AA5B9CE248B2D9500D8EBE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5B9CD248B2D9500D8EBE1 /* AppDelegate.swift */; };
-		2AA5B9D2248B2D9500D8EBE1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5B9D1248B2D9500D8EBE1 /* ViewController.swift */; };
 		2AA5B9D7248B2D9800D8EBE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AA5B9D6248B2D9800D8EBE1 /* Assets.xcassets */; };
 		2AA5B9DA248B2D9800D8EBE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AA5B9D8248B2D9800D8EBE1 /* LaunchScreen.storyboard */; };
 		2AA5B9E5248B2D9800D8EBE1 /* ApplicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5B9E4248B2D9800D8EBE1 /* ApplicationTests.swift */; };
@@ -128,7 +135,7 @@
 		2A412A81248BE8CF00B3FE59 /* Core.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Core.xcodeproj; path = ../Core/Core.xcodeproj; sourceTree = "<group>"; };
 		2A412B07248CF23100B3FE59 /* Application.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Application.entitlements; sourceTree = "<group>"; };
 		2A412B08248CF23200B3FE59 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
-		2A412B56248E04E500B3FE59 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		2A412B56248E04E500B3FE59 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		2A412B60248E051700B3FE59 /* GoalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsViewController.swift; sourceTree = "<group>"; };
 		2A412B62248E0C8100B3FE59 /* GoalsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsListViewModel.swift; sourceTree = "<group>"; };
 		2A412B65248E0D9300B3FE59 /* GoalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalViewModel.swift; sourceTree = "<group>"; };
@@ -136,9 +143,12 @@
 		2A412B7F248E274600B3FE59 /* DetailGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailGoalViewController.swift; sourceTree = "<group>"; };
 		2A412B81248E281800B3FE59 /* DetailGoalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailGoalViewModel.swift; sourceTree = "<group>"; };
 		2A412B84248E29B900B3FE59 /* ActivityGoalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityGoalViewModel.swift; sourceTree = "<group>"; };
+		2A412B8A248E4B7F00B3FE59 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		2A412B96248E76D600B3FE59 /* GoalsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsCoordinator.swift; sourceTree = "<group>"; };
+		2A412B99248E76E500B3FE59 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		2A412B9C248E7E4F00B3FE59 /* DetailGoalCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailGoalCoordinator.swift; sourceTree = "<group>"; };
 		2AA5B9CA248B2D9500D8EBE1 /* Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Application.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AA5B9CD248B2D9500D8EBE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2AA5B9D1248B2D9500D8EBE1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2AA5B9D6248B2D9800D8EBE1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2AA5B9D9248B2D9800D8EBE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2AA5B9DB248B2D9800D8EBE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -211,9 +221,8 @@
 		2A412B69248E0DA200B3FE59 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				2A412B56248E04E500B3FE59 /* MainViewController.swift */,
+				2A412B56248E04E500B3FE59 /* BaseViewController.swift */,
 				2A412B60248E051700B3FE59 /* GoalsViewController.swift */,
-				2AA5B9D1248B2D9500D8EBE1 /* ViewController.swift */,
 				2A412B7F248E274600B3FE59 /* DetailGoalViewController.swift */,
 			);
 			path = ViewControllers;
@@ -236,6 +245,17 @@
 				2AA5B9DB248B2D9800D8EBE1 /* Info.plist */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		2A412B95248E767900B3FE59 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				2A412B8A248E4B7F00B3FE59 /* AppCoordinator.swift */,
+				2A412B9C248E7E4F00B3FE59 /* DetailGoalCoordinator.swift */,
+				2A412B96248E76D600B3FE59 /* GoalsCoordinator.swift */,
+				2A412B99248E76E500B3FE59 /* Coordinator.swift */,
+			);
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 		2AA5B9C1248B2D9500D8EBE1 = {
@@ -269,6 +289,7 @@
 				2A412B7D248E222800B3FE59 /* Views */,
 				2A412B69248E0DA200B3FE59 /* ViewControllers */,
 				2A412B68248E0D9700B3FE59 /* ViewModels */,
+				2A412B95248E767900B3FE59 /* Coordinators */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -688,13 +709,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A412B57248E04E500B3FE59 /* MainViewController.swift in Sources */,
+				2A412B8B248E4B7F00B3FE59 /* AppCoordinator.swift in Sources */,
+				2A412B57248E04E500B3FE59 /* BaseViewController.swift in Sources */,
+				2A412B97248E76D600B3FE59 /* GoalsCoordinator.swift in Sources */,
 				2A412B82248E281800B3FE59 /* DetailGoalViewModel.swift in Sources */,
 				2A412B85248E29B900B3FE59 /* ActivityGoalViewModel.swift in Sources */,
 				2A412B74248E222200B3FE59 /* GoalTableViewCell.swift in Sources */,
 				2A412B61248E051700B3FE59 /* GoalsViewController.swift in Sources */,
-				2AA5B9D2248B2D9500D8EBE1 /* ViewController.swift in Sources */,
+				2A412B9D248E7E4F00B3FE59 /* DetailGoalCoordinator.swift in Sources */,
 				2A412B63248E0C8100B3FE59 /* GoalsListViewModel.swift in Sources */,
+				2A412B9A248E76E500B3FE59 /* Coordinator.swift in Sources */,
 				2AA5B9CE248B2D9500D8EBE1 /* AppDelegate.swift in Sources */,
 				2A412B80248E274600B3FE59 /* DetailGoalViewController.swift in Sources */,
 				2A412B66248E0D9300B3FE59 /* GoalViewModel.swift in Sources */,
@@ -705,9 +729,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A412B9B248E76E500B3FE59 /* Coordinator.swift in Sources */,
+				2A412B8C248E4B7F00B3FE59 /* AppCoordinator.swift in Sources */,
+				2A412B9E248E7E4F00B3FE59 /* DetailGoalCoordinator.swift in Sources */,
 				2AA5B9E5248B2D9800D8EBE1 /* ApplicationTests.swift in Sources */,
 				2A412B64248E0C8100B3FE59 /* GoalsListViewModel.swift in Sources */,
 				2A412B86248E29B900B3FE59 /* ActivityGoalViewModel.swift in Sources */,
+				2A412B98248E76D600B3FE59 /* GoalsCoordinator.swift in Sources */,
 				2A412B83248E281800B3FE59 /* DetailGoalViewModel.swift in Sources */,
 				2A412B67248E0D9300B3FE59 /* GoalViewModel.swift in Sources */,
 			);

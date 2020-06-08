@@ -15,31 +15,23 @@ final class DetailGoalViewController: BaseViewController {
     private let disposeBag = DisposeBag()
     private var detailGoalViewModel: DetailGoalViewModel
 
-    private let titleLabel = with(UILabel()) {
-        $0.text = "Goal!"
-    }
-
     private let imageView = UIImageView()
 
-    private let goalLabel = with(UILabel()) {
-        $0.text = "Run 500 meters!"
-    }
-
     private let dailyActivityLabel = with(UILabel()) {
-        $0.text = "You have run 100 meters!"
+        $0.textAlignment = .center
     }
 
     private let targetLabel = with(UILabel()) {
-        $0.text = "Run 500m"
+        $0.textAlignment = .center
     }
 
     private let statusLabel = with(UILabel()) {
-        $0.text = "Still 400m to go"
+        $0.textAlignment = .center
     }
 
-    init(activityProvider: ActivityProvider, dataProvider: DataProvider, goalable: Goalable) {
-        self.detailGoalViewModel = DetailGoalViewModel(activityProvider: activityProvider, goalable: goalable)
-        super.init(activityProvider: activityProvider, dataProvider: dataProvider)
+    init(mainProvider: MainProvider, goalable: Goalable) {
+        self.detailGoalViewModel = DetailGoalViewModel(mainProvider: mainProvider, goalable: goalable)
+        super.init(mainProvider)
     }
 
     required init?(coder: NSCoder) {
@@ -52,11 +44,9 @@ final class DetailGoalViewController: BaseViewController {
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] activityGoalVM in
                 self?.imageView.image = activityGoalVM.typeImage
-                self?.goalLabel.text = activityGoalVM.titleText
                 self?.dailyActivityLabel.text = activityGoalVM.displayDailyActivityText
                 self?.targetLabel.text = activityGoalVM.goalTargetText
                 self?.statusLabel.text = activityGoalVM.statusText
-
         }, onError: { error in
             print("Error")
             print(error)
@@ -66,36 +56,31 @@ final class DetailGoalViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        navigationItem.title = detailGoalViewModel.title
 
         view.addSubview(imageView)
-        view.addSubview(goalLabel)
         view.addSubview(dailyActivityLabel)
         view.addSubview(targetLabel)
         view.addSubview(statusLabel)
 
         imageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(100)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(100)
             make.size.equalTo(150)
             make.centerX.equalToSuperview()
         }
 
-        goalLabel.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
+        dailyActivityLabel.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(20)
             make.top.equalTo(imageView.snp.bottom).offset(20)
         }
 
-        dailyActivityLabel.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(goalLabel.snp.bottom).offset(20)
-        }
-
         targetLabel.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
+            make.left.right.equalToSuperview().inset(20)
             make.top.equalTo(dailyActivityLabel.snp.bottom).offset(20)
         }
 
         statusLabel.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
+            make.left.right.equalToSuperview().inset(20)
             make.top.equalTo(targetLabel.snp.bottom).offset(20)
         }
 

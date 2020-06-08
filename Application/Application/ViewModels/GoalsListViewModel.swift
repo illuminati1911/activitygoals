@@ -13,17 +13,18 @@ import RxSwift
 
 final class GoalsListViewModel {
     private let disposeBag = DisposeBag()
-    private let dataProvider: DataProvider
+    private let mainProvider: MainProvider
 
     var goalables: [Goalable] = []
     let title = "Daily activity goals!"
 
-    init(dataProvider: DataProvider) {
-        self.dataProvider = dataProvider
+    init(mainProvider: MainProvider) {
+        self.mainProvider = mainProvider
     }
 
     func fetchGoalViewModels() -> Observable<[GoalViewModel]> {
-        self.dataProvider
+        self.mainProvider
+            .dataProvider
             .getGoals()
             .map { [weak self] in
                 let vms = $0.map {

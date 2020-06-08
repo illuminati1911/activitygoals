@@ -8,22 +8,21 @@
 
 import UIKit
 import Services
-import Networking
-import LocalStorage
-import HealthKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var coordinator: AppCoordinator?
+    var mainProvider: MainProvider?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        window = UIWindow()
-        let activityProvider = HealthKitActivityProvider(activityService: HKHealthStore())
-        let dataProvider = RemoteWithLocalDataProvider(remote: APIService(), local: CoreDataProvider())
-        let mainVC = GoalsViewController(activityProvider: activityProvider, dataProvider: dataProvider)
-        window?.rootViewController = mainVC
-        window?.makeKeyAndVisible()
+        let window = UIWindow()
+        let mainProvider = AppProvider.getApplicationProvider()
+        self.window = window
+        self.mainProvider = mainProvider
+        coordinator = AppCoordinator(window: window, mainProvider: mainProvider)
+        coordinator?.start()
         return true
     }
 }

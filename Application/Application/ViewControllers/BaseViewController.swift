@@ -10,12 +10,10 @@ import UIKit
 import Services
 
 class BaseViewController: UIViewController {
-    let activityProvider: ActivityProvider
-    let dataProvider: DataProvider
+    let mainProvider: MainProvider
 
-    init(activityProvider: ActivityProvider, dataProvider: DataProvider) {
-        self.activityProvider = activityProvider
-        self.dataProvider = dataProvider
+    init(_ mainProvider: MainProvider) {
+        self.mainProvider = mainProvider
         super.init(nibName: nil, bundle: nil)
     }
 

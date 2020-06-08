@@ -14,6 +14,7 @@ class GoalTableViewCell: UITableViewCell {
     var goalViewModel: GoalViewModel? {
         didSet {
             titleLabel.text = goalViewModel?.title
+            descriptionLabel.text = goalViewModel?.description
             rewardLabel.text = goalViewModel?.rewardText
             goalTypeImageView.image = goalViewModel?.typeImage
         }
