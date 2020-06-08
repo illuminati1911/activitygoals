@@ -23,11 +23,6 @@ class MockLocalStorage: LocalStorageProtocol {
         self.expectation = expectation
     }
 
-    func createGoal(goalable: Goalable) -> Observable<Goalable> {
-        goalDB.append(goalable)
-        return Observable.from(optional: Goal(id: "1001", title: "Goal1", description: "Run", type: "steps", goal: 500, trophy: "trophy", points: 100))
-    }
-
     func createGoals(goalables: [Goalable]) -> Observable<[Goalable]> {
         goalDB.append(contentsOf: goalables)
         expectation?.fulfill()

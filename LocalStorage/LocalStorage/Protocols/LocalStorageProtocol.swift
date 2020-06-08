@@ -12,8 +12,6 @@ import RxSwift
 
 public protocol LocalStorageProtocol {
     @discardableResult
-    func createGoal(goalable: Goalable) -> Observable<Goalable>
-    @discardableResult
     func createGoals(goalables: [Goalable]) -> Observable<[Goalable]>
     func fetchGoals() -> Observable<[Goalable]>
 }

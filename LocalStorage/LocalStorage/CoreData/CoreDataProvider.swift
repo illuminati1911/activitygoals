@@ -54,33 +54,34 @@ public class CoreDataProvider: LocalStorageProtocol {
 
     @discardableResult
     public func createGoals(goalables: [Goalable]) -> Observable<[Goalable]> {
-        return Observable.combineLatest(goalables.map { createGoal(goalable: $0) })
-    }
-
-    @discardableResult
-    public func createGoal(goalable: Goalable) -> Observable<Goalable> {
         return Observable.create { observer in
             let context = self.persistentContainer.viewContext
-            guard let goal = NSEntityDescription.insertNewObject(forEntityName: self.goalEntityName, into: context) as? CDGoal else {
-                observer.onError(CoreDataProviderError.createFailure)
-                return Disposables.create()
+
+            // Core Data batch insert for Goalables
+            //
+            for goalable in goalables {
+                guard let goal = NSEntityDescription.insertNewObject(forEntityName: self.goalEntityName, into: context) as? CDGoal else {
+                    observer.onError(CoreDataProviderError.createFailure)
+                    return Disposables.create()
+                }
+
+                goal.id = goalable.asGoal().id
+                goal.title = goalable.asGoal().title
+                goal.desc = goalable.asGoal().description
+                goal.type = goalable.asGoal().type.rawValue
+                goal.goal = Int64(goalable.asGoal().goal)
+                goal.trophy = goalable.asGoal().reward.trophy
+                goal.points = Int64(goalable.asGoal().reward.points)
+
+                do {
+                    try context.save()
+                } catch {
+                    observer.onError(CoreDataProviderError.createFailure)
+                    return Disposables.create()
+                }
             }
 
-            goal.id = goalable.asGoal().id
-            goal.title = goalable.asGoal().title
-            goal.desc = goalable.asGoal().description
-            goal.type = goalable.asGoal().type.rawValue
-            goal.goal = Int64(goalable.asGoal().goal)
-            goal.trophy = goalable.asGoal().reward.trophy
-            goal.points = Int64(goalable.asGoal().reward.points)
-
-            do {
-                try context.save()
-            } catch {
-                observer.onError(CoreDataProviderError.createFailure)
-                return Disposables.create()
-            }
-            observer.onNext(goal)
+            observer.onNext(goalables)
             return Disposables.create()
         }
     }
