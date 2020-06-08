@@ -9,6 +9,7 @@
 import Foundation
 import Core
 import HealthKit
+import RxSwift
 
 public class HealthKitActivityProvider: ActivityProvider {
     private let activityService: ActivityService
@@ -17,29 +18,24 @@ public class HealthKitActivityProvider: ActivityProvider {
         self.activityService = activityService
     }
 
-    public func getActivity(_ completion: @escaping (Result<Activity, Error>) -> Void) {
+    public func getActivity() -> Observable<Activity> {
         guard
             let distance = HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning),
             let steps = HKQuantityType.quantityType(forIdentifier: .stepCount) else {
-                completion(.failure(HealthKitActivityProviderError.healthKitNotAvailableError))
-                return
+                return Observable.create { observer in
+                    observer.onError(HealthKitActivityProviderError.healthKitNotAvailableError)
+                    return Disposables.create()
+                }
         }
         let requestedTypes: Set<HKObjectType> = [
             distance,
             steps
         ]
-        activityService.requestAuthorization(types: requestedTypes) { [weak self] result in
-            guard let self = self else {
-                completion(.failure(HealthKitActivityProviderError.unknown))
-                return
-            }
-            switch result {
-            case .success:
-                self.activityService.getStepsAndDistance(completion)
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
 
+        return activityService
+            .requestAuthorization(types: requestedTypes)
+            .flatMap { [unowned self] _ in
+                self.activityService.getStepsAndDistance()
+            }
     }
 }

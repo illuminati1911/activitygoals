@@ -9,10 +9,11 @@
 import Foundation
 import HealthKit
 import Core
+import RxSwift
 
 /// ActivityService: Any service that provides activity related data
 ///
 public protocol ActivityService {
-    func requestAuthorization(types: Set<HKObjectType>, _ completion: @escaping (Result<Void, Error>) -> Void)
-    func getStepsAndDistance(_ completion: @escaping (Result<Activity, Error>) -> Void)
+    func requestAuthorization(types: Set<HKObjectType>) -> Observable<Void>
+    func getStepsAndDistance() -> Observable<Activity>
 }

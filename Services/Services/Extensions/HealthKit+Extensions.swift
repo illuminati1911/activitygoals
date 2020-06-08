@@ -9,6 +9,7 @@
 import Foundation
 import HealthKit
 import Core
+import RxSwift
 
 /// HealthKitActivityProviderErrorr: Error type for HealthKit requests
 ///
@@ -35,69 +36,61 @@ public enum HealthKitActivityProviderError: Error {
 extension HKHealthStore: ActivityService {
     // requestAuthorization: wrapper for HealthKit Authorization
     //
-    public func requestAuthorization(types: Set<HKObjectType>, _ completion: @escaping (Result<Void, Error>) -> Void) {
-        guard HKHealthStore.isHealthDataAvailable() else {
-                completion(.failure(HealthKitActivityProviderError.healthKitNotAvailableError))
-            return
-        }
-        self.requestAuthorization(toShare: nil, read: types) { userWasShownPermissionView, _ in
-            guard userWasShownPermissionView else {
-                completion(.failure(HealthKitActivityProviderError.authorizationError))
-                return
+    public func requestAuthorization(types: Set<HKObjectType>) -> Observable<Void> {
+        return Observable.create { [weak self] observer in
+            guard HKHealthStore.isHealthDataAvailable() else {
+                observer.onError(HealthKitActivityProviderError.healthKitNotAvailableError)
+                return Disposables.create()
             }
-            completion(.success(()))
+            self?.requestAuthorization(toShare: nil, read: types) { userWasShownPermissionView, _ in
+                guard userWasShownPermissionView else {
+                    observer.onError(HealthKitActivityProviderError.authorizationError)
+                    return
+                }
+                observer.onNext(())
+            }
+            return Disposables.create()
         }
     }
 
     // getDaily: Generic fetching for HealthKit data
     //
-    func getDaily(_ identifier: HKQuantityTypeIdentifier, in unit: HKUnit, _ completion: @escaping (Result<Double, Error>) -> Void) {
-        guard let quantityType = HKQuantityType.quantityType(forIdentifier: identifier) else {
-            return
-        }
-        let predicate = HKQuery.predicateForSamples(
-            withStart: Calendar.current.startOfDay(for: Date()),
-            end: Calendar.current.startOfDay(for: Date()),
-            options: .strictStartDate
-        )
-
-        let query = HKStatisticsQuery(quantityType: quantityType,
-            quantitySamplePredicate: predicate,
-            options: .cumulativeSum) { _, result, _ in
-            guard let result = result, let sum = result.sumQuantity() else {
-                completion(.failure(HealthKitActivityProviderError.queryError))
-                return
+    func getDaily(_ identifier: HKQuantityTypeIdentifier, in unit: HKUnit) -> Observable<Double> {
+        return Observable.create { [weak self] observer in
+            guard
+                let self = self,
+                let quantityType = HKQuantityType.quantityType(forIdentifier: identifier) else {
+                observer.onError(HealthKitActivityProviderError.unknown)
+                return Disposables.create()
             }
-                completion(.success(sum.doubleValue(for: unit)))
-        }
-        self.execute(query)
-    }
+            let predicate = HKQuery.predicateForSamples(
+                withStart: Calendar.current.startOfDay(for: Date()),
+                end: Calendar.current.startOfDay(for: Date()),
+                options: .strictStartDate
+            )
 
-    // TODO: Change to RxSwift
-    // getStepsAndDistance: Get daily steps and running/walking distance
-    //
-    public func getStepsAndDistance(_ completion: @escaping (Result<Activity, Error>) -> Void) {
-        self.getDaily(.distanceWalkingRunning, in: .meter()) { [weak self] result in
-            guard let self = self else {
-                completion(.failure(HealthKitActivityProviderError.unknown))
-                return
-            }
-            switch result {
-            case .success(let distance):
-                self.getDaily(.stepCount, in: .count()) { resultSteps in
-                    switch resultSteps {
-                    case .success(let steps):
-                        completion(.success(Activity(steps: steps, distance: distance)))
-                        return
-                    case .failure(let error):
-                        completion(.failure(error))
+            let query = HKStatisticsQuery(quantityType: quantityType,
+                quantitySamplePredicate: predicate,
+                options: .cumulativeSum) { _, result, _ in
+                    guard let result = result, let sum = result.sumQuantity() else {
+                        observer.onError(HealthKitActivityProviderError.queryError)
                         return
                     }
-                }
-            case .failure(let error):
-                completion(.failure(error))
-                return
+                    observer.onNext(sum.doubleValue(for: unit))
             }
+            self.execute(query)
+            return Disposables.create()
+        }
+    }
+
+    // getStepsAndDistance: Get daily steps and running/walking distance
+    //
+    public func getStepsAndDistance() -> Observable<Activity> {
+        let distanceObs = self.getDaily(.distanceWalkingRunning, in: .meter())
+        let stepsObs = self.getDaily(.stepCount, in: .count())
+
+        return Observable.combineLatest(distanceObs, stepsObs) { distance, steps in
+            return Activity(steps: steps, distance: distance)
         }
     }
 }

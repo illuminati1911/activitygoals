@@ -24,16 +24,14 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        activityService = HKHealthStore()
-//        activity = HealthKitActivityProvider(activityService: activityService!)
-//        activity?.getActivity({ result in
-//            switch result {
-//            case .success(let activity):
-//                print(activity)
-//            case .failure(let error):
-//                print("Error")
-//            }
-//        })
+        activityService = HKHealthStore()
+        activity = HealthKitActivityProvider(activityService: activityService!)
+        activity?.getActivity()
+            .subscribe(onNext: { activity in
+                print(activity)
+            }, onError: { error in
+                print("error")
+            }).disposed(by: disposeBag)
 //        provider = RemoteWithLocalDataProvider(remote: networkProvider, local: localProvider)
 //        provider?.getGoals()
 //            .subscribe(onNext: { goalables in

@@ -8,7 +8,8 @@
 
 import Foundation
 import Core
+import RxSwift
 
 public protocol ActivityProvider {
-    func getActivity(_ completion: @escaping (Result<Activity, Error>) -> Void)
+    func getActivity() -> Observable<Activity>
 }
