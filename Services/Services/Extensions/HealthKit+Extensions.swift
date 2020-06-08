@@ -32,10 +32,10 @@ public enum HealthKitActivityProviderError: Error {
     }
 }
 
-public extension HKHealthStore {
+extension HKHealthStore: ActivityService {
     // requestAuthorization: wrapper for HealthKit Authorization
     //
-    func requestAuthorization(types: Set<HKObjectType>, _ completion: @escaping (Result<Void, Error>) -> Void) {
+    public func requestAuthorization(types: Set<HKObjectType>, _ completion: @escaping (Result<Void, Error>) -> Void) {
         guard HKHealthStore.isHealthDataAvailable() else {
                 completion(.failure(HealthKitActivityProviderError.healthKitNotAvailableError))
             return
@@ -76,7 +76,7 @@ public extension HKHealthStore {
     // TODO: Change to RxSwift
     // getStepsAndDistance: Get daily steps and running/walking distance
     //
-    func getStepsAndDistance(_ completion: @escaping (Result<Activity, Error>) -> Void) {
+    public func getStepsAndDistance(_ completion: @escaping (Result<Activity, Error>) -> Void) {
         self.getDaily(.distanceWalkingRunning, in: .meter()) { [weak self] result in
             guard let self = self else {
                 completion(.failure(HealthKitActivityProviderError.unknown))

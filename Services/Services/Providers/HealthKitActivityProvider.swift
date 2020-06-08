@@ -11,9 +11,11 @@ import Core
 import HealthKit
 
 public class HealthKitActivityProvider: ActivityProvider {
-    // Mock this to follow our own protocol
-    private lazy var healthStore = HKHealthStore()
-    public init() {}
+    private let activityService: ActivityService
+
+    public init(activityService: ActivityService) {
+        self.activityService = activityService
+    }
 
     public func getActivity(_ completion: @escaping (Result<Activity, Error>) -> Void) {
         guard
@@ -26,14 +28,14 @@ public class HealthKitActivityProvider: ActivityProvider {
             distance,
             steps
         ]
-        healthStore.requestAuthorization(types: requestedTypes) { [weak self] result in
+        activityService.requestAuthorization(types: requestedTypes) { [weak self] result in
             guard let self = self else {
                 completion(.failure(HealthKitActivityProviderError.unknown))
                 return
             }
             switch result {
             case .success:
-                self.healthStore.getStepsAndDistance(completion)
+                self.activityService.getStepsAndDistance(completion)
             case .failure(let error):
                 completion(.failure(error))
             }
