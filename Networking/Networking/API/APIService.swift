@@ -11,9 +11,11 @@ import RxSwift
 import Core
 
 public class APIService: APIClient, APIServiceProtocol {
-    public let session: URLSession = URLSession(configuration: .default)
+    public var session: URLSessionProtocol //URLSession(configuration: .default)
 
-    public init() {}
+    public init(session: URLSessionProtocol) {
+        self.session = session
+    }
 
     public func getGoals() -> Observable<[Goalable]> {
         return fetch(method: .GET, endPoint: GoalsEndpoint(), decodingType: Goals.self).map {

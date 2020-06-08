@@ -48,10 +48,32 @@ public enum APIError: Error {
     }
 }
 
+public protocol URLSessionProtocol {
+    func dataTaskProtocol(
+      with request: URLRequest,
+      completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void
+    ) -> URLSessionDataTaskProtocol
+}
+
+extension URLSession: URLSessionProtocol {
+    public func dataTaskProtocol(
+      with request: URLRequest,
+      completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void
+    ) -> URLSessionDataTaskProtocol {
+        return dataTask(with: request, completionHandler: completionHandler)
+    }
+}
+
+public protocol URLSessionDataTaskProtocol {
+    func resume()
+}
+
+extension URLSessionDataTask : URLSessionDataTaskProtocol {}
+
 /// APIClient: Generic API client protocol
 ///
 public protocol APIClient: class {
-    var session: URLSession { get }
+    var session: URLSessionProtocol { get }
 }
 
 /// APIClient: Make request to any endpoint which is provided by EndPoint protocol conforming type
@@ -78,7 +100,7 @@ extension APIClient {
 
             // API task
             //
-            let task = self.session.dataTask(with: request) { data, response, error in
+            let task = self.session.dataTaskProtocol(with: request) { data, response, error in
                 guard let response = response as? HTTPURLResponse else {
                     observer.onError(APIError.requestFailure)
                     return

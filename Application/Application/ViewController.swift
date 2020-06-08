@@ -16,7 +16,7 @@ import HealthKit
 
 class ViewController: UIViewController {
     let localProvider = CoreDataProvider()
-    let networkProvider = APIService()
+    //let networkProvider = APIService()
     var provider: DataProvider?
     var activity: ActivityProvider?
     var activityService: ActivityService?

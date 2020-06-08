@@ -10,11 +10,15 @@ import Foundation
 
 // Intermediate type for API call
 //
-public struct Goals: Decodable {
+public struct Goals: Codable {
     public let items: [Goal]
+
+    public init(items: [Goal]) {
+        self.items = items
+    }
 }
 
-public struct Reward: Decodable {
+public struct Reward: Codable {
     public let trophy: String
     public let points: Int
 
@@ -26,7 +30,7 @@ public struct Reward: Decodable {
 
 // Main activity goal type
 //
-public struct Goal: Decodable {
+public struct Goal: Codable {
     public let id: String
     public let title: String
     public let description: String
