@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 import Core
 
 struct ActivityGoalViewModel {
@@ -35,7 +36,7 @@ struct ActivityGoalViewModel {
         return "Your daily activity: \(activity.steps.asInt()) steps, \(activity.distance.asInt()) meters"
     }
 
-    var goalTarget: String {
+    var goalTargetText: String {
         return "Target: \(goal.goal) \(unit)"
     }
 
@@ -44,6 +45,17 @@ struct ActivityGoalViewModel {
             ? "Goal completed!"
             : "Still \(goalOffset) \(unit) left"
     }
+
+    var typeImage: UIImage? {
+        switch goal.type {
+        case .runningDistance, .walkingDistance:
+            return UIImage(named: "running")
+        case .step:
+            return UIImage(named: "step")
+        }
+    }
+
+    var titleText: String { return goal.title }
 
     init(goalable: Goalable, activity: Activity) {
         self.goal = goalable.asGoal()

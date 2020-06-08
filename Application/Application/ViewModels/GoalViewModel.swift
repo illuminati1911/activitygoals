@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 import Core
 
 struct GoalViewModel {
@@ -16,8 +17,25 @@ struct GoalViewModel {
         return "\(goal.title) - \(goal.description)"
     }
 
+    var title: String {
+        return goal.title
+    }
+
+    var description: String {
+        return goal.description
+    }
+
     var rewardText: String {
         return "Reward: \(goal.reward.points)"
+    }
+
+    var typeImage: UIImage? {
+        switch goal.type {
+        case .runningDistance, .walkingDistance:
+            return UIImage(named: "running")
+        case .step:
+            return UIImage(named: "step")
+        }
     }
 
     init(goalable: Goalable) {
