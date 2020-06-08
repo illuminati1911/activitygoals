@@ -14,6 +14,8 @@ import RxSwift
 /// ActivityService: Any service that provides activity related data
 ///
 public protocol ActivityService {
+    // TODO: Replace HealthKit type here with own
+    //
     func requestAuthorization(types: Set<HKObjectType>) -> Observable<Void>
     func getStepsAndDistance() -> Observable<Activity>
 }

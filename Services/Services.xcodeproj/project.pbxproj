@@ -18,11 +18,13 @@
 		2A412B13248D07F200B3FE59 /* HealthKit+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B12248D07F200B3FE59 /* HealthKit+Extensions.swift */; };
 		2A412B14248D07F200B3FE59 /* HealthKit+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B12248D07F200B3FE59 /* HealthKit+Extensions.swift */; };
 		2A412B38248D52EB00B3FE59 /* RemoteLocalProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B37248D52EB00B3FE59 /* RemoteLocalProviderTests.swift */; };
-		2A412B3E248D531F00B3FE59 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B3D248D531F00B3FE59 /* Mocks.swift */; };
 		2A412B42248DC33400B3FE59 /* ActivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B41248DC33400B3FE59 /* ActivityService.swift */; };
 		2A412B43248DC33400B3FE59 /* ActivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B41248DC33400B3FE59 /* ActivityService.swift */; };
+		2A412B48248DE00200B3FE59 /* HealthKitActivityProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B47248DE00200B3FE59 /* HealthKitActivityProviderTests.swift */; };
+		2A412B4A248DE46100B3FE59 /* MockActivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B49248DE46100B3FE59 /* MockActivityService.swift */; };
+		2A412B4C248DE49C00B3FE59 /* MockLocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B4B248DE49C00B3FE59 /* MockLocalStorage.swift */; };
+		2A412B4E248DE4AE00B3FE59 /* MockAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B4D248DE4AE00B3FE59 /* MockAPIService.swift */; };
 		2AA5BAA7248BDA7E00D8EBE1 /* Services.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA5BA9D248BDA7E00D8EBE1 /* Services.framework */; };
-		2AA5BAAC248BDA7E00D8EBE1 /* ServicesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5BAAB248BDA7E00D8EBE1 /* ServicesTests.swift */; };
 		2AA5BAAE248BDA7E00D8EBE1 /* Services.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AA5BAA0248BDA7E00D8EBE1 /* Services.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2AA5BACA248BDB8F00D8EBE1 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5BAC9248BDB8F00D8EBE1 /* DataProvider.swift */; };
 		2AA5BACB248BDB8F00D8EBE1 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5BAC9248BDB8F00D8EBE1 /* DataProvider.swift */; };
@@ -96,13 +98,15 @@
 		2A412B04248CEEED00B3FE59 /* HealthKitActivityProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitActivityProvider.swift; sourceTree = "<group>"; };
 		2A412B12248D07F200B3FE59 /* HealthKit+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HealthKit+Extensions.swift"; sourceTree = "<group>"; };
 		2A412B37248D52EB00B3FE59 /* RemoteLocalProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteLocalProviderTests.swift; sourceTree = "<group>"; };
-		2A412B3D248D531F00B3FE59 /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
 		2A412B41248DC33400B3FE59 /* ActivityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityService.swift; sourceTree = "<group>"; };
+		2A412B47248DE00200B3FE59 /* HealthKitActivityProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitActivityProviderTests.swift; sourceTree = "<group>"; };
+		2A412B49248DE46100B3FE59 /* MockActivityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockActivityService.swift; sourceTree = "<group>"; };
+		2A412B4B248DE49C00B3FE59 /* MockLocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocalStorage.swift; sourceTree = "<group>"; };
+		2A412B4D248DE4AE00B3FE59 /* MockAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIService.swift; sourceTree = "<group>"; };
 		2AA5BA9D248BDA7E00D8EBE1 /* Services.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Services.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AA5BAA0248BDA7E00D8EBE1 /* Services.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Services.h; sourceTree = "<group>"; };
 		2AA5BAA1248BDA7E00D8EBE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AA5BAA6248BDA7E00D8EBE1 /* ServicesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ServicesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2AA5BAAB248BDA7E00D8EBE1 /* ServicesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesTests.swift; sourceTree = "<group>"; };
 		2AA5BAAD248BDA7E00D8EBE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AA5BAC9248BDB8F00D8EBE1 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		2AA5BACE248BDC8700D8EBE1 /* LocalStorage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LocalStorage.xcodeproj; path = ../LocalStorage/LocalStorage.xcodeproj; sourceTree = "<group>"; };
@@ -158,7 +162,9 @@
 		2A412B3F248D546300B3FE59 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				2A412B3D248D531F00B3FE59 /* Mocks.swift */,
+				2A412B49248DE46100B3FE59 /* MockActivityService.swift */,
+				2A412B4B248DE49C00B3FE59 /* MockLocalStorage.swift */,
+				2A412B4D248DE4AE00B3FE59 /* MockAPIService.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -167,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				2A412B37248D52EB00B3FE59 /* RemoteLocalProviderTests.swift */,
+				2A412B47248DE00200B3FE59 /* HealthKitActivityProviderTests.swift */,
 			);
 			path = ProviderTests;
 			sourceTree = "<group>";
@@ -207,7 +214,6 @@
 		2AA5BAAA248BDA7E00D8EBE1 /* ServicesTests */ = {
 			isa = PBXGroup;
 			children = (
-				2AA5BAAB248BDA7E00D8EBE1 /* ServicesTests.swift */,
 				2AA5BAAD248BDA7E00D8EBE1 /* Info.plist */,
 				2A412B40248DBB8600B3FE59 /* ProviderTests */,
 				2A412B3F248D546300B3FE59 /* Mocks */,
@@ -529,11 +535,13 @@
 				2A412B43248DC33400B3FE59 /* ActivityService.swift in Sources */,
 				2AA5BACB248BDB8F00D8EBE1 /* DataProvider.swift in Sources */,
 				2A412B06248CEEED00B3FE59 /* HealthKitActivityProvider.swift in Sources */,
-				2A412B3E248D531F00B3FE59 /* Mocks.swift in Sources */,
+				2A412B48248DE00200B3FE59 /* HealthKitActivityProviderTests.swift in Sources */,
+				2A412B4A248DE46100B3FE59 /* MockActivityService.swift in Sources */,
+				2A412B4C248DE49C00B3FE59 /* MockLocalStorage.swift in Sources */,
 				2A412AFF248CEEB800B3FE59 /* ActivityProvider.swift in Sources */,
 				2A412B38248D52EB00B3FE59 /* RemoteLocalProviderTests.swift in Sources */,
-				2AA5BAAC248BDA7E00D8EBE1 /* ServicesTests.swift in Sources */,
 				2A412AA7248BEB2E00B3FE59 /* RemoteWithLocalDataProvider.swift in Sources */,
+				2A412B4E248DE4AE00B3FE59 /* MockAPIService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

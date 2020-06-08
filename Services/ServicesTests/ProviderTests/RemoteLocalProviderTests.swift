@@ -35,7 +35,7 @@ class ProvidersTests: XCTestCase {
     }
 
     func testDefaultRemoteLocalProviderWithFailingLocal() throws {
-        let expectation = XCTestExpectation(description: "Fetch goals from the service")
+        let expectation = XCTestExpectation(description: "Fetch goals from the provider")
         var fetchedGoals: [Goalable]?
 
         let remoteWithLocal = RemoteWithLocalDataProvider(
@@ -54,7 +54,7 @@ class ProvidersTests: XCTestCase {
     }
 
     func testDefaultRemoteLocalProviderWithFailingRemote() throws {
-        let expectation = XCTestExpectation(description: "Fetch goals from the service")
+        let expectation = XCTestExpectation(description: "Fetch goals from the provider")
         var fetchedGoals: [Goalable]?
 
         let remoteWithLocal = RemoteWithLocalDataProvider(
@@ -73,7 +73,7 @@ class ProvidersTests: XCTestCase {
     }
 
     func testDefaultRemoteLocalProviderWithBothFailing() throws {
-        let expectation = XCTestExpectation(description: "Fetch goals from the service")
+        let expectation = XCTestExpectation(description: "Fetch error from the provider")
         var fetchedError: Error?
 
         let remoteWithLocal = RemoteWithLocalDataProvider(
@@ -96,7 +96,7 @@ class ProvidersTests: XCTestCase {
     }
 
     func testLocalCache() throws {
-        let expectation = XCTestExpectation(description: "Fetch goals from the service")
+        let expectation = XCTestExpectation(description: "Verify that goals get cached")
         let local = MockLocalStorage(failing: false, expectation: expectation)
 
         let remoteWithLocal = RemoteWithLocalDataProvider(
@@ -108,8 +108,6 @@ class ProvidersTests: XCTestCase {
             .disposed(by: disposeBag)
 
         wait(for: [expectation], timeout: 10.0)
-        //XCTAssertEqual(fetchedGoals!.count, 3)
-        print(local.goalDB)
         XCTAssertEqual(local.goalDB.count, 3)
         XCTAssertEqual(local.goalDB[0].asGoal().title, "GoalFromRemote")
         XCTAssertEqual(local.goalDB[1].asGoal().title, "GoalFromRemote")
