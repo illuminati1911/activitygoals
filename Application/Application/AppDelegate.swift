@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import Services
+import Networking
+import LocalStorage
+import HealthKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow()
-        window?.rootViewController = ViewController()
+        let activityProvider = HealthKitActivityProvider(activityService: HKHealthStore())
+        let dataProvider = RemoteWithLocalDataProvider(remote: APIService(), local: CoreDataProvider())
+        let mainVC = GoalsViewController(activityProvider: activityProvider, dataProvider: dataProvider)
+        window?.rootViewController = mainVC
         window?.makeKeyAndVisible()
         return true
     }

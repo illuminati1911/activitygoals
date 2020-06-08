@@ -16,6 +16,7 @@ end
 def application_pods
     global_pods
     pod 'SnapKit', '5.0.1'
+    pod 'RxCocoa', '5.1.1'
 end
 
 def networking_pods

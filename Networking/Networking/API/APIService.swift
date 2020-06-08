@@ -11,9 +11,9 @@ import RxSwift
 import Core
 
 public class APIService: APIClient, APIServiceProtocol {
-    public var session: URLSessionProtocol //URLSession(configuration: .default)
+    public var session: URLSessionProtocol
 
-    public init(session: URLSessionProtocol) {
+    public init(session: URLSessionProtocol = URLSession(configuration: .default)) {
         self.session = session
     }
 

@@ -11,6 +11,13 @@
 		1AAEE07EAB51DDDF3BACF4E0 /* Pods_ApplicationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBD62D54679453E240687C5 /* Pods_ApplicationTests.framework */; };
 		2A412A90248BE8DD00B3FE59 /* Core.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 2A412A87248BE8CF00B3FE59 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2A412B09248CF23200B3FE59 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A412B08248CF23200B3FE59 /* HealthKit.framework */; };
+		2A412B57248E04E500B3FE59 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B56248E04E500B3FE59 /* MainViewController.swift */; };
+		2A412B61248E051700B3FE59 /* GoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B60248E051700B3FE59 /* GoalsViewController.swift */; };
+		2A412B63248E0C8100B3FE59 /* GoalsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B62248E0C8100B3FE59 /* GoalsListViewModel.swift */; };
+		2A412B64248E0C8100B3FE59 /* GoalsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B62248E0C8100B3FE59 /* GoalsListViewModel.swift */; };
+		2A412B66248E0D9300B3FE59 /* GoalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B65248E0D9300B3FE59 /* GoalViewModel.swift */; };
+		2A412B67248E0D9300B3FE59 /* GoalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B65248E0D9300B3FE59 /* GoalViewModel.swift */; };
+		2A412B74248E222200B3FE59 /* GoalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B73248E222200B3FE59 /* GoalTableViewCell.swift */; };
 		2AA5B9CE248B2D9500D8EBE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5B9CD248B2D9500D8EBE1 /* AppDelegate.swift */; };
 		2AA5B9D2248B2D9500D8EBE1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5B9D1248B2D9500D8EBE1 /* ViewController.swift */; };
 		2AA5B9D7248B2D9800D8EBE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AA5B9D6248B2D9800D8EBE1 /* Assets.xcassets */; };
@@ -116,6 +123,11 @@
 		2A412A81248BE8CF00B3FE59 /* Core.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Core.xcodeproj; path = ../Core/Core.xcodeproj; sourceTree = "<group>"; };
 		2A412B07248CF23100B3FE59 /* Application.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Application.entitlements; sourceTree = "<group>"; };
 		2A412B08248CF23200B3FE59 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		2A412B56248E04E500B3FE59 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		2A412B60248E051700B3FE59 /* GoalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsViewController.swift; sourceTree = "<group>"; };
+		2A412B62248E0C8100B3FE59 /* GoalsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsListViewModel.swift; sourceTree = "<group>"; };
+		2A412B65248E0D9300B3FE59 /* GoalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalViewModel.swift; sourceTree = "<group>"; };
+		2A412B73248E222200B3FE59 /* GoalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTableViewCell.swift; sourceTree = "<group>"; };
 		2AA5B9CA248B2D9500D8EBE1 /* Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Application.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AA5B9CD248B2D9500D8EBE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2AA5B9D1248B2D9500D8EBE1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -177,6 +189,44 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		2A412B68248E0D9700B3FE59 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				2A412B62248E0C8100B3FE59 /* GoalsListViewModel.swift */,
+				2A412B65248E0D9300B3FE59 /* GoalViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		2A412B69248E0DA200B3FE59 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2A412B56248E04E500B3FE59 /* MainViewController.swift */,
+				2A412B60248E051700B3FE59 /* GoalsViewController.swift */,
+				2AA5B9D1248B2D9500D8EBE1 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		2A412B7D248E222800B3FE59 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2A412B73248E222200B3FE59 /* GoalTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2A412B7E248E224200B3FE59 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				2A412B07248CF23100B3FE59 /* Application.entitlements */,
+				2AA5B9D6248B2D9800D8EBE1 /* Assets.xcassets */,
+				2AA5B9D8248B2D9800D8EBE1 /* LaunchScreen.storyboard */,
+				2AA5B9DB248B2D9800D8EBE1 /* Info.plist */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 		2AA5B9C1248B2D9500D8EBE1 = {
 			isa = PBXGroup;
 			children = (
@@ -203,12 +253,11 @@
 		2AA5B9CC248B2D9500D8EBE1 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				2A412B07248CF23100B3FE59 /* Application.entitlements */,
 				2AA5B9CD248B2D9500D8EBE1 /* AppDelegate.swift */,
-				2AA5B9D1248B2D9500D8EBE1 /* ViewController.swift */,
-				2AA5B9D6248B2D9800D8EBE1 /* Assets.xcassets */,
-				2AA5B9D8248B2D9800D8EBE1 /* LaunchScreen.storyboard */,
-				2AA5B9DB248B2D9800D8EBE1 /* Info.plist */,
+				2A412B7E248E224200B3FE59 /* Other */,
+				2A412B7D248E222800B3FE59 /* Views */,
+				2A412B69248E0DA200B3FE59 /* ViewControllers */,
+				2A412B68248E0D9700B3FE59 /* ViewModels */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -628,8 +677,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A412B57248E04E500B3FE59 /* MainViewController.swift in Sources */,
+				2A412B74248E222200B3FE59 /* GoalTableViewCell.swift in Sources */,
+				2A412B61248E051700B3FE59 /* GoalsViewController.swift in Sources */,
 				2AA5B9D2248B2D9500D8EBE1 /* ViewController.swift in Sources */,
+				2A412B63248E0C8100B3FE59 /* GoalsListViewModel.swift in Sources */,
 				2AA5B9CE248B2D9500D8EBE1 /* AppDelegate.swift in Sources */,
+				2A412B66248E0D9300B3FE59 /* GoalViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -638,6 +692,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AA5B9E5248B2D9800D8EBE1 /* ApplicationTests.swift in Sources */,
+				2A412B64248E0C8100B3FE59 /* GoalsListViewModel.swift in Sources */,
+				2A412B67248E0D9300B3FE59 /* GoalViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -797,7 +853,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Application/Application.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Application/Info.plist;
+				INFOPLIST_FILE = Application/Other/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -817,7 +873,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Application/Application.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Application/Info.plist;
+				INFOPLIST_FILE = Application/Other/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
