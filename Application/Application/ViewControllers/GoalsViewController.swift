@@ -13,7 +13,7 @@ import Core
 import SnapKit
 import RxCocoa
 
-final class GoalsViewController: MainViewController {
+final class GoalsViewController: BaseViewController {
     private let disposeBag = DisposeBag()
     private let tableView = with(UITableView()) {
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -49,9 +49,17 @@ final class GoalsViewController: MainViewController {
         tableView.rx.itemSelected
             .subscribe(onNext: { [weak self] indexPath in
             self?.tableView.deselectRow(at: indexPath, animated: true)
-            print("Hello \(indexPath.row)")
-            print(self?.goalsListViewModel.goalViewModels[indexPath.row])
+                self?.navigateToNextView(goalable: self?.goalsListViewModel.goalables[indexPath.row])
         }).disposed(by: disposeBag)
+    }
+
+    func navigateToNextView(goalable: Goalable?) {
+        guard let goalable = goalable else { return }
+        let detailVC = DetailGoalViewController(
+                activityProvider: self.activityProvider,
+                dataProvider: self.dataProvider,
+                goalable: goalable)
+        self.present(detailVC, animated: true, completion: nil)
     }
 
     override func viewDidLoad() {

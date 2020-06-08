@@ -68,7 +68,7 @@ public protocol URLSessionDataTaskProtocol {
     func resume()
 }
 
-extension URLSessionDataTask : URLSessionDataTaskProtocol {}
+extension URLSessionDataTask: URLSessionDataTaskProtocol {}
 
 /// APIClient: Generic API client protocol
 ///

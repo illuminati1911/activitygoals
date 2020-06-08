@@ -1,5 +1,5 @@
 //
-//  MainViewController.swift
+//  BaseViewController.swift
 //  Application
 //
 //  Created by Ville Välimaa on 2020/6/8.
@@ -9,7 +9,7 @@
 import UIKit
 import Services
 
-class MainViewController: UIViewController {
+class BaseViewController: UIViewController {
     let activityProvider: ActivityProvider
     let dataProvider: DataProvider
 

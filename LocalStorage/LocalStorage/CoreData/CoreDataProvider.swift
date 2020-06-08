@@ -69,7 +69,7 @@ public class CoreDataProvider: LocalStorageProtocol {
             goal.id = goalable.asGoal().id
             goal.title = goalable.asGoal().title
             goal.desc = goalable.asGoal().description
-            goal.type = goalable.asGoal().type
+            goal.type = goalable.asGoal().type.rawValue
             goal.goal = Int64(goalable.asGoal().goal)
             goal.trophy = goalable.asGoal().reward.trophy
             goal.points = Int64(goalable.asGoal().reward.points)

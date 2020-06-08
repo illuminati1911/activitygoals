@@ -20,7 +20,7 @@ class NetworkingTests: XCTestCase {
     }
 
     func testExample() throws {
-        
+
     }
 
     func testPerformanceExample() throws {

@@ -15,7 +15,7 @@ final class GoalsListViewModel {
     private let disposeBag = DisposeBag()
     private let dataProvider: DataProvider
 
-    var goalViewModels: [GoalViewModel] = []
+    var goalables: [Goalable] = []
     let title = "Daily activity goals!"
 
     init(dataProvider: DataProvider) {
@@ -29,7 +29,7 @@ final class GoalsListViewModel {
                 let vms = $0.map {
                     GoalViewModel(goalable: $0)
                 }
-                self?.goalViewModels = vms
+                self?.goalables = $0
                 return vms
             }
     }

@@ -31,10 +31,15 @@ public struct Reward: Codable {
 // Main activity goal type
 //
 public struct Goal: Codable {
+    public enum GoalType: String, Codable {
+      case step = "step"
+      case walkingDistance = "walking_distance"
+      case runningDistance = "running_distance"
+    }
     public let id: String
     public let title: String
     public let description: String
-    public let type: String // TODO change to enum
+    public let type: GoalType
     public let goal: Int
     public let reward: Reward
 
@@ -42,7 +47,7 @@ public struct Goal: Codable {
         self.id = id
         self.title = title
         self.description = description
-        self.type = type
+        self.type = GoalType(rawValue: "type") ?? .step
         self.goal = goal
         self.reward = Reward(trophy: trophy, points: points)
     }
