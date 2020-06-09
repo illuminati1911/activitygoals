@@ -17,7 +17,7 @@ class MockActivityService: ActivityService {
     init(allowAccess: Bool) {
         self.allowAccess = allowAccess
     }
-    func requestAuthorization(types: Set<HKObjectType>) -> Observable<Void> {
+    func requestAuthorization(types: Set<ActivityType>) -> Observable<Void> {
         return Observable.create { [unowned self] observer in
             if !self.allowAccess {
                 observer.onError(HealthKitActivityProviderError.authorizationError)
