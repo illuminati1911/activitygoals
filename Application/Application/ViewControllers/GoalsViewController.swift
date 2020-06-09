@@ -69,6 +69,7 @@ final class GoalsViewController: BaseViewController {
             }.disposed(by: disposeBag)
 
         fetchGoals
+            .observeOn(MainScheduler.instance)
             .subscribe(onError: { [weak self] error in
                 self?.showAlert(Localized.errorTitle, description: error.localizedDescription)
             }).disposed(by: disposeBag)

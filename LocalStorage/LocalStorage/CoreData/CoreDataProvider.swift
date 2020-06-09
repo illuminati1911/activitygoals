@@ -65,7 +65,7 @@ public class CoreDataProvider: LocalStorageProtocol {
     public func createGoals(goalables: [Goalable]) -> Observable<[Goalable]> {
         return Observable.create { observer in
             let context = self.persistentContainer.viewContext
-
+            
             for goalable in goalables {
                 guard let goal = NSEntityDescription.insertNewObject(forEntityName: self.goalEntityName, into: context) as? CDGoal else {
                     observer.onError(CoreDataProviderError.createFailure)
@@ -79,15 +79,14 @@ public class CoreDataProvider: LocalStorageProtocol {
                 goal.goal = Int64(goalable.asGoal().goal)
                 goal.trophy = goalable.asGoal().reward.trophy
                 goal.points = Int64(goalable.asGoal().reward.points)
-
-                do {
-                    try context.save()
-                } catch {
-                    observer.onError(CoreDataProviderError.createFailure)
-                    return Disposables.create()
-                }
             }
 
+            do {
+                try context.save()
+            } catch {
+                observer.onError(CoreDataProviderError.createFailure)
+                return Disposables.create()
+            }
             observer.onNext(goalables)
             return Disposables.create()
         }

@@ -40,7 +40,10 @@ public class RemoteWithLocalDataProvider: DataProvider {
     //
     private func syncToLocalStorage(_ goalables: [Goalable]) {
         DispatchQueue.main.async {
-            _ = self.local.createGoals(goalables: goalables).subscribe()
+            self.local
+                .createGoals(goalables: goalables)
+                .subscribe()
+                .disposed(by: self.disposeBag)
         }
     }
 
