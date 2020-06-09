@@ -17,7 +17,7 @@ final class DetailGoalViewModel {
     private let goalable: Goalable
 
     var title: String { return goalable.asGoal().title }
-    
+
     init(mainProvider: MainProvider, goalable: Goalable) {
         self.mainProvider = mainProvider
         self.goalable = goalable

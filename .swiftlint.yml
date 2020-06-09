@@ -1,6 +1,8 @@
-excluded: # paths to ignore during linting. Takes precedence over `included`.
+excluded:
 - Pods
 
 line_length: 250
+identifier_name:
+  min_length: 1
 
-reporter: "xcode" # reporter type (xcode, json, csv, checkstyle, junit, html, emoji)
+reporter: "xcode"
