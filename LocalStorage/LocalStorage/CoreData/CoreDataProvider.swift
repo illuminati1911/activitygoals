@@ -33,31 +33,13 @@ public enum CoreDataProviderError: Error {
 /// CoreDataProvider: LocalStorageProtocol conforming component for Core Data
 ///
 public class CoreDataProvider: LocalStorageProtocol {
-    private let identifier: String = "com.illuminati1911.activitygoals.LocalStorage"
-    private let model: String = "CoreDataModel"
     private let goalEntityName = "CDGoal"
 
-    public init() {}
+    let persistentContainer: NSPersistentContainer
 
-    // persistentContainer lazy init
-    // -----------------------------
-    // Force unwraps are used here as LocalStorage is considered to be mission
-    // critical component for the application.
-    //
-    private lazy var persistentContainer: NSPersistentContainer = {
-        let messageKitBundle = Bundle(identifier: self.identifier)
-        let modelURL = messageKitBundle!.url(forResource: self.model, withExtension: "momd")!
-        let managedObjectModel =  NSManagedObjectModel(contentsOf: modelURL)
-
-        let container = NSPersistentContainer(name: self.model, managedObjectModel: managedObjectModel!)
-        container.loadPersistentStores { _, error in
-            if let error = error {
-                fatalError("Loading of store failed: \(error)")
-            }
-        }
-        container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
-        return container
-    }()
+    public init(container: NSPersistentContainer) {
+        self.persistentContainer = container
+    }
 
     // createGoals: batch insert Goalable objects to Core Data
     //
