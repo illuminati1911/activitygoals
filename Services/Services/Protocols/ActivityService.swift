@@ -11,11 +11,16 @@ import HealthKit
 import Core
 import RxSwift
 
+public enum ActivityType {
+    case distance
+    case stepCount
+}
+
 /// ActivityService: Any service that provides activity related data
 ///
 public protocol ActivityService {
     // TODO: Replace HealthKit type here with own
     //
-    func requestAuthorization(types: Set<HKObjectType>) -> Observable<Void>
+    func requestAuthorization(types: Set<ActivityType>) -> Observable<Void>
     func getStepsAndDistance() -> Observable<Activity>
 }

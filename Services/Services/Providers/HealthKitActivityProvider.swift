@@ -19,17 +19,9 @@ public class HealthKitActivityProvider: ActivityProvider {
     }
 
     public func getActivity() -> Observable<Activity> {
-        guard
-            let distance = HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning),
-            let steps = HKQuantityType.quantityType(forIdentifier: .stepCount) else {
-                return Observable.create { observer in
-                    observer.onError(HealthKitActivityProviderError.healthKitNotAvailableError)
-                    return Disposables.create()
-                }
-        }
-        let requestedTypes: Set<HKObjectType> = [
-            distance,
-            steps
+        let requestedTypes: Set<ActivityType> = [
+            .distance,
+            .stepCount
         ]
 
         return activityService

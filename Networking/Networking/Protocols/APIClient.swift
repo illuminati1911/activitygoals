@@ -101,6 +101,10 @@ extension APIClient {
             // API task
             //
             let task = self.session.dataTaskProtocol(with: request) { data, response, error in
+                guard error == nil else {
+                    observer.onError(APIError.requestFailure)
+                    return
+                }
                 guard let response = response as? HTTPURLResponse else {
                     observer.onError(APIError.requestFailure)
                     return
@@ -109,7 +113,7 @@ extension APIClient {
                     observer.onError(APIError.invalidData(response.statusCode))
                     return
                 }
-                guard (200 ... 299) ~= response.statusCode, error == nil else {
+                guard (200 ... 299) ~= response.statusCode else {
                     observer.onError(APIError.responseFailure(response.statusCode))
                     return
                 }

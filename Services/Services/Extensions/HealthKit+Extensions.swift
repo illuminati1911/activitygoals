@@ -34,15 +34,43 @@ public enum HealthKitActivityProviderError: Error {
 }
 
 extension HKHealthStore: ActivityService {
+    func activityTypesToHKTypes(_ types: Set<ActivityType>) -> Set<HKObjectType>? {
+        guard
+            let distance = HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning),
+            let steps = HKQuantityType.quantityType(forIdentifier: .stepCount) else {
+                return nil
+        }
+        return Set(types.map { type in
+            switch type {
+            case .distance: return distance
+            case .stepCount: return steps
+            }
+        })
+        /*guard
+                   let distance = HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning),
+                   let steps = HKQuantityType.quantityType(forIdentifier: .stepCount) else {
+                       return Observable.create { observer in
+                           observer.onError(HealthKitActivityProviderError.healthKitNotAvailableError)
+                           return Disposables.create()
+                       }
+               }
+               let requestedTypes: Set<HKObjectType> = [
+                   distance,
+                   steps
+               ]*/
+    }
+
     // requestAuthorization: wrapper for HealthKit Authorization
     //
-    public func requestAuthorization(types: Set<HKObjectType>) -> Observable<Void> {
+    public func requestAuthorization(types: Set<ActivityType>) -> Observable<Void> {
         return Observable.create { [weak self] observer in
-            guard HKHealthStore.isHealthDataAvailable() else {
+            guard
+                let hkTypes = self?.activityTypesToHKTypes(types),
+                HKHealthStore.isHealthDataAvailable() else {
                 observer.onError(HealthKitActivityProviderError.healthKitNotAvailableError)
                 return Disposables.create()
             }
-            self?.requestAuthorization(toShare: nil, read: types) { userWasShownPermissionView, _ in
+            self?.requestAuthorization(toShare: nil, read: hkTypes) { userWasShownPermissionView, _ in
                 guard userWasShownPermissionView else {
                     observer.onError(HealthKitActivityProviderError.authorizationError)
                     return
