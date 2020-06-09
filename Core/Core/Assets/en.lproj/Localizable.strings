@@ -13,6 +13,7 @@
 "daily_activity" = "Your daily activity: %d steps, %d meters";
 "goal_target" = "Target: %d %@";
 "goal_remaining" = "Still %d %@ left";
+"reward" = "Reward: %d";
 "dismiss" = "Dismiss";
 "error_unknown" = "Unknown error";
 "error_healthkit_query" = "HealthKit data query error";

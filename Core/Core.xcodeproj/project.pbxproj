@@ -26,6 +26,8 @@
 		2A412BA7248F69C000B3FE59 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A412BA9248F69C000B3FE59 /* Localizable.strings */; };
 		2A412BAB248F6A6B00B3FE59 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412BAA248F6A6B00B3FE59 /* Localized.swift */; };
 		2A412BAC248F6A6B00B3FE59 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412BAA248F6A6B00B3FE59 /* Localized.swift */; };
+		2A412BC1248FA62F00B3FE59 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412BC0248FA62F00B3FE59 /* Images.swift */; };
+		2A412BC2248FA62F00B3FE59 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412BC0248FA62F00B3FE59 /* Images.swift */; };
 		42EDAC881AED6E7351B5FF5A /* Pods_CoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B28307490A2185EAC831075 /* Pods_CoreTests.framework */; };
 		47AFFF13460BD5A0D81D4F39 /* Pods_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9B30A93B559C77AA8224244 /* Pods_Core.framework */; };
 /* End PBXBuildFile section */
@@ -58,6 +60,7 @@
 		2A412B9F248F213E00B3FE59 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		2A412BA8248F69C000B3FE59 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2A412BAA248F6A6B00B3FE59 /* Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
+		2A412BC0248FA62F00B3FE59 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		4B28307490A2185EAC831075 /* Pods_CoreTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BCFFC9A8BA79F6656261B60 /* Pods-Core.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Core.release.xcconfig"; path = "Target Support Files/Pods-Core/Pods-Core.release.xcconfig"; sourceTree = "<group>"; };
 		D9551234D5B471262A107108 /* Pods-CoreTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreTests.release.xcconfig"; path = "Target Support Files/Pods-CoreTests/Pods-CoreTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -123,8 +126,7 @@
 				2A412A65248BE75800B3FE59 /* Core.h */,
 				2A412A66248BE75800B3FE59 /* Info.plist */,
 				2A412B6A248E127B00B3FE59 /* Utils.swift */,
-				2A412BA9248F69C000B3FE59 /* Localizable.strings */,
-				2A412BAA248F6A6B00B3FE59 /* Localized.swift */,
+				2A412BBF248FA60E00B3FE59 /* Assets */,
 				2A412A97248BE97500B3FE59 /* Models */,
 				2A412AB2248BEEF000B3FE59 /* Protocols */,
 				2A412AF6248CC1D000B3FE59 /* Extensions */,
@@ -174,6 +176,16 @@
 				2A412B9F248F213E00B3FE59 /* UIViewController+Extensions.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		2A412BBF248FA60E00B3FE59 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				2A412BA9248F69C000B3FE59 /* Localizable.strings */,
+				2A412BAA248F6A6B00B3FE59 /* Localized.swift */,
+				2A412BC0248FA62F00B3FE59 /* Images.swift */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		424A74141AB7196E0F53807A /* Frameworks */ = {
@@ -368,6 +380,7 @@
 				2A412BAB248F6A6B00B3FE59 /* Localized.swift in Sources */,
 				2A412B88248E388600B3FE59 /* Double+Extensions.swift in Sources */,
 				2A412B6B248E127B00B3FE59 /* Utils.swift in Sources */,
+				2A412BC1248FA62F00B3FE59 /* Images.swift in Sources */,
 				2A412AF5248CC1CB00B3FE59 /* Result+Extensions.swift in Sources */,
 				2A412AB0248BEEEA00B3FE59 /* Goalable.swift in Sources */,
 				2A412B17248D172500B3FE59 /* Activity.swift in Sources */,
@@ -384,6 +397,7 @@
 				2A412AB1248BEEEA00B3FE59 /* Goalable.swift in Sources */,
 				2A412A71248BE75800B3FE59 /* CoreTests.swift in Sources */,
 				2A412B6C248E127B00B3FE59 /* Utils.swift in Sources */,
+				2A412BC2248FA62F00B3FE59 /* Images.swift in Sources */,
 				2A412BAC248F6A6B00B3FE59 /* Localized.swift in Sources */,
 				2A412B89248E388600B3FE59 /* Double+Extensions.swift in Sources */,
 			);

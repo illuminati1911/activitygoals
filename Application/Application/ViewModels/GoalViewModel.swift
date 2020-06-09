@@ -13,10 +13,6 @@ import Core
 struct GoalViewModel {
     private let goal: Goal
 
-    var displayText: String {
-        return "\(goal.title) - \(goal.description)"
-    }
-
     var title: String {
         return goal.title
     }
@@ -26,15 +22,15 @@ struct GoalViewModel {
     }
 
     var rewardText: String {
-        return "Reward: \(goal.reward.points)"
+        return Localized.stringForKeyWithParams("reward", goal.reward.points)
     }
 
     var typeImage: UIImage? {
         switch goal.type {
         case .runningDistance, .walkingDistance:
-            return UIImage(named: "running")
+            return Images.runningIcon
         case .step:
-            return UIImage(named: "step")
+            return Images.stepIcon
         }
     }
 
