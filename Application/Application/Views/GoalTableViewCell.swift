@@ -27,7 +27,7 @@ class GoalTableViewCell: UITableViewCell {
         $0.numberOfLines = 0
         $0.lineBreakMode = .byWordWrapping
     }
-
+    
     private let descriptionLabel = with(UILabel()) {
         $0.text = "Simple walk -  walk 5000 steps"
         $0.numberOfLines = 0

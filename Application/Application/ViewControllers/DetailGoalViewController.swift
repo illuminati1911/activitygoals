@@ -47,9 +47,8 @@ final class DetailGoalViewController: BaseViewController {
                 self?.dailyActivityLabel.text = activityGoalVM.displayDailyActivityText
                 self?.targetLabel.text = activityGoalVM.goalTargetText
                 self?.statusLabel.text = activityGoalVM.statusText
-        }, onError: { error in
-            print("Error")
-            print(error)
+        }, onError: { [weak self] error in
+            self?.showAlert("Error!", description: error.localizedDescription)
         }).disposed(by: disposeBag)
     }
 

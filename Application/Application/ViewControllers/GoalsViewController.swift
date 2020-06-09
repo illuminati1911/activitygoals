@@ -49,9 +49,16 @@ final class GoalsViewController: BaseViewController {
         goalsListViewModel
             .fetchGoalViewModels()
             .observeOn(MainScheduler.instance)
+            .catchError { _ in Observable.never() }
             .bind(to: tableView.rx.items(cellIdentifier: GoalTableViewCell.identifier, cellType: GoalTableViewCell.self)) { _, viewModel, cell in
                 cell.goalViewModel = viewModel
             }.disposed(by: disposeBag)
+
+        goalsListViewModel
+            .fetchGoalViewModels()
+            .subscribe(onError: { [weak self] error in
+                self?.showAlert("Error", description: error.localizedDescription)
+            }).disposed(by: disposeBag)
 
         tableView
             .rx
