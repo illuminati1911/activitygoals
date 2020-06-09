@@ -10,20 +10,32 @@ import Foundation
 import Services
 import Core
 import RxSwift
+import RxCocoa
 
 final class GoalsListViewModel {
     private let disposeBag = DisposeBag()
     private let mainProvider: MainProvider
 
     var goalables: [Goalable] = []
+    let hideLoading = BehaviorRelay<Bool>(value: false)
     let title = "Daily activity goals!"
 
     init(mainProvider: MainProvider) {
         self.mainProvider = mainProvider
     }
 
+    private func subscribeToLoading(_ obs: Observable<[GoalViewModel]>) -> Observable<[GoalViewModel]> {
+        self.hideLoading.accept(true)
+        obs.subscribe(onNext: { [weak self] _ in
+            self?.hideLoading.accept(false)
+        }, onError: { [weak self] _ in
+            self?.hideLoading.accept(false)
+        }).disposed(by: disposeBag)
+        return obs
+    }
+
     func fetchGoalViewModels() -> Observable<[GoalViewModel]> {
-        self.mainProvider
+        let obs: Observable<[GoalViewModel]> = self.mainProvider
             .dataProvider
             .getGoals()
             .map { [weak self] in
@@ -32,6 +44,7 @@ final class GoalsListViewModel {
                 }
                 self?.goalables = $0
                 return vms
-            }
+        }.share()
+        return subscribeToLoading(obs)
     }
 }

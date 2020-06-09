@@ -19,12 +19,22 @@ final class GoalsViewController: BaseViewController {
         return selectedGoalSubject.asObservable()
     }
     private let disposeBag = DisposeBag()
+
     private let tableView = with(UITableView()) {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.tableFooterView = UIView()
         $0.register(GoalTableViewCell.self, forCellReuseIdentifier: GoalTableViewCell.identifier)
         $0.contentInsetAdjustmentBehavior = .never
     }
+
+    private let loadingSpinner = with(UIActivityIndicatorView()) {
+        if #available(iOS 13.0, *) {
+            $0.style = .large
+        } else {
+            $0.style = .gray
+        }
+    }
+
     private var goalsListViewModel: GoalsListViewModel
 
     override init(_ mainProvider: MainProvider) {
@@ -36,26 +46,29 @@ final class GoalsViewController: BaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func configureTableView() {
-        view.addSubview(tableView)
-        view.backgroundColor = .white
-        tableView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            make.left.right.bottom.equalToSuperview()
-        }
+    func setupObservables() {
+        goalsListViewModel
+            .hideLoading
+            .asObservable()
+            .observeOn(MainScheduler.instance)
+            .bind(to: loadingSpinner.rx.isAnimating)
+            .disposed(by: disposeBag)
 
         // Bind observer to tableView
         //
-        goalsListViewModel
+        let fetchGoals = goalsListViewModel
             .fetchGoalViewModels()
+            .share()
+
+        fetchGoals
             .observeOn(MainScheduler.instance)
             .catchError { _ in Observable.never() }
-            .bind(to: tableView.rx.items(cellIdentifier: GoalTableViewCell.identifier, cellType: GoalTableViewCell.self)) { _, viewModel, cell in
+            .bind(to: tableView.rx.items(cellIdentifier: GoalTableViewCell.identifier,
+                                         cellType: GoalTableViewCell.self)) { _, viewModel, cell in
                 cell.goalViewModel = viewModel
             }.disposed(by: disposeBag)
 
-        goalsListViewModel
-            .fetchGoalViewModels()
+        fetchGoals
             .subscribe(onError: { [weak self] error in
                 self?.showAlert("Error", description: error.localizedDescription)
             }).disposed(by: disposeBag)
@@ -70,9 +83,25 @@ final class GoalsViewController: BaseViewController {
             }).disposed(by: disposeBag)
     }
 
+    func setupViews() {
+        navigationItem.title = "Activity Goals 🏆"
+        view.addSubview(tableView)
+        view.addSubview(loadingSpinner)
+        view.backgroundColor = .white
+
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.left.right.bottom.equalToSuperview()
+        }
+
+        loadingSpinner.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Activity Goals 🏆"
-        configureTableView()
+        setupViews()
+        setupObservables()
     }
 }
