@@ -13,7 +13,7 @@ public extension UIViewController {
     func showAlert(_ title: String, description: String? = nil, buttonTitle: String? = nil) {
         let alertController = UIAlertController(title: title, message:
             description, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: buttonTitle ?? "Dismiss", style: .default))
+        alertController.addAction(UIAlertAction(title: buttonTitle ?? Localized.dismiss, style: .default))
         self.present(alertController, animated: true, completion: nil)
     }
 }

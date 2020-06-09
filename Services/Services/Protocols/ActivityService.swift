@@ -19,8 +19,6 @@ public enum ActivityType {
 /// ActivityService: Any service that provides activity related data
 ///
 public protocol ActivityService {
-    // TODO: Replace HealthKit type here with own
-    //
     func requestAuthorization(types: Set<ActivityType>) -> Observable<Void>
     func getStepsAndDistance() -> Observable<Activity>
 }

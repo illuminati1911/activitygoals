@@ -21,11 +21,11 @@ public enum CoreDataProviderError: Error {
     var localizedDescription: String {
         switch self {
         case .createFailure:
-            return "Could not create model"
+            return Localized.errorLocalStorageCreate
         case .fetchFailure:
-            return "Could fetch model(s)"
+            return Localized.errorLocalStorageFetch
         case .unknown:
-            return "Unknown error"
+            return Localized.errorUnknown
         }
     }
 }

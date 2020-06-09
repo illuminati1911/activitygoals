@@ -9,6 +9,8 @@
 import Foundation
 import Core
 
+// CDGoal: Extension to conform to Goalable protocol
+//
 extension CDGoal: Goalable {
     public func asGoal() -> Goal {
         return Goal(

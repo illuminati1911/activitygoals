@@ -13,3 +13,15 @@
 "daily_activity" = "Your daily activity: %d steps, %d meters";
 "goal_target" = "Target: %d %@";
 "goal_remaining" = "Still %d %@ left";
+"dismiss" = "Dismiss";
+"error_unknown" = "Unknown error";
+"error_healthkit_query" = "HealthKit data query error";
+"error_healthkit_auth" = "HealthKit authorization error";
+"error_healthkit_access" = "Unable to access HealthKit";
+"error_networking_request" = "Request failure";
+"error_networking_payload" = "Could not serialize payload";
+"error_networking_response" = "Response failure";
+"error_networking_data" = "Could not receive valid payload in response";
+"error_networking_decoding" = "Could not decode JSON response";
+"error_localstorage_create" = "Could not create model";
+"error_localstorage_fetch" = "Could fetch model(s)";

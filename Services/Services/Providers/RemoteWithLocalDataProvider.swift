@@ -20,7 +20,7 @@ public enum RemoteWithLocalDataProviderError: Error {
     var localizedDescription: String {
         switch self {
         case .unknown:
-            return "Unknown error"
+            return Localized.errorUnknown
         }
     }
 }

@@ -22,13 +22,13 @@ public enum HealthKitActivityProviderError: Error {
     var localizedDescription: String {
         switch self {
         case .healthKitNotAvailableError:
-            return "Unable to access HealthKit"
+            return Localized.errorHealthKitAccess
         case .authorizationError:
-            return "HealthKit Authorization error"
+            return Localized.errorHealthKitAuth
         case .queryError:
-            return "HealthKit data query error"
+            return Localized.errorHealthKitQuery
         case .unknown:
-            return "Unknown error"
+            return Localized.errorUnknown
         }
     }
 }
@@ -46,18 +46,6 @@ extension HKHealthStore: ActivityService {
             case .stepCount: return steps
             }
         })
-        /*guard
-                   let distance = HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning),
-                   let steps = HKQuantityType.quantityType(forIdentifier: .stepCount) else {
-                       return Observable.create { observer in
-                           observer.onError(HealthKitActivityProviderError.healthKitNotAvailableError)
-                           return Disposables.create()
-                       }
-               }
-               let requestedTypes: Set<HKObjectType> = [
-                   distance,
-                   steps
-               ]*/
     }
 
     // requestAuthorization: wrapper for HealthKit Authorization

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Core
 import RxSwift
 
 /// APIMethod: Valid HTTP types for APIClient
@@ -32,17 +33,17 @@ public enum APIError: Error {
     var localizedDescription: String {
         switch self {
         case .requestFailure:
-            return "Request failure"
+            return Localized.errorNetworkingRequest
         case .invalidPayload:
-            return "Could not serialize payload"
+            return Localized.errorNetworkingPayload
         case .responseFailure:
-            return "Response failure"
+            return Localized.errorNetworkingResponse
         case .invalidData:
-            return "Could not receive valid payload in response"
+            return Localized.errorNetworkingData
         case .decodingFailure:
-            return "Could not decode JSON response"
+            return Localized.errorNetworkingDecoding
         case .unknown:
-            return "Unknown error"
+            return Localized.errorUnknown
 
         }
     }
