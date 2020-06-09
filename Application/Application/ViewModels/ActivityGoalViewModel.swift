@@ -26,24 +26,24 @@ struct ActivityGoalViewModel {
     private var unit: String {
         switch goal.type {
         case .runningDistance, .walkingDistance:
-            return "meters"
+            return Localized.unitMeters
         case .step:
-            return "steps"
+            return Localized.unitSteps
         }
     }
 
     var displayDailyActivityText: String {
-        return "Your daily activity: \(activity.steps.asInt()) steps, \(activity.distance.asInt()) meters"
+        return Localized.stringForKeyWithParams("daily_activity", activity.steps.asInt(), activity.distance.asInt())
     }
 
     var goalTargetText: String {
-        return "Target: \(goal.goal) \(unit)"
+        return Localized.stringForKeyWithParams("goal_target", goal.goal, unit)
     }
 
     var statusText: String {
         return goalOffset <= 0
-            ? "Goal completed!"
-            : "Still \(goalOffset) \(unit) left"
+            ? Localized.goalCompleted
+            : Localized.stringForKeyWithParams("goal_remaining", goalOffset, unit)
     }
 
     var typeImage: UIImage? {

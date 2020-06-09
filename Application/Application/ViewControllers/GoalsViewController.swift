@@ -70,7 +70,7 @@ final class GoalsViewController: BaseViewController {
 
         fetchGoals
             .subscribe(onError: { [weak self] error in
-                self?.showAlert("Error", description: error.localizedDescription)
+                self?.showAlert(Localized.errorTitle, description: error.localizedDescription)
             }).disposed(by: disposeBag)
 
         tableView
@@ -84,7 +84,7 @@ final class GoalsViewController: BaseViewController {
     }
 
     func setupViews() {
-        navigationItem.title = "Activity Goals 🏆"
+        navigationItem.title = goalsListViewModel.title
         view.addSubview(tableView)
         view.addSubview(loadingSpinner)
         view.backgroundColor = .white

@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  Core
+
+  Created by Ville Välimaa on 2020/6/9.
+  Copyright © 2020 Ville Välimaa. All rights reserved.
+*/
+"app_title" = "Activity Goals 🏆";
+"error_title" = "App has experienced issues";
+"unit_steps" = "steps";
+"unit_meters" = "meters";
+"goal_complete" = "Goal completed!";
+"daily_activity" = "Your daily activity: %d steps, %d meters";
+"goal_target" = "Target: %d %@";
+"goal_remaining" = "Still %d %@ left";

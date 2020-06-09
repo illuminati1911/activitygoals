@@ -18,7 +18,7 @@ final class GoalsListViewModel {
 
     var goalables: [Goalable] = []
     let hideLoading = BehaviorRelay<Bool>(value: false)
-    let title = "Daily activity goals!"
+    let title = Localized.appTitle
 
     init(mainProvider: MainProvider) {
         self.mainProvider = mainProvider

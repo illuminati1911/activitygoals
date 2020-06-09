@@ -23,20 +23,16 @@ class GoalTableViewCell: UITableViewCell {
     static let identifier = "goalcell"
 
     private let titleLabel = with(UILabel()) {
-        $0.text = "Simple walk -  walk 5000 steps"
-        $0.numberOfLines = 0
-        $0.lineBreakMode = .byWordWrapping
-    }
-    
-    private let descriptionLabel = with(UILabel()) {
-        $0.text = "Simple walk -  walk 5000 steps"
         $0.numberOfLines = 0
         $0.lineBreakMode = .byWordWrapping
     }
 
-    private let rewardLabel = with(UILabel()) {
-        $0.text = "Reward: 1000 points"
+    private let descriptionLabel = with(UILabel()) {
+        $0.numberOfLines = 0
+        $0.lineBreakMode = .byWordWrapping
     }
+
+    private let rewardLabel = UILabel()
 
      private let goalTypeImageView = UIImageView()
 
