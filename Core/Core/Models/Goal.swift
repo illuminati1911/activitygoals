@@ -47,7 +47,7 @@ public struct Goal: Codable {
         self.id = id
         self.title = title
         self.description = description
-        self.type = GoalType(rawValue: "type") ?? .step
+        self.type = GoalType(rawValue: type) ?? .step
         self.goal = goal
         self.reward = Reward(trophy: trophy, points: points)
     }
