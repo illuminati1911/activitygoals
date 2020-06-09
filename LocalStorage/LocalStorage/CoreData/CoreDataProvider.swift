@@ -65,7 +65,7 @@ public class CoreDataProvider: LocalStorageProtocol {
     public func createGoals(goalables: [Goalable]) -> Observable<[Goalable]> {
         return Observable.create { observer in
             let context = self.persistentContainer.viewContext
-            
+
             for goalable in goalables {
                 guard let goal = NSEntityDescription.insertNewObject(forEntityName: self.goalEntityName, into: context) as? CDGoal else {
                     observer.onError(CoreDataProviderError.createFailure)

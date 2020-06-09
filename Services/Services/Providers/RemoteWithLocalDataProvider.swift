@@ -58,6 +58,7 @@ public class RemoteWithLocalDataProvider: DataProvider {
             }
 
             self.remote.getGoals()
+                .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
                 .subscribe(onNext: { goalables in
                     self.syncToLocalStorage(goalables)
                     observer.onNext(goalables)

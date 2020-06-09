@@ -58,7 +58,6 @@ final class GoalsViewController: BaseViewController {
         //
         let fetchGoals = goalsListViewModel
             .fetchGoalViewModels()
-            .share()
 
         fetchGoals
             .observeOn(MainScheduler.instance)
@@ -73,6 +72,10 @@ final class GoalsViewController: BaseViewController {
             .subscribe(onError: { [weak self] error in
                 self?.showAlert(Localized.errorTitle, description: error.localizedDescription)
             }).disposed(by: disposeBag)
+
+        fetchGoals
+            .connect()
+            .disposed(by: disposeBag)
 
         tableView
             .rx

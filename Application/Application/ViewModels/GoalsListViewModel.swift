@@ -24,7 +24,7 @@ final class GoalsListViewModel {
         self.mainProvider = mainProvider
     }
 
-    private func subscribeToLoading(_ obs: Observable<[GoalViewModel]>) -> Observable<[GoalViewModel]> {
+    private func subscribeToLoading(_ obs: ConnectableObservable<[GoalViewModel]>) -> ConnectableObservable<[GoalViewModel]> {
         self.hideLoading.accept(true)
         obs.subscribe(onNext: { [weak self] _ in
             self?.hideLoading.accept(false)
@@ -34,8 +34,8 @@ final class GoalsListViewModel {
         return obs
     }
 
-    func fetchGoalViewModels() -> Observable<[GoalViewModel]> {
-        let obs: Observable<[GoalViewModel]> = self.mainProvider
+    func fetchGoalViewModels() -> ConnectableObservable<[GoalViewModel]> {
+        let obs: ConnectableObservable<[GoalViewModel]> = self.mainProvider
             .dataProvider
             .getGoals()
             .map { [weak self] in
@@ -44,7 +44,7 @@ final class GoalsListViewModel {
                 }
                 self?.goalables = $0
                 return vms
-        }.share()
+            }.publish()
         return subscribeToLoading(obs)
     }
 }
