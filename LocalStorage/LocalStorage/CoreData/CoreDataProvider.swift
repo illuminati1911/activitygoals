@@ -30,6 +30,8 @@ public enum CoreDataProviderError: Error {
     }
 }
 
+/// CoreDataProvider: LocalStorageProtocol conforming component for Core Data
+///
 public class CoreDataProvider: LocalStorageProtocol {
     private let identifier: String = "com.illuminati1911.activitygoals.LocalStorage"
     private let model: String = "CoreDataModel"
@@ -37,6 +39,11 @@ public class CoreDataProvider: LocalStorageProtocol {
 
     public init() {}
 
+    // persistentContainer lazy init
+    // -----------------------------
+    // Force unwraps are used here as LocalStorage is considered to be mission
+    // critical component for the application.
+    //
     private lazy var persistentContainer: NSPersistentContainer = {
         let messageKitBundle = Bundle(identifier: self.identifier)
         let modelURL = messageKitBundle!.url(forResource: self.model, withExtension: "momd")!
@@ -52,13 +59,13 @@ public class CoreDataProvider: LocalStorageProtocol {
         return container
     }()
 
+    // createGoals: batch insert Goalable objects to Core Data
+    //
     @discardableResult
     public func createGoals(goalables: [Goalable]) -> Observable<[Goalable]> {
         return Observable.create { observer in
             let context = self.persistentContainer.viewContext
 
-            // Core Data batch insert for Goalables
-            //
             for goalable in goalables {
                 guard let goal = NSEntityDescription.insertNewObject(forEntityName: self.goalEntityName, into: context) as? CDGoal else {
                     observer.onError(CoreDataProviderError.createFailure)
@@ -86,6 +93,8 @@ public class CoreDataProvider: LocalStorageProtocol {
         }
     }
 
+    // fetchGoals: fetch Goalables from Core Data
+    //
     public func fetchGoals() -> Observable<[Goalable]> {
         return Observable.create { observer in
             let context = self.persistentContainer.viewContext

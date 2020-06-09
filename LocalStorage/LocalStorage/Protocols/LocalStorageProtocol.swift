@@ -10,6 +10,8 @@ import Foundation
 import Core
 import RxSwift
 
+/// LocalStorageProcotol: Protocol for any class that can persist Goalable objects
+///
 public protocol LocalStorageProtocol {
     @discardableResult
     func createGoals(goalables: [Goalable]) -> Observable<[Goalable]>
