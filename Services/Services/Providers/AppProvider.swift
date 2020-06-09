@@ -34,9 +34,9 @@ public class AppProvider: MainProvider {
     //
     private static func getPersistentContainer() -> NSPersistentContainer {
         let identifier = "com.illuminati1911.activitygoals.LocalStorage"
-        let model: String = "CoreDataModel"
-        let messageKitBundle = Bundle(identifier: identifier)
-        let modelURL = messageKitBundle!.url(forResource: model, withExtension: "momd")!
+        let model = "CoreDataModel"
+        let localStorageBundle = Bundle(identifier: identifier)
+        let modelURL = localStorageBundle!.url(forResource: model, withExtension: "momd")!
         let managedObjectModel =  NSManagedObjectModel(contentsOf: modelURL)
 
         let container = NSPersistentContainer(name: model, managedObjectModel: managedObjectModel!)

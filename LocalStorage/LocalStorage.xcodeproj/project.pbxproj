@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,11 +11,12 @@
 		2A412AB5248BEF5600B3FE59 /* CDGoal+Goalable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412AB3248BEF5600B3FE59 /* CDGoal+Goalable.swift */; };
 		2A412AB8248BEF9700B3FE59 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A412AB7248BEF9700B3FE59 /* Core.framework */; };
 		2A412AB9248BEF9700B3FE59 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A412AB7248BEF9700B3FE59 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2A412BFE248FD0B900B3FE59 /* MockPersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412BFD248FD0B900B3FE59 /* MockPersistentContainer.swift */; };
+		2A412C0D248FE12F00B3FE59 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5BA83248B99DB00D8EBE1 /* CoreDataModel.xcdatamodeld */; };
 		2AA5BA66248B95DE00D8EBE1 /* LocalStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA5BA5C248B95DE00D8EBE1 /* LocalStorage.framework */; };
 		2AA5BA6B248B95DE00D8EBE1 /* LocalStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5BA6A248B95DE00D8EBE1 /* LocalStorageTests.swift */; };
 		2AA5BA6D248B95DE00D8EBE1 /* LocalStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AA5BA5F248B95DE00D8EBE1 /* LocalStorage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2AA5BA85248B99DB00D8EBE1 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5BA83248B99DB00D8EBE1 /* CoreDataModel.xcdatamodeld */; };
-		2AA5BA86248B99DB00D8EBE1 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5BA83248B99DB00D8EBE1 /* CoreDataModel.xcdatamodeld */; };
 		2AA5BA88248B9AF700D8EBE1 /* CoreDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5BA87248B9AF700D8EBE1 /* CoreDataProvider.swift */; };
 		2AA5BA89248B9AF700D8EBE1 /* CoreDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5BA87248B9AF700D8EBE1 /* CoreDataProvider.swift */; };
 		2AA5BA8B248BAE7E00D8EBE1 /* LocalStorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5BA8A248BAE7E00D8EBE1 /* LocalStorageProtocol.swift */; };
@@ -52,6 +53,7 @@
 		1F321479BF4F17C7F364D49B /* Pods_LocalStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocalStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A412AB3248BEF5600B3FE59 /* CDGoal+Goalable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDGoal+Goalable.swift"; sourceTree = "<group>"; };
 		2A412AB7248BEF9700B3FE59 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A412BFD248FD0B900B3FE59 /* MockPersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPersistentContainer.swift; sourceTree = "<group>"; };
 		2AA5BA5C248B95DE00D8EBE1 /* LocalStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LocalStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AA5BA5F248B95DE00D8EBE1 /* LocalStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalStorage.h; sourceTree = "<group>"; };
 		2AA5BA60248B95DE00D8EBE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -108,6 +110,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		2A412BFF248FD0BE00B3FE59 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				2A412BFD248FD0B900B3FE59 /* MockPersistentContainer.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		2AA5BA52248B95DE00D8EBE1 = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				2AA5BA6A248B95DE00D8EBE1 /* LocalStorageTests.swift */,
+				2A412BFF248FD0BE00B3FE59 /* Mocks */,
 				2AA5BA6C248B95DE00D8EBE1 /* Info.plist */,
 			);
 			path = LocalStorageTests;
@@ -386,9 +397,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A412BFE248FD0B900B3FE59 /* MockPersistentContainer.swift in Sources */,
 				2AA5BA89248B9AF700D8EBE1 /* CoreDataProvider.swift in Sources */,
+				2A412C0D248FE12F00B3FE59 /* CoreDataModel.xcdatamodeld in Sources */,
 				2A412AB5248BEF5600B3FE59 /* CDGoal+Goalable.swift in Sources */,
-				2AA5BA86248B99DB00D8EBE1 /* CoreDataModel.xcdatamodeld in Sources */,
 				2AA5BA8C248BAE7E00D8EBE1 /* LocalStorageProtocol.swift in Sources */,
 				2AA5BA6B248B95DE00D8EBE1 /* LocalStorageTests.swift in Sources */,
 			);
@@ -581,6 +593,7 @@
 			baseConfigurationReference = EE6CBBB64DF3B91B06BCE6F8 /* Pods-LocalStorageTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = LocalStorageTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -600,6 +613,7 @@
 			baseConfigurationReference = C530178D474601C3E8BB60C3 /* Pods-LocalStorageTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = LocalStorageTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

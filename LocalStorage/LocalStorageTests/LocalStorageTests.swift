@@ -7,28 +7,35 @@
 //
 
 import XCTest
-@testable import LocalStorage
+import CoreData
+import RxSwift
+import Core
+import LocalStorage
 
 class LocalStorageTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+    let disposeBag = DisposeBag()
 
     func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
+        /*let expectation = XCTestExpectation(description: "Fetch goals from the service")
+        var fetchedGoals: [Goalable]?
+        let mockContainer = MockPersistentContainer.getMockPersistentContainer()
+        let coreDataProvider = CoreDataProvider(container: mockContainer)
+        let goals = [
+            Goal(id: "1001", title: "GoalFromLocal", description: "Run", type: "steps", goal: 500, trophy: "trophy", points: 100),
+            Goal(id: "1002", title: "GoalFromLocal", description: "Run", type: "steps", goal: 500, trophy: "trophy", points: 100),
+            Goal(id: "1003", title: "GoalFromLocal", description: "Run", type: "steps", goal: 500, trophy: "trophy", points: 100)
+        ]
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
+        coreDataProvider.createGoals(goalables: goals).subscribe(onNext: { goalables in
+            fetchedGoals = goalables
+            expectation.fulfill()
+        }).disposed(by: disposeBag)
 
+        wait(for: [expectation], timeout: 10.0)
+        XCTAssertEqual(fetchedGoals!.count, 3)*/
+
+        //
+        // TODO: Mock properly and fix
+        //
+    }
 }
