@@ -61,6 +61,7 @@
 		2A412B4F248DE92E00B3FE59 /* APIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceTests.swift; sourceTree = "<group>"; };
 		2A412B51248DE96800B3FE59 /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
 		2A412B54248DF1AD00B3FE59 /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
+		2A4A74E82490B77500E30D35 /* Networking.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Networking.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		2AA5BA08248B4D3100D8EBE1 /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AA5BA0B248B4D3100D8EBE1 /* Networking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Networking.h; sourceTree = "<group>"; };
 		2AA5BA0C248B4D3100D8EBE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -128,6 +129,7 @@
 		2AA5B9FE248B4D3100D8EBE1 = {
 			isa = PBXGroup;
 			children = (
+				2A4A74E82490B77500E30D35 /* Networking.playground */,
 				2AA5BA0A248B4D3100D8EBE1 /* Networking */,
 				2AA5BA15248B4D3100D8EBE1 /* NetworkingTests */,
 				2AA5BA09248B4D3100D8EBE1 /* Products */,

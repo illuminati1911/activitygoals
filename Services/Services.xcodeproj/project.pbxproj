@@ -107,6 +107,7 @@
 		2A412B4D248DE4AE00B3FE59 /* MockAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIService.swift; sourceTree = "<group>"; };
 		2A412B8D248E704F00B3FE59 /* MainProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainProvider.swift; sourceTree = "<group>"; };
 		2A412B93248E70CE00B3FE59 /* AppProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppProvider.swift; sourceTree = "<group>"; };
+		2A4A74E92490B82200E30D35 /* Services.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Services.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		2AA5BA9D248BDA7E00D8EBE1 /* Services.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Services.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AA5BAA0248BDA7E00D8EBE1 /* Services.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Services.h; sourceTree = "<group>"; };
 		2AA5BAA1248BDA7E00D8EBE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -186,6 +187,7 @@
 		2AA5BA93248BDA7E00D8EBE1 = {
 			isa = PBXGroup;
 			children = (
+				2A4A74E92490B82200E30D35 /* Services.playground */,
 				2AA5BACD248BDC7700D8EBE1 /* Dependencies */,
 				2AA5BA9F248BDA7E00D8EBE1 /* Services */,
 				2AA5BAAA248BDA7E00D8EBE1 /* ServicesTests */,

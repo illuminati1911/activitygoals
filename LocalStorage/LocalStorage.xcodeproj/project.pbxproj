@@ -54,6 +54,7 @@
 		2A412AB3248BEF5600B3FE59 /* CDGoal+Goalable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDGoal+Goalable.swift"; sourceTree = "<group>"; };
 		2A412AB7248BEF9700B3FE59 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A412BFD248FD0B900B3FE59 /* MockPersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPersistentContainer.swift; sourceTree = "<group>"; };
+		2A4A74E72490B68200E30D35 /* LocalStorage.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = LocalStorage.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		2AA5BA5C248B95DE00D8EBE1 /* LocalStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LocalStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AA5BA5F248B95DE00D8EBE1 /* LocalStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalStorage.h; sourceTree = "<group>"; };
 		2AA5BA60248B95DE00D8EBE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -121,6 +122,7 @@
 		2AA5BA52248B95DE00D8EBE1 = {
 			isa = PBXGroup;
 			children = (
+				2A4A74E72490B68200E30D35 /* LocalStorage.playground */,
 				2AA5BA5E248B95DE00D8EBE1 /* LocalStorage */,
 				2AA5BA69248B95DE00D8EBE1 /* LocalStorageTests */,
 				2AA5BA5D248B95DE00D8EBE1 /* Products */,
