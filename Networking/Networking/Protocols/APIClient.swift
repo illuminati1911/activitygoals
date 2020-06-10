@@ -130,6 +130,7 @@ extension APIClient {
                 do {
                     let jsonData = try JSONDecoder().decode(decodingType, from: data)
                     observer.onNext(jsonData)
+                    observer.onCompleted()
                 } catch {
                     observer.onError(APIError.decodingFailure(response.statusCode))
                     return

@@ -23,6 +23,7 @@ class MockActivityService: ActivityService {
                 observer.onError(HealthKitActivityProviderError.authorizationError)
             } else {
                 observer.onNext(())
+                observer.onCompleted()
             }
             return Disposables.create()
         }

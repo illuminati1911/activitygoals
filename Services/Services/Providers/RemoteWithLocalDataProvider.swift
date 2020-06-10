@@ -70,11 +70,13 @@ public class RemoteWithLocalDataProvider: DataProvider {
                 .subscribe(onNext: { [weak self] goalables in
                     self?.syncToLocalStorage(goalables)
                     observer.onNext(goalables)
+                    observer.onCompleted()
                 }, onError: { [weak self] error in
                     guard let self = self else { return }
                     self.local.fetchGoals()
                         .subscribe(onNext: { goalables in
                             observer.onNext(goalables)
+                            observer.onCompleted()
                         }, onError: { error in
                             observer.onError(error)
                         }).disposed(by: self.disposeBag)

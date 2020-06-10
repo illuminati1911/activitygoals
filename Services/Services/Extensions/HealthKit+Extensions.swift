@@ -67,6 +67,7 @@ extension HKHealthStore: ActivityService {
                     return
                 }
                 observer.onNext(())
+                observer.onCompleted()
             }
             return Disposables.create()
         }
@@ -96,6 +97,7 @@ extension HKHealthStore: ActivityService {
                         return
                     }
                     observer.onNext(sum.doubleValue(for: unit))
+                    observer.onCompleted()
             }
             self.execute(query)
             return Disposables.create()

@@ -90,6 +90,7 @@ public class CoreDataProvider: LocalStorageProtocol {
                 return Disposables.create()
             }
             observer.onNext(goalables)
+            observer.onCompleted()
             return Disposables.create()
         }
     }
@@ -106,6 +107,7 @@ public class CoreDataProvider: LocalStorageProtocol {
             do {
                 let goals = try self.context.fetch(self.fetchRequest)
                 observer.onNext(goals)
+                observer.onCompleted()
             } catch {
                 observer.onError(CoreDataProviderError.fetchFailure)
             }
@@ -126,6 +128,7 @@ public class CoreDataProvider: LocalStorageProtocol {
                 try self.context.execute(self.deleteRequest)
                 try self.context.save()
                 observer.onNext(())
+                observer.onCompleted()
             } catch {
                 observer.onError(CoreDataProviderError.deleteFailure)
             }
