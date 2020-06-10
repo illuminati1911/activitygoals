@@ -44,7 +44,6 @@ class MockLocalStorage: LocalStorageProtocol {
     }
 }
 
-
 let mock = MockLocalStorage(failing: false)
 mock.fetchGoals()
     .subscribe(onNext: { goals in

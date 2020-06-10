@@ -41,7 +41,6 @@
 		2A412C312490789600B3FE59 /* DetailGoalViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412C302490789600B3FE59 /* DetailGoalViewModelTests.swift */; };
 		2A412C3324907A7600B3FE59 /* ActivityGoalViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412C3224907A7600B3FE59 /* ActivityGoalViewModelTests.swift */; };
 		2AA5B9CE248B2D9500D8EBE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5B9CD248B2D9500D8EBE1 /* AppDelegate.swift */; };
-		2AA5B9D7248B2D9800D8EBE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AA5B9D6248B2D9800D8EBE1 /* Assets.xcassets */; };
 		2AA5B9DA248B2D9800D8EBE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AA5B9D8248B2D9800D8EBE1 /* LaunchScreen.storyboard */; };
 		2AA5BAC8248BDB3400D8EBE1 /* Services.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA5BAC5248BDB2600D8EBE1 /* Services.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -153,7 +152,6 @@
 		2A412C3224907A7600B3FE59 /* ActivityGoalViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityGoalViewModelTests.swift; sourceTree = "<group>"; };
 		2AA5B9CA248B2D9500D8EBE1 /* Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Application.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AA5B9CD248B2D9500D8EBE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2AA5B9D6248B2D9800D8EBE1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2AA5B9D9248B2D9800D8EBE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2AA5B9DB248B2D9800D8EBE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AA5B9E0248B2D9800D8EBE1 /* ApplicationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApplicationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -234,7 +232,6 @@
 			isa = PBXGroup;
 			children = (
 				2A412B07248CF23100B3FE59 /* Application.entitlements */,
-				2AA5B9D6248B2D9800D8EBE1 /* Assets.xcassets */,
 				2AA5B9D8248B2D9800D8EBE1 /* LaunchScreen.storyboard */,
 				2AA5B9DB248B2D9800D8EBE1 /* Info.plist */,
 			);
@@ -551,7 +548,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AA5B9DA248B2D9800D8EBE1 /* LaunchScreen.storyboard in Resources */,
-				2AA5B9D7248B2D9800D8EBE1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

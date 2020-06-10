@@ -51,9 +51,9 @@ struct ActivityGoalViewModel {
     var typeImage: UIImage? {
         switch goal.type {
         case .runningDistance, .walkingDistance:
-            return UIImage(named: "running")
+            return Images.runningIcon
         case .step:
-            return UIImage(named: "step")
+            return Images.stepIcon
         }
     }
 
