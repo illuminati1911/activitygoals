@@ -31,10 +31,18 @@
 		2A412B9B248E76E500B3FE59 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B99248E76E500B3FE59 /* Coordinator.swift */; };
 		2A412B9D248E7E4F00B3FE59 /* DetailGoalCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B9C248E7E4F00B3FE59 /* DetailGoalCoordinator.swift */; };
 		2A412B9E248E7E4F00B3FE59 /* DetailGoalCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B9C248E7E4F00B3FE59 /* DetailGoalCoordinator.swift */; };
+		2A412C262490669200B3FE59 /* GoalsListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412C252490669200B3FE59 /* GoalsListViewModelTests.swift */; };
+		2A412C28249066C100B3FE59 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412C27249066C100B3FE59 /* Mocks.swift */; };
+		2A412C2A2490732A00B3FE59 /* DetailGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B7F248E274600B3FE59 /* DetailGoalViewController.swift */; };
+		2A412C2B2490733600B3FE59 /* GoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B60248E051700B3FE59 /* GoalsViewController.swift */; };
+		2A412C2C2490734D00B3FE59 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B56248E04E500B3FE59 /* BaseViewController.swift */; };
+		2A412C2D2490735A00B3FE59 /* GoalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412B73248E222200B3FE59 /* GoalTableViewCell.swift */; };
+		2A412C2F249076E900B3FE59 /* GoalViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412C2E249076E900B3FE59 /* GoalViewModelTests.swift */; };
+		2A412C312490789600B3FE59 /* DetailGoalViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412C302490789600B3FE59 /* DetailGoalViewModelTests.swift */; };
+		2A412C3324907A7600B3FE59 /* ActivityGoalViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A412C3224907A7600B3FE59 /* ActivityGoalViewModelTests.swift */; };
 		2AA5B9CE248B2D9500D8EBE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5B9CD248B2D9500D8EBE1 /* AppDelegate.swift */; };
 		2AA5B9D7248B2D9800D8EBE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AA5B9D6248B2D9800D8EBE1 /* Assets.xcassets */; };
 		2AA5B9DA248B2D9800D8EBE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AA5B9D8248B2D9800D8EBE1 /* LaunchScreen.storyboard */; };
-		2AA5B9E5248B2D9800D8EBE1 /* ApplicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5B9E4248B2D9800D8EBE1 /* ApplicationTests.swift */; };
 		2AA5B9F0248B2D9800D8EBE1 /* ApplicationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5B9EF248B2D9800D8EBE1 /* ApplicationUITests.swift */; };
 		2AA5BAC8248BDB3400D8EBE1 /* Services.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA5BAC5248BDB2600D8EBE1 /* Services.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C243A70E2352237C998EE7F7 /* Pods_Application_ApplicationUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9305C1BF9FE78393B1D992C1 /* Pods_Application_ApplicationUITests.framework */; };
@@ -147,13 +155,17 @@
 		2A412B96248E76D600B3FE59 /* GoalsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsCoordinator.swift; sourceTree = "<group>"; };
 		2A412B99248E76E500B3FE59 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		2A412B9C248E7E4F00B3FE59 /* DetailGoalCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailGoalCoordinator.swift; sourceTree = "<group>"; };
+		2A412C252490669200B3FE59 /* GoalsListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsListViewModelTests.swift; sourceTree = "<group>"; };
+		2A412C27249066C100B3FE59 /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
+		2A412C2E249076E900B3FE59 /* GoalViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalViewModelTests.swift; sourceTree = "<group>"; };
+		2A412C302490789600B3FE59 /* DetailGoalViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailGoalViewModelTests.swift; sourceTree = "<group>"; };
+		2A412C3224907A7600B3FE59 /* ActivityGoalViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityGoalViewModelTests.swift; sourceTree = "<group>"; };
 		2AA5B9CA248B2D9500D8EBE1 /* Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Application.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AA5B9CD248B2D9500D8EBE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2AA5B9D6248B2D9800D8EBE1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2AA5B9D9248B2D9800D8EBE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2AA5B9DB248B2D9800D8EBE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AA5B9E0248B2D9800D8EBE1 /* ApplicationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApplicationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2AA5B9E4248B2D9800D8EBE1 /* ApplicationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationTests.swift; sourceTree = "<group>"; };
 		2AA5B9E6248B2D9800D8EBE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AA5B9EB248B2D9800D8EBE1 /* ApplicationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApplicationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AA5B9EF248B2D9800D8EBE1 /* ApplicationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationUITests.swift; sourceTree = "<group>"; };
@@ -258,6 +270,25 @@
 			path = Coordinators;
 			sourceTree = "<group>";
 		};
+		2A412C1C2490666400B3FE59 /* ViewModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				2A412C252490669200B3FE59 /* GoalsListViewModelTests.swift */,
+				2A412C2E249076E900B3FE59 /* GoalViewModelTests.swift */,
+				2A412C302490789600B3FE59 /* DetailGoalViewModelTests.swift */,
+				2A412C3224907A7600B3FE59 /* ActivityGoalViewModelTests.swift */,
+			);
+			path = ViewModelTests;
+			sourceTree = "<group>";
+		};
+		2A412C29249066C700B3FE59 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				2A412C27249066C100B3FE59 /* Mocks.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		2AA5B9C1248B2D9500D8EBE1 = {
 			isa = PBXGroup;
 			children = (
@@ -297,8 +328,9 @@
 		2AA5B9E3248B2D9800D8EBE1 /* ApplicationTests */ = {
 			isa = PBXGroup;
 			children = (
-				2AA5B9E4248B2D9800D8EBE1 /* ApplicationTests.swift */,
+				2A412C1C2490666400B3FE59 /* ViewModelTests */,
 				2AA5B9E6248B2D9800D8EBE1 /* Info.plist */,
+				2A412C29249066C700B3FE59 /* Mocks */,
 			);
 			path = ApplicationTests;
 			sourceTree = "<group>";
@@ -729,15 +761,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A412C2C2490734D00B3FE59 /* BaseViewController.swift in Sources */,
 				2A412B9B248E76E500B3FE59 /* Coordinator.swift in Sources */,
 				2A412B8C248E4B7F00B3FE59 /* AppCoordinator.swift in Sources */,
 				2A412B9E248E7E4F00B3FE59 /* DetailGoalCoordinator.swift in Sources */,
-				2AA5B9E5248B2D9800D8EBE1 /* ApplicationTests.swift in Sources */,
 				2A412B64248E0C8100B3FE59 /* GoalsListViewModel.swift in Sources */,
+				2A412C262490669200B3FE59 /* GoalsListViewModelTests.swift in Sources */,
+				2A412C2F249076E900B3FE59 /* GoalViewModelTests.swift in Sources */,
+				2A412C2B2490733600B3FE59 /* GoalsViewController.swift in Sources */,
 				2A412B86248E29B900B3FE59 /* ActivityGoalViewModel.swift in Sources */,
+				2A412C2D2490735A00B3FE59 /* GoalTableViewCell.swift in Sources */,
+				2A412C2A2490732A00B3FE59 /* DetailGoalViewController.swift in Sources */,
 				2A412B98248E76D600B3FE59 /* GoalsCoordinator.swift in Sources */,
 				2A412B83248E281800B3FE59 /* DetailGoalViewModel.swift in Sources */,
 				2A412B67248E0D9300B3FE59 /* GoalViewModel.swift in Sources */,
+				2A412C3324907A7600B3FE59 /* ActivityGoalViewModelTests.swift in Sources */,
+				2A412C312490789600B3FE59 /* DetailGoalViewModelTests.swift in Sources */,
+				2A412C28249066C100B3FE59 /* Mocks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -936,9 +976,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ApplicationTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -960,7 +1001,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ApplicationTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
