@@ -62,9 +62,9 @@ public class RemoteWithLocalDataProvider: DataProvider {
                 return Disposables.create()
             }
 
-            // Nested subscription since swift compiler can't keep up with the generics
-            // in flatMap pipeline. Will investigate better solution later on.
-            //
+            // Nested subscription since RxSwift breaks the reactive functional
+            // pipeline if error event is sent. Potential solution would be to
+            // use Swift.Result instead of onError event.
             self.remote.getGoals()
                 .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
                 .subscribe(onNext: { goalables in
