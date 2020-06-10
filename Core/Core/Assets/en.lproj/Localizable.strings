@@ -25,4 +25,5 @@
 "error_networking_data" = "Could not receive valid payload in response";
 "error_networking_decoding" = "Could not decode JSON response";
 "error_localstorage_create" = "Could not create model";
-"error_localstorage_fetch" = "Could fetch model(s)";
+"error_localstorage_fetch" = "Could not fetch model(s)";
+"error_localstorage_delete" = "Could not delete model(s)";

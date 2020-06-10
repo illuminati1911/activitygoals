@@ -16,4 +16,5 @@ public protocol LocalStorageProtocol {
     @discardableResult
     func createGoals(goalables: [Goalable]) -> Observable<[Goalable]>
     func fetchGoals() -> Observable<[Goalable]>
+    func deleteGoals() -> Observable<Void>
 }

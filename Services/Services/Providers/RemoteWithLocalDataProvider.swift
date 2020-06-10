@@ -41,10 +41,13 @@ public class RemoteWithLocalDataProvider: DataProvider {
     // Core Data on main thread for safety
     //
     private func syncToLocalStorage(_ goalables: [Goalable]) {
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
             self.local
-                .createGoals(goalables: goalables)
-                .subscribe()
+                .deleteGoals()
+                .flatMap {
+                    self.local.createGoals(goalables: goalables)
+                }.subscribe()
                 .disposed(by: self.disposeBag)
         }
     }

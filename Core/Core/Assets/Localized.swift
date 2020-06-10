@@ -39,4 +39,5 @@ public class Localized {
     public static let errorNetworkingDecoding = stringForKey("error_networking_decoding")
     public static let errorLocalStorageCreate = stringForKey("error_localstorage_create")
     public static let errorLocalStorageFetch = stringForKey("error_localstorage_fetch")
+    public static let errorLocalStorageDelete = stringForKey("error_localstorage_delete")
 }

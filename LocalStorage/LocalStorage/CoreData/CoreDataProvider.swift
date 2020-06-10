@@ -16,6 +16,7 @@ import RxSwift
 public enum CoreDataProviderError: Error {
     case createFailure
     case fetchFailure
+    case deleteFailure
     case unknown
 
     var localizedDescription: String {
@@ -24,6 +25,8 @@ public enum CoreDataProviderError: Error {
             return Localized.errorLocalStorageCreate
         case .fetchFailure:
             return Localized.errorLocalStorageFetch
+        case .deleteFailure:
+        return Localized.errorLocalStorageDelete
         case .unknown:
             return Localized.errorUnknown
         }
@@ -41,15 +44,32 @@ public class CoreDataProvider: LocalStorageProtocol {
         self.persistentContainer = container
     }
 
+    private var fetchRequest: NSFetchRequest<CDGoal> {
+        return NSFetchRequest<CDGoal>(entityName: self.goalEntityName)
+    }
+
+    private var deleteRequest: NSBatchDeleteRequest {
+        let deleteFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: self.goalEntityName)
+        return NSBatchDeleteRequest(fetchRequest: deleteFetchRequest)
+    }
+
+    private var context: NSManagedObjectContext {
+        return self.persistentContainer.viewContext
+    }
+
     // createGoals: batch insert Goalable objects to Core Data
     //
     @discardableResult
     public func createGoals(goalables: [Goalable]) -> Observable<[Goalable]> {
-        return Observable.create { observer in
-            let context = self.persistentContainer.viewContext
-
+        return Observable.create { [weak self] observer in
+            guard let self = self else {
+                observer.onError(CoreDataProviderError.createFailure)
+                return Disposables.create()
+            }
             for goalable in goalables {
-                guard let goal = NSEntityDescription.insertNewObject(forEntityName: self.goalEntityName, into: context) as? CDGoal else {
+                guard let goal = NSEntityDescription.insertNewObject(
+                    forEntityName: self.goalEntityName,
+                    into: self.context) as? CDGoal else {
                     observer.onError(CoreDataProviderError.createFailure)
                     return Disposables.create()
                 }
@@ -64,7 +84,7 @@ public class CoreDataProvider: LocalStorageProtocol {
             }
 
             do {
-                try context.save()
+                try self.context.save()
             } catch {
                 observer.onError(CoreDataProviderError.createFailure)
                 return Disposables.create()
@@ -77,15 +97,37 @@ public class CoreDataProvider: LocalStorageProtocol {
     // fetchGoals: fetch Goalables from Core Data
     //
     public func fetchGoals() -> Observable<[Goalable]> {
-        return Observable.create { observer in
-            let context = self.persistentContainer.viewContext
-            let fetchRequest = NSFetchRequest<CDGoal>(entityName: self.goalEntityName)
+        return Observable.create { [weak self] observer in
+            guard let self = self else {
+                observer.onError(CoreDataProviderError.fetchFailure)
+                return Disposables.create()
+            }
 
             do {
-                let goals = try context.fetch(fetchRequest)
+                let goals = try self.context.fetch(self.fetchRequest)
                 observer.onNext(goals)
             } catch {
                 observer.onError(CoreDataProviderError.fetchFailure)
+            }
+            return Disposables.create()
+        }
+    }
+
+    // fetchGoals: fetch Goalables from Core Data
+    //
+    public func deleteGoals() -> Observable<Void> {
+        return Observable.create { [weak self] observer in
+            guard let self = self else {
+                observer.onError(CoreDataProviderError.createFailure)
+                return Disposables.create()
+            }
+
+            do {
+                try self.context.execute(self.deleteRequest)
+                try self.context.save()
+                observer.onNext(())
+            } catch {
+                observer.onError(CoreDataProviderError.deleteFailure)
             }
             return Disposables.create()
         }

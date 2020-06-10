@@ -47,4 +47,9 @@ class MockLocalStorage: LocalStorageProtocol {
             return Disposables.create()
         }
     }
+
+    func deleteGoals() -> Observable<Void> {
+        goalDB = []
+        return Observable.from(optional: ())
+    }
 }
