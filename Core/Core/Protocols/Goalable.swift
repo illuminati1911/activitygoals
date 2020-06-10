@@ -8,6 +8,8 @@
 
 import Foundation
 
+/// Goalable: Anything that can be converted into a Goal
+///
 public protocol Goalable {
     func asGoal() -> Goal
 }

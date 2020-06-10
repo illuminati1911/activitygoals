@@ -8,7 +8,7 @@
 
 import Foundation
 
-// Intermediate type for API call
+// Goals: Intermediate type for API call
 //
 public struct Goals: Codable {
     public let items: [Goal]
@@ -28,7 +28,7 @@ public struct Reward: Codable {
     }
 }
 
-// Main activity goal type
+// Goal: Main activity goal type
 //
 public struct Goal: Codable {
     public enum GoalType: String, Codable {
@@ -53,6 +53,8 @@ public struct Goal: Codable {
     }
 }
 
+// asGoal: make any Goalable item Goal if needed
+//
 extension Goal: Goalable {
     public func asGoal() -> Goal {
         return self

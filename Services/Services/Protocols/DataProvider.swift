@@ -10,6 +10,8 @@ import Foundation
 import Core
 import RxSwift
 
+/// DataProvider: Provider of goals data from any source
+///
 public protocol DataProvider {
     func getGoals() -> Observable<[Goalable]>
 }

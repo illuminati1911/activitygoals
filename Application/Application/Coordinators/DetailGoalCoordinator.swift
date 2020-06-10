@@ -12,6 +12,8 @@ import RxSwift
 import Services
 import Core
 
+/// DetailGoalCoordinator: Coordinator for DetailGoalViewController
+///
 final class DetailGoalCoordinator: Coordinator {
     private let presenter: UINavigationController
     private var detailGoalViewController: DetailGoalViewController?

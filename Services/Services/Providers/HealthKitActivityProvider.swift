@@ -11,6 +11,8 @@ import Core
 import HealthKit
 import RxSwift
 
+/// HealthKitActivityProvider: Implementation for providing HealthKit activity data
+///
 public class HealthKitActivityProvider: ActivityProvider {
     private let activityService: ActivityService
 

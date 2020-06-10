@@ -9,6 +9,9 @@
 import Foundation
 import UIKit
 
+/// UIViewController extentions
+/// - showAlert: show alert popup.
+///
 public extension UIViewController {
     func showAlert(_ title: String, description: String? = nil, buttonTitle: String? = nil) {
         let alertController = UIAlertController(title: title, message:

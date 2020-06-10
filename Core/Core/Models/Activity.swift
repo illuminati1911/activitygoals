@@ -8,6 +8,8 @@
 
 import Foundation
 
+/// Activity: User's daily activity
+///
 public struct Activity {
     public let steps: Double
     public let distance: Double

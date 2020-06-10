@@ -12,6 +12,8 @@ import Core
 import RxSwift
 import RxCocoa
 
+/// GoalsListViewModel: View model for GoalsViewController
+///
 final class GoalsListViewModel {
     private let disposeBag = DisposeBag()
     private let mainProvider: MainProvider

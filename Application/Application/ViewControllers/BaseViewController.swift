@@ -9,6 +9,9 @@
 import UIKit
 import Services
 
+/// BaseViewController: Base view controller for all the viewcontrollers in the app.
+/// Will managed dependency injections etc.
+///
 class BaseViewController: UIViewController {
     let mainProvider: MainProvider
 
@@ -22,6 +25,5 @@ class BaseViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
 }

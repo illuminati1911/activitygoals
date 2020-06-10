@@ -12,6 +12,8 @@ import Services
 import RxSwift
 import Core
 
+/// GoalsCoordinator: Coordinator for GoalsViewController
+///
 final class GoalsCoordinator: Coordinator {
     private let diposeBag = DisposeBag()
     private var presenter: UINavigationController

@@ -9,6 +9,8 @@
 import UIKit
 import Core
 
+/// GoalTableViewCell: Cell to display each Goal in the main GoalsViewController
+///
 class GoalTableViewCell: UITableViewCell {
 
     var goalViewModel: GoalViewModel? {

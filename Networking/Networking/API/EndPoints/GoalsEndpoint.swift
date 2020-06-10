@@ -8,6 +8,8 @@
 
 import Foundation
 
+/// GoalsEndPoint: Endpoint for fetching daily goals
+///
 struct GoalsEndpoint: EndPoint {
     var base: String {
         return "https://thebigachallenge.appspot.com/"

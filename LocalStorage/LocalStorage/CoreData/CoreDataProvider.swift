@@ -35,7 +35,7 @@ public enum CoreDataProviderError: Error {
 public class CoreDataProvider: LocalStorageProtocol {
     private let goalEntityName = "CDGoal"
 
-    let persistentContainer: NSPersistentContainer
+    private let persistentContainer: NSPersistentContainer
 
     public init(container: NSPersistentContainer) {
         self.persistentContainer = container

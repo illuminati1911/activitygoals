@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 import Core
 
+/// GoalViewModel: View model for Goal/Goalable items
+///
 struct GoalViewModel {
     private let goal: Goal
 

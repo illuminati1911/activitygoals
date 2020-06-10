@@ -33,6 +33,9 @@ public enum HealthKitActivityProviderError: Error {
     }
 }
 
+/// ActivityService extension for HKHealthStore:
+/// Adds some wrappers and adapters between HealthKit and workspace domain.
+///
 extension HKHealthStore: ActivityService {
     func activityTypesToHKTypes(_ types: Set<ActivityType>) -> Set<HKObjectType>? {
         guard

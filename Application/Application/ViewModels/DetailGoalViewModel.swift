@@ -11,6 +11,8 @@ import Services
 import Core
 import RxSwift
 
+/// DetailGoalViewModel: View model for DetailGoalViewController
+///
 final class DetailGoalViewModel {
     private let disposeBag = DisposeBag()
     private let mainProvider: MainProvider

@@ -13,6 +13,9 @@ import Core
 import SnapKit
 import RxCocoa
 
+/// GoalsViewController is the main view controller of the app.
+/// It displays the goals fetched from network or local storage.
+///
 final class GoalsViewController: BaseViewController {
     private var selectedGoalSubject = PublishSubject<Goalable>()
     var selectedGoal: Observable<Goalable> {

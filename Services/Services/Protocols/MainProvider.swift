@@ -8,6 +8,8 @@
 
 import Foundation
 
+/// MainProvider: Anything that can provider Data and Activity providers.
+///
 public protocol MainProvider {
     static func getApplicationProvider() -> MainProvider
     var dataProvider: DataProvider { get }

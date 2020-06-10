@@ -25,6 +25,8 @@ public enum RemoteWithLocalDataProviderError: Error {
     }
 }
 
+/// RemoteWithLocalDataProvider: Implementation for providing Goals data from network or local cache
+///
 public class RemoteWithLocalDataProvider: DataProvider {
     private let remote: APIServiceProtocol
     private let local: LocalStorageProtocol

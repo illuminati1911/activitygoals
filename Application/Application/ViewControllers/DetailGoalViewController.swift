@@ -11,6 +11,8 @@ import Services
 import Core
 import RxSwift
 
+/// DetailGoalVIewController: Display users daily activity and progress towards the goal
+///
 final class DetailGoalViewController: BaseViewController {
     private let disposeBag = DisposeBag()
     private var detailGoalViewModel: DetailGoalViewModel

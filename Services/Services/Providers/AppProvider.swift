@@ -12,6 +12,8 @@ import CoreData
 import Networking
 import LocalStorage
 
+/// AppProvider: Implementation to provide data and activity sources.
+///
 public class AppProvider: MainProvider {
     public var dataProvider: DataProvider
     public var activityProvider: ActivityProvider

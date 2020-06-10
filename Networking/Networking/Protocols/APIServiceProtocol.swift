@@ -10,6 +10,8 @@ import Foundation
 import RxSwift
 import Core
 
+/// APIServiceProtocol: protocol for the APIService of the workspace domain
+///
 public protocol APIServiceProtocol {
     func getGoals() -> Observable<[Goalable]>
 }

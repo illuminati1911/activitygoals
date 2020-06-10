@@ -49,6 +49,8 @@ public enum APIError: Error {
     }
 }
 
+/// URLSessionProtocol: to loosely couple URLSession
+///
 public protocol URLSessionProtocol {
     func dataTaskProtocol(
       with request: URLRequest,
@@ -65,6 +67,8 @@ extension URLSession: URLSessionProtocol {
     }
 }
 
+/// URLSessionDataTaskProtocol: to loosely couple URLSessionDataTask
+///
 public protocol URLSessionDataTaskProtocol {
     func resume()
 }

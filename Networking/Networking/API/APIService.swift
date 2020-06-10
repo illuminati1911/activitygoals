@@ -10,6 +10,8 @@ import Foundation
 import RxSwift
 import Core
 
+/// APIService: API service for the workspace domain.
+///
 public class APIService: APIClient, APIServiceProtocol {
     public var session: URLSessionProtocol
 

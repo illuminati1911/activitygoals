@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 import Services
 
+/// AppCoordinator: Coordinator pattern to decouple navigation from view controllers.
+///
 final class AppCoordinator: Coordinator {
     private let window: UIWindow
     private let rootViewController: UINavigationController

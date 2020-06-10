@@ -10,6 +10,8 @@ import Foundation
 import Core
 import RxSwift
 
+/// ActivityProvider: Provider of the activity data from any source
+///
 public protocol ActivityProvider {
     func getActivity() -> Observable<Activity>
 }

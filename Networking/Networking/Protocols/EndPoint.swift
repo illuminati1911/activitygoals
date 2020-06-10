@@ -8,6 +8,8 @@
 
 import Foundation
 
+/// Endpoint: protocol for endpoints to the APIClient
+///
 public protocol EndPoint {
     var base: String { get }
     var path: String { get }
