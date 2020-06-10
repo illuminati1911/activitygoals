@@ -28,8 +28,11 @@ public class HealthKitActivityProvider: ActivityProvider {
 
         return activityService
             .requestAuthorization(types: requestedTypes)
-            .flatMap { [unowned self] _ in
-                self.activityService.getStepsAndDistance()
+            .flatMap { [weak self] _ -> Observable<Activity> in
+                guard let self = self else {
+                    return Observable.from(optional: Activity(steps: 0, distance: 0))
+                }
+                return self.activityService.getStepsAndDistance()
             }
     }
 }
