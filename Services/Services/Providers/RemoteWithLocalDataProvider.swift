@@ -57,6 +57,9 @@ public class RemoteWithLocalDataProvider: DataProvider {
                 return Disposables.create()
             }
 
+            // Nested subscription since swift compiler can't keep up with the generics
+            // in flatMap pipeline. Will investigate better solution later on.
+            //
             self.remote.getGoals()
                 .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
                 .subscribe(onNext: { goalables in
