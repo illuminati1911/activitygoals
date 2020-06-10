@@ -28,6 +28,7 @@ and that should be enough.
 Each module has its own unit tests. Use Xcode `CMD+U` to run them.
 
 ## Architecture
+  <img src="https://github.com/illuminati1911/activitygoals/blob/master/docs/architecture.png?raw=true" width="650">
 
 ### Modular architecture
 The app is split into multiple modules
