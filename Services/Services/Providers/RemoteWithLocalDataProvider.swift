@@ -67,10 +67,11 @@ public class RemoteWithLocalDataProvider: DataProvider {
             // use Swift.Result instead of onError event.
             self.remote.getGoals()
                 .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
-                .subscribe(onNext: { goalables in
-                    self.syncToLocalStorage(goalables)
+                .subscribe(onNext: { [weak self] goalables in
+                    self?.syncToLocalStorage(goalables)
                     observer.onNext(goalables)
-                }, onError: { error in
+                }, onError: { [weak self] error in
+                    guard let self = self else { return }
                     self.local.fetchGoals()
                         .subscribe(onNext: { goalables in
                             observer.onNext(goalables)

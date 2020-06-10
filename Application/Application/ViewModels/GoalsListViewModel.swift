@@ -18,7 +18,7 @@ final class GoalsListViewModel {
     private let disposeBag = DisposeBag()
     private let mainProvider: MainProvider
 
-    var goalables: [Goalable] = []
+    let dataSource = BehaviorRelay(value: [GoalViewModel]())
     let hideLoading = BehaviorRelay<Bool>(value: false)
     let title = Localized.appTitle
 
@@ -44,7 +44,7 @@ final class GoalsListViewModel {
                 let vms = $0.map {
                     GoalViewModel(goalable: $0)
                 }
-                self?.goalables = $0
+                self?.dataSource.accept(vms)
                 return vms
             }.publish()
         return subscribeToLoading(obs)

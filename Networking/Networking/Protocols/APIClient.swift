@@ -86,7 +86,11 @@ public protocol APIClient: class {
 ///
 extension APIClient {
     public func fetch<T: EndPoint, U: Decodable>(method: APIMethod, endPoint: T, decodingType: U.Type) -> Observable<U> {
-        return Observable.create { observer in
+        return Observable.create { [weak self] observer in
+            guard let self = self else {
+                observer.onError(APIError.unknown(0))
+                return Disposables.create()
+            }
             var request = URLRequest(url: endPoint.url)
             request.httpMethod = method.rawValue
 

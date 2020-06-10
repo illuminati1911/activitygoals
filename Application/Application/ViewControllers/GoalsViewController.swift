@@ -30,6 +30,8 @@ final class GoalsViewController: BaseViewController {
         $0.contentInsetAdjustmentBehavior = .never
     }
 
+    private let refreshControl = UIRefreshControl()
+
     private let loadingSpinner = with(UIActivityIndicatorView()) {
         if #available(iOS 13.0, *) {
             $0.style = .large
@@ -49,6 +51,24 @@ final class GoalsViewController: BaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    func fetchGoals() {
+        let fetchGoals = goalsListViewModel
+            .fetchGoalViewModels()
+
+        fetchGoals
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] _ in
+                self?.refreshControl.endRefreshing()
+            }, onError: { [weak self] error in
+                self?.refreshControl.endRefreshing()
+                self?.showAlert(Localized.errorTitle, description: error.localizedDescription)
+            }).disposed(by: disposeBag)
+
+        fetchGoals
+            .connect()
+            .disposed(by: disposeBag)
+    }
+
     func setupObservables() {
         goalsListViewModel
             .hideLoading
@@ -57,37 +77,28 @@ final class GoalsViewController: BaseViewController {
             .bind(to: loadingSpinner.rx.isAnimating)
             .disposed(by: disposeBag)
 
-        // Bind observer to tableView
-        //
-        let fetchGoals = goalsListViewModel
-            .fetchGoalViewModels()
-
-        fetchGoals
+        goalsListViewModel
+            .dataSource
             .observeOn(MainScheduler.instance)
-            .catchError { _ in Observable.never() }
             .bind(to: tableView.rx.items(cellIdentifier: GoalTableViewCell.identifier,
                                          cellType: GoalTableViewCell.self)) { _, viewModel, cell in
                 cell.goalViewModel = viewModel
             }.disposed(by: disposeBag)
-
-        fetchGoals
-            .observeOn(MainScheduler.instance)
-            .subscribe(onError: { [weak self] error in
-                self?.showAlert(Localized.errorTitle, description: error.localizedDescription)
-            }).disposed(by: disposeBag)
-
-        fetchGoals
-            .connect()
-            .disposed(by: disposeBag)
 
         tableView
             .rx
             .itemSelected
             .subscribe(onNext: { [weak self] indexPath in
                 self?.tableView.deselectRow(at: indexPath, animated: true)
-                guard let goalable = self?.goalsListViewModel.goalables[indexPath.row] else { return }
+                guard let goalable = self?.goalsListViewModel.dataSource.value[indexPath.row].goal else { return }
                 self?.selectedGoalSubject.onNext(goalable)
             }).disposed(by: disposeBag)
+
+        self.refreshControl.rx.controlEvent(.valueChanged)
+            .subscribe(onNext: { [weak self] in
+                self?.fetchGoals()
+            })
+            .disposed(by: disposeBag)
     }
 
     func setupViews() {
@@ -96,10 +107,12 @@ final class GoalsViewController: BaseViewController {
         view.addSubview(loadingSpinner)
         view.backgroundColor = .white
 
+        tableView.contentInsetAdjustmentBehavior = .always
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.top.equalToSuperview()
             make.left.right.bottom.equalToSuperview()
         }
+        tableView.refreshControl = refreshControl
 
         loadingSpinner.snp.makeConstraints { make in
             make.center.equalToSuperview()
@@ -110,5 +123,6 @@ final class GoalsViewController: BaseViewController {
         super.viewDidLoad()
         setupViews()
         setupObservables()
+        fetchGoals()
     }
 }

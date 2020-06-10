@@ -13,7 +13,7 @@ import Core
 /// GoalViewModel: View model for Goal/Goalable items
 ///
 struct GoalViewModel {
-    private let goal: Goal
+    let goal: Goal
 
     var title: String {
         return goal.title
