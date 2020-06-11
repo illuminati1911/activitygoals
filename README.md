@@ -44,6 +44,7 @@ This is to follow _Separation of Concerns_ design principle, keep things reusabl
 - All modules are dependent on the Core module (which is dependent on no other module) and Application module only depends on Core and Services modules.
 - Services module will provide interface for using Networking and LocalStorage as needed
 - Core module shares "global" assets such as localizations, domain models, utilities etc.
+- Services module intentionally depends on Networking and LocalStorage modules. (This could be changed in the future to use Core module provided interfaces so that all module only depend on the Core)
 ### MVVM + Coordinator
 - MVVM to keep view controllers clean
 - Coordinator to decouple navigation from view controllers
