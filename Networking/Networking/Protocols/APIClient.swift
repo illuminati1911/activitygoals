@@ -49,32 +49,6 @@ public enum APIError: Error {
     }
 }
 
-/// URLSessionProtocol: to loosely couple URLSession
-///
-public protocol URLSessionProtocol {
-    func dataTaskProtocol(
-      with request: URLRequest,
-      completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void
-    ) -> URLSessionDataTaskProtocol
-}
-
-extension URLSession: URLSessionProtocol {
-    public func dataTaskProtocol(
-      with request: URLRequest,
-      completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void
-    ) -> URLSessionDataTaskProtocol {
-        return dataTask(with: request, completionHandler: completionHandler)
-    }
-}
-
-/// URLSessionDataTaskProtocol: to loosely couple URLSessionDataTask
-///
-public protocol URLSessionDataTaskProtocol {
-    func resume()
-}
-
-extension URLSessionDataTask: URLSessionDataTaskProtocol {}
-
 /// APIClient: Generic API client protocol
 ///
 public protocol APIClient: class {
@@ -137,7 +111,9 @@ extension APIClient {
                 }
             }
             task.resume()
-            return Disposables.create()
+            return Disposables.create {
+                task.cancel()
+            }
         }
     }
 }

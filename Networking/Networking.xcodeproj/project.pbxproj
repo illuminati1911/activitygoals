@@ -25,6 +25,8 @@
 		2AA5BA41248B58F100D8EBE1 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5BA3F248B58F100D8EBE1 /* EndPoint.swift */; };
 		2AA5BA44248B590D00D8EBE1 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5BA43248B590D00D8EBE1 /* APIClient.swift */; };
 		2AA5BA45248B590D00D8EBE1 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5BA43248B590D00D8EBE1 /* APIClient.swift */; };
+		2AB8CB2A2491C68600DB9E7C /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB8CB292491C68600DB9E7C /* URLSessionProtocol.swift */; };
+		2AB8CB2B2491C68600DB9E7C /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB8CB292491C68600DB9E7C /* URLSessionProtocol.swift */; };
 		5D7515FDF771DC301405E1AE /* Pods_Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D62E291BA99A32AD3CA0146 /* Pods_Networking.framework */; };
 		F99CED1471230EBCACE2A103 /* Pods_NetworkingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC7CFE9F197D0D38757E9B79 /* Pods_NetworkingTests.framework */; };
 /* End PBXBuildFile section */
@@ -70,6 +72,7 @@
 		2AA5BA18248B4D3100D8EBE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AA5BA3F248B58F100D8EBE1 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		2AA5BA43248B590D00D8EBE1 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		2AB8CB292491C68600DB9E7C /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
 		73BB7D2934BF52F48CE7D8C5 /* Pods-NetworkingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkingTests.debug.xcconfig"; path = "Target Support Files/Pods-NetworkingTests/Pods-NetworkingTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9193C6ACB07E1B02CDCC8CEF /* Pods-NetworkingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkingTests.release.xcconfig"; path = "Target Support Files/Pods-NetworkingTests/Pods-NetworkingTests.release.xcconfig"; sourceTree = "<group>"; };
 		9D62E291BA99A32AD3CA0146 /* Pods_Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,6 +178,7 @@
 				2AA5BA3F248B58F100D8EBE1 /* EndPoint.swift */,
 				2AA5BA43248B590D00D8EBE1 /* APIClient.swift */,
 				2A412ADD248BFDA300B3FE59 /* APIServiceProtocol.swift */,
+				2AB8CB292491C68600DB9E7C /* URLSessionProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -398,6 +402,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AB8CB2A2491C68600DB9E7C /* URLSessionProtocol.swift in Sources */,
 				2A412ADE248BFDA300B3FE59 /* APIServiceProtocol.swift in Sources */,
 				2AA5BA40248B58F100D8EBE1 /* EndPoint.swift in Sources */,
 				2A412AE2248C0AAA00B3FE59 /* GoalsEndpoint.swift in Sources */,
@@ -410,6 +415,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AB8CB2B2491C68600DB9E7C /* URLSessionProtocol.swift in Sources */,
 				2A412B52248DE96800B3FE59 /* MockURLSession.swift in Sources */,
 				2A412ADF248BFDA300B3FE59 /* APIServiceProtocol.swift in Sources */,
 				2A412AE3248C0AAA00B3FE59 /* GoalsEndpoint.swift in Sources */,

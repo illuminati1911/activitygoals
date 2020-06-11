@@ -30,4 +30,6 @@ class MockURLSessionDataTask: URLSessionDataTaskProtocol {
         }
         handler(encoded, response, nil)
     }
+
+    func cancel() {}
 }
