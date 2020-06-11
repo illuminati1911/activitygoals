@@ -594,7 +594,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EE6CBBB64DF3B91B06BCE6F8 /* Pods-LocalStorageTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = LocalStorageTests/Info.plist;
@@ -614,7 +613,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C530178D474601C3E8BB60C3 /* Pods-LocalStorageTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = LocalStorageTests/Info.plist;

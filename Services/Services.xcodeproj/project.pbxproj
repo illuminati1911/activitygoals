@@ -741,7 +741,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 67883D338F32741836C5CE9F /* Pods-ServicesTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ServicesTests/Info.plist;
@@ -761,7 +760,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EC2E441FD46A3406F0B083EA /* Pods-ServicesTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ServicesTests/Info.plist;

@@ -616,7 +616,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 73BB7D2934BF52F48CE7D8C5 /* Pods-NetworkingTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = NetworkingTests/Info.plist;
@@ -636,7 +635,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9193C6ACB07E1B02CDCC8CEF /* Pods-NetworkingTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = NetworkingTests/Info.plist;
