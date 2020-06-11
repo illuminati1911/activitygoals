@@ -48,6 +48,9 @@ This is to follow _Separation of Concerns_ design principle, keep things reusabl
 - MVVM to keep view controllers clean
 - Coordinator to decouple navigation from view controllers
 
+### RxSwift / RxCocoa
+- Reactive functional pipelines for smooth async operations and app events
+
 ## Coding style
 
 The application uses swiftlint with _almost_ default settings.
@@ -60,4 +63,3 @@ See `.swiftlint.yml` for more details.
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
-
