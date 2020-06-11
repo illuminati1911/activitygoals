@@ -109,8 +109,7 @@ final class GoalsViewController: BaseViewController {
 
         tableView.contentInsetAdjustmentBehavior = .always
         tableView.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.left.right.bottom.equalToSuperview()
+            make.edges.equalToSuperview()
         }
         tableView.refreshControl = refreshControl
 
