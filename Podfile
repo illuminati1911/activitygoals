@@ -42,9 +42,6 @@ target 'Application' do
     target 'ApplicationTests' do
       inherit! :search_paths
     end
-  
-    target 'ApplicationUITests' do
-    end
 end
   
 target 'Networking' do
@@ -69,11 +66,11 @@ end
 
 target 'Services' do
     project 'Services/Services.project'
-    global_pods
+    services_pods
 
     target 'ServicesTests' do
       inherit! :search_paths
-      global_pods
+      services_pods
     end
 end
 
