@@ -57,6 +57,10 @@ This is to follow _Separation of Concerns_ design principle, keep things reusabl
 The application uses swiftlint with _almost_ default settings.
 See `.swiftlint.yml` for more details.
 
+## TODO
+- Add Core data tests and mock the Core Data library or use im-memory storage
+- Move interfaces to Core so that all modules only depend on the Core module
+
 ## Authors
 
 * [illuminati1911](https://github.com/illuminati1911)
